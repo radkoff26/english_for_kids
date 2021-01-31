@@ -1,0 +1,13 @@
+com/example/englishforkidsfinal/LearningFragment.java
+ com.example.englishforkidsfinal.LearningFragment
+com/example/englishforkidsfinal/GamesFragment.java
+ com.example.englishforkidsfinal.GamesFragment
+com/example/englishforkidsfinal/HomeFragment.java
+ com.example.englishforkidsfinal.HomeFragment
+com/example/englishforkidsfinal/AlphabetFragment.java
+ com.example.englishforkidsfinal.AlphabetFragment
+com/example/englishforkidsfinal/BuildConfig.java
+ com.example.englishforkidsfinal.BuildConfig
+com/example/englishforkidsfinal/MainActivity.java
+ com.example.englishforkidsfinal.MainActivity
+ com.example.englishforkidsfinal.MainActivity$NavigateListener
