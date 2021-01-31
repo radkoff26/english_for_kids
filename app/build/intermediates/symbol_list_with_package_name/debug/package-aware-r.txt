@@ -1815,6 +1815,7 @@ id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id item_tv
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -1901,6 +1902,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id rv
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -2093,6 +2095,7 @@ layout fragment_alphabet
 layout fragment_games
 layout fragment_home
 layout fragment_learning
+layout game_item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title

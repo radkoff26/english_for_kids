@@ -1,7 +1,12 @@
 com/example/englishforkidsfinal/LearningFragment.java
  com.example.englishforkidsfinal.LearningFragment
+com/example/englishforkidsfinal/Game.java
+ com.example.englishforkidsfinal.Game
 com/example/englishforkidsfinal/GamesFragment.java
  com.example.englishforkidsfinal.GamesFragment
+com/example/englishforkidsfinal/AlphabetRecyclerViewAdapter.java
+ com.example.englishforkidsfinal.AlphabetRecyclerViewAdapter
+ com.example.englishforkidsfinal.AlphabetRecyclerViewAdapter$AlphabetViewHolder
 com/example/englishforkidsfinal/HomeFragment.java
  com.example.englishforkidsfinal.HomeFragment
 com/example/englishforkidsfinal/AlphabetFragment.java

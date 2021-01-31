@@ -28,6 +28,10 @@
         "source": "C:\\Users\\User\\Desktop\\android\\EnglishForKidsFinal\\app\\src\\main\\res\\layout\\fragment_home.xml"
     },
     {
+        "merged": "C:\\Users\\User\\Desktop\\android\\EnglishForKidsFinal\\app\\build\\intermediates\\res\\merged\\debug\\layout_game_item.xml.flat",
+        "source": "C:\\Users\\User\\Desktop\\android\\EnglishForKidsFinal\\app\\src\\main\\res\\layout\\game_item.xml"
+    },
+    {
         "merged": "C:\\Users\\User\\Desktop\\android\\EnglishForKidsFinal\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\User\\Desktop\\android\\EnglishForKidsFinal\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
