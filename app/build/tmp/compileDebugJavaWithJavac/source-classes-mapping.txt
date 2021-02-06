@@ -1,18 +1,41 @@
-com/example/englishforkidsfinal/LearningFragment.java
- com.example.englishforkidsfinal.LearningFragment
-com/example/englishforkidsfinal/Game.java
- com.example.englishforkidsfinal.Game
-com/example/englishforkidsfinal/GamesFragment.java
- com.example.englishforkidsfinal.GamesFragment
-com/example/englishforkidsfinal/AlphabetRecyclerViewAdapter.java
- com.example.englishforkidsfinal.AlphabetRecyclerViewAdapter
- com.example.englishforkidsfinal.AlphabetRecyclerViewAdapter$AlphabetViewHolder
-com/example/englishforkidsfinal/HomeFragment.java
- com.example.englishforkidsfinal.HomeFragment
-com/example/englishforkidsfinal/AlphabetFragment.java
- com.example.englishforkidsfinal.AlphabetFragment
+com/example/englishforkidsfinal/models/Model.java
+ com.example.englishforkidsfinal.models.Model
+com/example/englishforkidsfinal/activities/MainActivity.java
+ com.example.englishforkidsfinal.activities.MainActivity
+ com.example.englishforkidsfinal.activities.MainActivity$NavigateListener
+com/example/englishforkidsfinal/adapters/AlphabetRecyclerViewAdapter.java
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$AlphabetViewHolder
+com/example/englishforkidsfinal/models/LetterTextView.java
+ com.example.englishforkidsfinal.models.LetterTextView
+com/example/englishforkidsfinal/fragments/HomeFragment.java
+ com.example.englishforkidsfinal.fragments.HomeFragment
+com/example/englishforkidsfinal/models/BackgroundMusic.java
+ com.example.englishforkidsfinal.models.BackgroundMusic
 com/example/englishforkidsfinal/BuildConfig.java
  com.example.englishforkidsfinal.BuildConfig
-com/example/englishforkidsfinal/MainActivity.java
- com.example.englishforkidsfinal.MainActivity
- com.example.englishforkidsfinal.MainActivity$NavigateListener
+com/example/englishforkidsfinal/activities/GameSpace.java
+ com.example.englishforkidsfinal.activities.GameSpace
+com/example/englishforkidsfinal/models/Alphabet.java
+ com.example.englishforkidsfinal.models.Alphabet
+com/example/englishforkidsfinal/models/LettersView.java
+ com.example.englishforkidsfinal.models.LettersView
+ com.example.englishforkidsfinal.models.LettersView$1
+com/example/englishforkidsfinal/fragments/AlphabetFragment.java
+ com.example.englishforkidsfinal.fragments.AlphabetFragment
+com/example/englishforkidsfinal/models/Letter.java
+ com.example.englishforkidsfinal.models.Letter
+com/example/englishforkidsfinal/models/Student.java
+ com.example.englishforkidsfinal.models.Student
+com/example/englishforkidsfinal/models/Game.java
+ com.example.englishforkidsfinal.models.Game
+com/example/englishforkidsfinal/fragments/GamesFragment.java
+ com.example.englishforkidsfinal.fragments.GamesFragment
+com/example/englishforkidsfinal/models/TargetView.java
+ com.example.englishforkidsfinal.models.TargetView
+ com.example.englishforkidsfinal.models.TargetView$1
+com/example/englishforkidsfinal/models/ClientAPI.java
+ com.example.englishforkidsfinal.models.ClientAPI
+com/example/englishforkidsfinal/fragments/LearningFragment.java
+ com.example.englishforkidsfinal.fragments.LearningFragment
+ com.example.englishforkidsfinal.fragments.LearningFragment$1
