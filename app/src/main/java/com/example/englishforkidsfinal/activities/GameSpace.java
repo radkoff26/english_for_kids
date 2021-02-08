@@ -38,7 +38,7 @@ public class GameSpace extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_game_space);
 
         targetView = (TargetView) findViewById(R.id.ll_target);
         lettersView = (LettersView) findViewById(R.id.ll_letters);

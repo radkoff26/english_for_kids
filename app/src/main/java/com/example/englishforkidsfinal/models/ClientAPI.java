@@ -6,6 +6,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ClientAPI {
-    @GET("/getStudents")
+    @GET("/index")
     Call<List<Student>> getStudents();
 }

@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\User\\Desktop\\android\\EnglishForKidsFinal\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-tr\\values-tr.xml",
+            "outputFile": "C:\\Users\\radko\\OneDrive\\Android\\english_for_kids\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-tr\\values-tr.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-2\\files-2.1\\ff37b710ecf84191a2687617c776753e\\core-1.3.1\\res\\values-tr\\values-tr.xml",
+                    "source": "C:\\Users\\radko\\.gradle\\caches\\transforms-2\\files-2.1\\aa7e71911ad4fcf6ea7004a6a29563ba\\navigation-ui-2.3.2\\res\\values-tr\\values-tr.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,160",
+                        "endColumns": "104,116",
+                        "endOffsets": "155,272"
                     },
                     "to": {
-                        "startLines": "32",
-                        "startColumns": "4",
-                        "startOffsets": "3099",
-                        "endColumns": "100",
-                        "endOffsets": "3195"
+                        "startLines": "29,30",
+                        "startColumns": "4,4",
+                        "startOffsets": "2797,2902",
+                        "endColumns": "104,116",
+                        "endOffsets": "2897,3014"
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-2\\files-2.1\\a527ad4f532df6b258c428a911debd89\\appcompat-1.2.0\\res\\values-tr\\values-tr.xml",
+                    "source": "C:\\Users\\radko\\.gradle\\caches\\transforms-2\\files-2.1\\44b21666f861b2b454523071d69d07d7\\appcompat-1.2.0\\res\\values-tr\\values-tr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,20 +38,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-2\\files-2.1\\9cb9588cfa2dc8b9f6805aafae7e7d59\\navigation-ui-2.3.2\\res\\values-tr\\values-tr.xml",
+                    "source": "C:\\Users\\radko\\.gradle\\caches\\transforms-2\\files-2.1\\8dbd859d1cd89239b42e7382b4fc40d7\\core-1.3.1\\res\\values-tr\\values-tr.xml",
                     "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,160",
-                        "endColumns": "104,116",
-                        "endOffsets": "155,272"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "29,30",
-                        "startColumns": "4,4",
-                        "startOffsets": "2797,2902",
-                        "endColumns": "104,116",
-                        "endOffsets": "2897,3014"
+                        "startLines": "32",
+                        "startColumns": "4",
+                        "startOffsets": "3099",
+                        "endColumns": "100",
+                        "endOffsets": "3195"
                     }
                 }
             ]

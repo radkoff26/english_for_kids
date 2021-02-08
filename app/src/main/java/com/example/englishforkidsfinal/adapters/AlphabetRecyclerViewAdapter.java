@@ -59,6 +59,16 @@ public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Game game = games.get(position);
 
+        if (position == 0) {
+            ((AlphabetViewHolder) holder).tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, GameSpace.class);
+                    ((MainActivity) context).startActivity(intent);
+                }
+            });
+        }
+
         ((AlphabetViewHolder) holder).tv.setText(game.getTitle());
     }
 
