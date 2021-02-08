@@ -68,6 +68,7 @@ public class TargetView extends LinearLayout {
         }
 
         if (word.toLowerCase().equals(s)) {
+            ((GameSpace) ctx).add();
             ((GameSpace) ctx).restart();
         }
     }

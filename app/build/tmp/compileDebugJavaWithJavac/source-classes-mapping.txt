@@ -1,5 +1,5 @@
-com/example/englishforkidsfinal/models/Model.java
- com.example.englishforkidsfinal.models.Model
+com/example/englishforkidsfinal/models/Game.java
+ com.example.englishforkidsfinal.models.Game
 com/example/englishforkidsfinal/activities/MainActivity.java
  com.example.englishforkidsfinal.activities.MainActivity
  com.example.englishforkidsfinal.activities.MainActivity$NavigateListener
@@ -19,9 +19,8 @@ com/example/englishforkidsfinal/models/Alphabet.java
  com.example.englishforkidsfinal.models.Alphabet
 com/example/englishforkidsfinal/models/JsonPlaceHolderApi.java
  com.example.englishforkidsfinal.models.JsonPlaceHolderApi
-com/example/englishforkidsfinal/models/LettersView.java
- com.example.englishforkidsfinal.models.LettersView
- com.example.englishforkidsfinal.models.LettersView$1
+com/example/englishforkidsfinal/fragments/LearningFragment.java
+ com.example.englishforkidsfinal.fragments.LearningFragment
 com/example/englishforkidsfinal/fragments/AlphabetFragment.java
  com.example.englishforkidsfinal.fragments.AlphabetFragment
 com/example/englishforkidsfinal/models/Letter.java
@@ -32,10 +31,16 @@ com/example/englishforkidsfinal/models/Student.java
  com.example.englishforkidsfinal.models.Student
 com/example/englishforkidsfinal/models/NetworkService.java
  com.example.englishforkidsfinal.models.NetworkService
-com/example/englishforkidsfinal/models/Game.java
- com.example.englishforkidsfinal.models.Game
-com/example/englishforkidsfinal/fragments/LearningFragment.java
- com.example.englishforkidsfinal.fragments.LearningFragment
+com/example/englishforkidsfinal/models/LettersView.java
+ com.example.englishforkidsfinal.models.LettersView
+ com.example.englishforkidsfinal.models.LettersView$1
+com/example/englishforkidsfinal/db/DataBase.java
+ com.example.englishforkidsfinal.db.DataBase
+com/example/englishforkidsfinal/db/DataBaseContract.java
+ com.example.englishforkidsfinal.db.DataBaseContract
+ com.example.englishforkidsfinal.db.DataBaseContract$LearnedWords
+com/example/englishforkidsfinal/models/Word.java
+ com.example.englishforkidsfinal.models.Word
 com/example/englishforkidsfinal/adapters/AlphabetRecyclerViewAdapter.java
  com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter
  com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$1
