@@ -11,11 +11,11 @@
 9-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:5:5-66
+11-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:5:5-67
 11-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:5:22-64
 12
 13    <application
-13-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:7:5-22:19
+13-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:7:5-23:19
 14        android:allowBackup="true"
 14-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:8:9-35
 15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -32,23 +32,26 @@
 21        android:testOnly="true"
 22        android:theme="@style/Theme.EnglishForKidsFinal" >
 22-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:13:9-57
-23        <activity android:name="com.example.englishforkidsfinal.activities.GameSpace" />
-23-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:14:9-67
-23-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:14:19-55
-24        <activity android:name="com.example.englishforkidsfinal.activities.MainActivity" >
-24-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:15:9-21:20
-24-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:15:19-58
-25            <intent-filter>
-25-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:16:13-20:29
-26                <action android:name="android.intent.action.MAIN" />
-26-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:17:17-69
-26-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:17:25-66
-27
-28                <category android:name="android.intent.category.LAUNCHER" />
-28-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:19:17-77
-28-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:19:27-74
-29            </intent-filter>
-30        </activity>
-31    </application>
-32
-33</manifest>
+23        <activity android:name="com.example.englishforkidsfinal.activities.DrawingGame" />
+23-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:14:9-69
+23-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:14:19-57
+24        <activity android:name="com.example.englishforkidsfinal.activities.GameSpace" />
+24-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:15:9-58
+24-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:15:19-55
+25        <activity android:name="com.example.englishforkidsfinal.activities.MainActivity" >
+25-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:16:9-22:20
+25-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:16:19-58
+26            <intent-filter>
+26-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:17:13-21:29
+27                <action android:name="android.intent.action.MAIN" />
+27-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:18:17-69
+27-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:18:25-66
+28
+29                <category android:name="android.intent.category.LAUNCHER" />
+29-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:20:17-77
+29-->C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:20:27-74
+30            </intent-filter>
+31        </activity>
+32    </application>
+33
+34</manifest>

@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.EnglishForKidsFinal" >
+        <activity android:name="com.example.englishforkidsfinal.activities.DrawingGame" />
         <activity android:name="com.example.englishforkidsfinal.activities.GameSpace" />
         <activity android:name="com.example.englishforkidsfinal.activities.MainActivity" >
             <intent-filter>

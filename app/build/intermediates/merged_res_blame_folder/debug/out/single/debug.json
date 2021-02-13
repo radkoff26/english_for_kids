@@ -100,6 +100,18 @@
         "source": "C:\\Users\\radko\\OneDrive\\Android\\english_for_kids\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_square.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\english_for_kids\\app\\src\\main\\res\\drawable\\square.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pic.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\english_for_kids\\app\\src\\main\\res\\drawable\\pic.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_drawing_game.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\english_for_kids\\app\\src\\main\\res\\layout\\activity_drawing_game.xml"
+    },
+    {
         "merged": "C:\\Users\\radko\\OneDrive\\Android\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\navigation_nav_graph.xml.flat",
         "source": "C:\\Users\\radko\\OneDrive\\Android\\english_for_kids\\app\\src\\main\\res\\navigation\\nav_graph.xml"
     },
