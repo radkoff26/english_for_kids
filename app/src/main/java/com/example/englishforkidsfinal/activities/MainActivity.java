@@ -2,17 +2,21 @@ package com.example.englishforkidsfinal.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.navigation.Navigation;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.fragments.AlphabetFragment;
+import com.example.englishforkidsfinal.fragments.GamesFragment;
+import com.example.englishforkidsfinal.fragments.HomeFragment;
+import com.example.englishforkidsfinal.fragments.LearningFragment;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragment, new HomeFragment())
+                .commit();
 
         tracks = Arrays.asList(R.raw.first, R.raw.second, R.raw.third);
 
@@ -50,18 +59,20 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             clearButtons();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             switch (v.getId()) {
                 case R.id.games:
-                    Navigation.findNavController(view).navigate(R.id.gamesFragment);;
+                    transaction.add(R.id.fragment, new GamesFragment());
                     break;
                 case R.id.alphabet:
-                    Navigation.findNavController(view).navigate(R.id.alphabetFragment);
+                    transaction.add(R.id.fragment, new AlphabetFragment());
                     break;
                 case R.id.learning:
-                    Navigation.findNavController(view).navigate(R.id.learningFragment);
+                    transaction.add(R.id.fragment, new LearningFragment());
                     break;
             }
             ((AppCompatButton) v).setBackgroundColor(Color.GREEN);
+            transaction.commit();
         }
     }
 
@@ -85,7 +96,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Navigation.findNavController(view).navigate(R.id.homeFragment);
-        clearButtons();
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        if (fragments.get(fragments.size()-1).getClass() == HomeFragment.class) {
+            music.pause();
+            finish();
+        } else {
+            clearButtons();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment, new HomeFragment())
+                    .commit();
+        }
     }
 }

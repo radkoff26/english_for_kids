@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AlphabetFragment">
+    tools:context=".fragments.AlphabetFragment"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/white">
 
-    <TextView
+    <com.example.englishforkidsfinal.models.AlphabetView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Alphabet Fragment"
-        android:gravity="center"/>
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

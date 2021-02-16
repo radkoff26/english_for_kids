@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.LearningFragment">
+    tools:context=".fragments.LearningFragment"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/white">
 
     <ListView
         android:layout_width="match_parent"

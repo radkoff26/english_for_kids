@@ -2,6 +2,7 @@ package com.example.englishforkidsfinal.models;
 
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.util.Log;
 
 import java.util.List;
 
@@ -29,13 +30,13 @@ public class BackgroundMusic extends Thread {
     }
 
     public void pause() {
-        if (mp.isPlaying()) {
+        if (mp != null && mp.isPlaying()) {
             mp.pause();
         }
     }
 
     public void resumeMusic() {
-        if (!mp.isPlaying()) {
+        if (mp != null && !mp.isPlaying()) {
             mp.start();
         }
     }

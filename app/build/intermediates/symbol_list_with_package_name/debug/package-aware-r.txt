@@ -11,6 +11,7 @@ anim abc_slide_out_bottom
 anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
+anim animal_scale
 anim btn_checkbox_to_checked_box_inner_merged_animation
 anim btn_checkbox_to_checked_box_outer_merged_animation
 anim btn_checkbox_to_checked_icon_null_animation
@@ -1570,6 +1571,8 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bg_nature
+drawable bg_portrait
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1586,6 +1589,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable dog
 drawable frog
+drawable giraffe
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_checked_circle
@@ -1700,8 +1704,8 @@ id alertTitle
 id aligned
 id all
 id alphabet
-id alphabetFragment
 id always
+id animal
 id animateToEnd
 id animateToStart
 id asConfigured
@@ -1796,7 +1800,6 @@ id forever
 id fragment
 id fragment_container_view_tag
 id games
-id gamesFragment
 id ghost_view
 id ghost_view_holder
 id gone
@@ -1808,7 +1811,6 @@ id groups
 id hideable
 id home
 id homeAsUp
-id homeFragment
 id honorRequest
 id icon
 id icon_group
@@ -1828,7 +1830,6 @@ id labeled
 id largeLabel
 id layout
 id learning
-id learningFragment
 id left
 id line1
 id line3
@@ -1873,7 +1874,6 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
 id nav_controller_view_tag
-id nav_graph
 id nav_host_fragment_container
 id navigation_header_container
 id never
@@ -2170,7 +2170,6 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 mipmap ic_launcher
 mipmap ic_launcher_round
-navigation nav_graph
 plurals mtrl_badge_content_description
 raw first
 raw second
