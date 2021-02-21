@@ -3,6 +3,13 @@
     package="com.example.englishforkidsfinal">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -11,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EnglishForKidsFinal">
-        <activity android:name=".activities.DrawingGame"></activity>
+        <activity android:name=".activities.SpeakRightGame"></activity>
+        <activity android:name=".activities.DrawingGame" />
         <activity android:name=".activities.GameSpace" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>

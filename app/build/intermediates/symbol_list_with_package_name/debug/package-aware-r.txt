@@ -1581,6 +1581,8 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable circle
+drawable cow
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1627,6 +1629,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable pic
 drawable pig
+drawable rabbit
 drawable square
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -1708,6 +1711,7 @@ id always
 id animal
 id animateToEnd
 id animateToStart
+id answer
 id asConfigured
 id async
 id auto
@@ -2086,6 +2090,7 @@ layout abc_tooltip
 layout activity_drawing_game
 layout activity_game_space
 layout activity_main
+layout activity_speak_right_game
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2217,6 +2222,7 @@ string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string log_label
 string material_slider_range_end
 string material_slider_range_start
 string mtrl_badge_numberless_content_description

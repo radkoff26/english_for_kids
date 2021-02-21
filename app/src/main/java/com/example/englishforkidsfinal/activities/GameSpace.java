@@ -19,6 +19,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static com.example.englishforkidsfinal.models.TestModels.words;
+
 public class GameSpace extends AppCompatActivity {
 
     private TargetView targetView;
@@ -27,12 +29,6 @@ public class GameSpace extends AppCompatActivity {
     private BackgroundMusic music;
     private List<Integer> tracks;
     private DataBase db;
-
-    public List<Word> words = Arrays.asList(
-            new Word(0, "dog", "собака", R.drawable.dog),
-            new Word( 0, "pig", "свинья", R.drawable.pig),
-            new Word(0, "frog", "лягушка", R.drawable.frog)
-    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

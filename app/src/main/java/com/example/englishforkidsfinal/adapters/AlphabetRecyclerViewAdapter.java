@@ -14,6 +14,7 @@ import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.DrawingGame;
 import com.example.englishforkidsfinal.activities.GameSpace;
 import com.example.englishforkidsfinal.activities.MainActivity;
+import com.example.englishforkidsfinal.activities.SpeakRightGame;
 import com.example.englishforkidsfinal.models.Game;
 
 import java.util.ArrayList;
@@ -69,6 +70,14 @@ public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, GameSpace.class);
+                    ((MainActivity) context).startActivity(intent);
+                }
+            });
+        } else if (position == 1) {
+            ((AlphabetViewHolder) holder).tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, SpeakRightGame.class);
                     ((MainActivity) context).startActivity(intent);
                 }
             });

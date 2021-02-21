@@ -32,12 +32,12 @@ public class DrawingSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     public void surfaceCreated(@NonNull SurfaceHolder holder) {
         // Init
         path = new Path();
-        paint = new Paint();
+        paint = new Paint(Paint.DITHER_FLAG);
         paint.setStrokeJoin(Paint.Join.ROUND);
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.YELLOW);
         Canvas canvas = holder.lockCanvas();
-        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.square);
+        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.circle);
 
         // Draw Bitmap Picture
         canvas.drawColor(Color.WHITE);
@@ -45,7 +45,7 @@ public class DrawingSurfaceView extends SurfaceView implements SurfaceHolder.Cal
         holder.unlockCanvasAndPost(canvas);
 
         // Drawing Thread Init
-        thread = new DrawingThread(getContext(), holder, bitmap);
+        thread = new DrawingThread(holder, bitmap);
         thread.start();
     }
 

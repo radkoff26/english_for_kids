@@ -1,6 +1,5 @@
 package com.example.englishforkidsfinal.models;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -12,7 +11,7 @@ public class DrawingThread extends Thread {
 
     private SurfaceHolder surfaceHolder;
 
-    private Paint paint = new Paint();
+    private Paint paint = new Paint(Paint.DITHER_FLAG);
 
     private volatile boolean running = true;
 
@@ -20,7 +19,7 @@ public class DrawingThread extends Thread {
 
     private Bitmap bitmap;
 
-    public DrawingThread(Context context, SurfaceHolder surfaceHolder, Bitmap btm) {
+    public DrawingThread(SurfaceHolder surfaceHolder, Bitmap btm) {
         this.surfaceHolder = surfaceHolder;
         bitmap = btm;
         paint.setColor(Color.YELLOW);
