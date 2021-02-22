@@ -8,10 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.models.ClientAPI;
 import com.example.englishforkidsfinal.models.Student;
 
@@ -26,43 +28,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LearningFragment extends Fragment {
 
-//    ListView listView;
-//    List<Student> students;
+    private ImageButton start;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_learning, container, false);
 
-//        listView = v.findViewById(R.id.lv_students);
-//
-//
-//        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://127.0.0.1:8000/")
-//                .addConverterFactory(GsonConverterFactory.create()).build();
-//
-//        ClientAPI clientAPI = retrofit.create(ClientAPI.class);
-//
-//        Call<List<Student>> call = clientAPI.getStudents();
-//        call.enqueue(new Callback<List<Student>>() {
-//            @Override
-//            public void onResponse(Call<List<Student>> call, Response<List<Student>> response) {
-//                students = (List<Student>)response.body();
-//                //Toast.makeText(MainActivity.this, response.code(), Toast.LENGTH_SHORT).show();
-//                List<String> names = new ArrayList<>(students.size());
-//                for (Student student : students) {
-//                    names.add(student.toString());
-//                }
-//                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(v.getContext(), android.R.layout.simple_list_item_1, names);
-//                listView.setAdapter(arrayAdapter);
-//                arrayAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Student>> call, Throwable t) {
-//
-//                Toast.makeText(v.getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        start = v.findViewById(R.id.start_learning);
+
+        start.setOnClickListener(v1 -> {
+            ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction().add(R.id.fragment, new MainLearningFragment()).commit();
+        });
 
         return v;
     }

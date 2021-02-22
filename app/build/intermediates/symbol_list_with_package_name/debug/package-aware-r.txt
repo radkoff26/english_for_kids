@@ -1630,8 +1630,11 @@ drawable notify_panel_notification_icon_bg
 drawable pic
 drawable pig
 drawable rabbit
+drawable restart
 drawable square
+drawable start
 drawable test_custom_background
+drawable test_start_triangle
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -1786,6 +1789,7 @@ id easeOut
 id edit_query
 id end
 id end_padder
+id eng
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
@@ -1842,7 +1846,6 @@ id listMode
 id list_item
 id ll_letters
 id ll_target
-id lv_students
 id masked
 id media_actions
 id message
@@ -1881,6 +1884,7 @@ id nav_controller_view_tag
 id nav_host_fragment_container
 id navigation_header_container
 id never
+id next
 id noScroll
 id none
 id normal
@@ -1901,6 +1905,7 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id picture
 id pin
 id position
 id postLayout
@@ -1909,12 +1914,14 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id repeat
 id reverseSawtooth
 id right
 id right_icon
 id right_side
 id rounded
 id row_index_key
+id ru
 id rv
 id save_non_transition_alpha
 id save_overlay_view
@@ -1963,6 +1970,7 @@ id standard
 id start
 id startHorizontal
 id startVertical
+id start_learning
 id staticLayout
 id staticPostLayout
 id status_bar_latest_event_content
@@ -2111,6 +2119,7 @@ layout fragment_alphabet
 layout fragment_games
 layout fragment_home
 layout fragment_learning
+layout fragment_main_learning
 layout game_item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions

@@ -18,21 +18,27 @@ public class SpeechImageView extends androidx.appcompat.widget.AppCompatImageVie
 
     private String wordToSpeak;
     private TextToSpeech tts;
+    private int anim = -1;
 
     public SpeechImageView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        this.tts = new TextToSpeech(context, (status) -> {});
+        this.tts = new TextToSpeech(context, status -> {});
         this.tts.setLanguage(Locale.UK);
         this.setOnClickListener(v -> {
             if (wordToSpeak != null) {
                 tts.speak(wordToSpeak, TextToSpeech.QUEUE_ADD, null);
             }
-            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.animal_scale);
-            startAnimation(animation);
+            if (anim != -1) {
+                Animation animation = AnimationUtils.loadAnimation(getContext(), anim);
+                startAnimation(animation);
+            }
         });
     }
 
     public void setWordToSpeak(String wordToSpeak) {
         this.wordToSpeak = wordToSpeak;
+    }
+    public void setAnimation(int anim) {
+        this.anim = anim;
     }
 }

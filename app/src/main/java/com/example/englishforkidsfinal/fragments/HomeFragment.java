@@ -7,12 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 
 import com.example.englishforkidsfinal.R;
-import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.models.SpeechImageView;
 
 public class HomeFragment extends Fragment {
@@ -27,6 +23,7 @@ public class HomeFragment extends Fragment {
         animal = view.findViewById(R.id.animal);
 
         animal.setWordToSpeak("giraffe");
+        animal.setAnimation(R.anim.animal_scale);
 
         return view;
     }

@@ -14,6 +14,7 @@ import com.example.englishforkidsfinal.fragments.AlphabetFragment;
 import com.example.englishforkidsfinal.fragments.GamesFragment;
 import com.example.englishforkidsfinal.fragments.HomeFragment;
 import com.example.englishforkidsfinal.fragments.LearningFragment;
+import com.example.englishforkidsfinal.fragments.MainLearningFragment;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
 
 import java.util.Arrays;
@@ -100,6 +101,11 @@ public class MainActivity extends AppCompatActivity {
         if (fragments.get(fragments.size()-1).getClass() == HomeFragment.class) {
             music.pause();
             finish();
+        } else if (fragments.get(fragments.size()-1).getClass() == MainLearningFragment.class) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment, new LearningFragment())
+                    .commit();
         } else {
             clearButtons();
             getSupportFragmentManager()

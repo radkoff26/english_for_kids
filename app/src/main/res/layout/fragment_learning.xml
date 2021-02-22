@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.LearningFragment"
+    android:background="@color/white"
     android:clickable="true"
     android:focusable="true"
-    android:background="@color/white">
+    tools:context=".fragments.LearningFragment">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lv_students"/>
+    <ImageButton
+        android:id="@+id/start_learning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:src="@drawable/start" />
 
 </FrameLayout>
