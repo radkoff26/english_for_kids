@@ -1,6 +1,6 @@
-com/example/englishforkidsfinal/models/TargetView.java
- com.example.englishforkidsfinal.models.TargetView
- com.example.englishforkidsfinal.models.TargetView$1
+com/example/englishforkidsfinal/activities/MainActivity.java
+ com.example.englishforkidsfinal.activities.MainActivity
+ com.example.englishforkidsfinal.activities.MainActivity$NavigateListener
 com/example/englishforkidsfinal/db/DataBase.java
  com.example.englishforkidsfinal.db.DataBase
 com/example/englishforkidsfinal/models/ClientAPI.java
@@ -18,6 +18,8 @@ com/example/englishforkidsfinal/models/TestModels.java
  com.example.englishforkidsfinal.models.TestModels
 com/example/englishforkidsfinal/models/Student.java
  com.example.englishforkidsfinal.models.Student
+com/example/englishforkidsfinal/models/AlphabetLetter.java
+ com.example.englishforkidsfinal.models.AlphabetLetter
 com/example/englishforkidsfinal/activities/DrawingGame.java
  com.example.englishforkidsfinal.activities.DrawingGame
 com/example/englishforkidsfinal/db/DataBaseContract.java
@@ -41,14 +43,17 @@ com/example/englishforkidsfinal/models/LetterTextView.java
  com.example.englishforkidsfinal.models.LetterTextView
 com/example/englishforkidsfinal/models/DrawingThread.java
  com.example.englishforkidsfinal.models.DrawingThread
-com/example/englishforkidsfinal/models/Alphabet.java
- com.example.englishforkidsfinal.models.Alphabet
+com/example/englishforkidsfinal/fragments/MainLearningFragment.java
+ com.example.englishforkidsfinal.fragments.MainLearningFragment
+com/example/englishforkidsfinal/models/SpeechImageView.java
+ com.example.englishforkidsfinal.models.SpeechImageView
 com/example/englishforkidsfinal/models/Game.java
  com.example.englishforkidsfinal.models.Game
 com/example/englishforkidsfinal/models/JsonPlaceHolderApi.java
  com.example.englishforkidsfinal.models.JsonPlaceHolderApi
-com/example/englishforkidsfinal/models/AlphabetView.java
- com.example.englishforkidsfinal.models.AlphabetView
+com/example/englishforkidsfinal/models/TargetView.java
+ com.example.englishforkidsfinal.models.TargetView
+ com.example.englishforkidsfinal.models.TargetView$1
 com/example/englishforkidsfinal/models/LettersView.java
  com.example.englishforkidsfinal.models.LettersView
  com.example.englishforkidsfinal.models.LettersView$1
@@ -56,16 +61,15 @@ com/example/englishforkidsfinal/models/Word.java
  com.example.englishforkidsfinal.models.Word
 com/example/englishforkidsfinal/fragments/AlphabetFragment.java
  com.example.englishforkidsfinal.fragments.AlphabetFragment
-com/example/englishforkidsfinal/models/Letter.java
- com.example.englishforkidsfinal.models.Letter
-com/example/englishforkidsfinal/models/Post.java
- com.example.englishforkidsfinal.models.Post
-com/example/englishforkidsfinal/activities/MainActivity.java
- com.example.englishforkidsfinal.activities.MainActivity
- com.example.englishforkidsfinal.activities.MainActivity$NavigateListener
-com/example/englishforkidsfinal/fragments/MainLearningFragment.java
- com.example.englishforkidsfinal.fragments.MainLearningFragment
-com/example/englishforkidsfinal/models/SpeechImageView.java
- com.example.englishforkidsfinal.models.SpeechImageView
 com/example/englishforkidsfinal/fragments/HomeFragment.java
  com.example.englishforkidsfinal.fragments.HomeFragment
+com/example/englishforkidsfinal/models/Post.java
+ com.example.englishforkidsfinal.models.Post
+com/example/englishforkidsfinal/fragments/AlphabetLetterFragment.java
+ com.example.englishforkidsfinal.fragments.AlphabetLetterFragment
+com/example/englishforkidsfinal/models/Alphabet.java
+ com.example.englishforkidsfinal.models.Alphabet
+com/example/englishforkidsfinal/models/AlphabetView.java
+ com.example.englishforkidsfinal.models.AlphabetView
+com/example/englishforkidsfinal/models/Letter.java
+ com.example.englishforkidsfinal.models.Letter

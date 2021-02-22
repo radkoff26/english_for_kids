@@ -23,7 +23,7 @@ public class SpeechImageView extends androidx.appcompat.widget.AppCompatImageVie
     public SpeechImageView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         this.tts = new TextToSpeech(context, status -> {});
-        this.tts.setLanguage(Locale.UK);
+        this.tts.setLanguage(Locale.ENGLISH);
         this.setOnClickListener(v -> {
             if (wordToSpeak != null) {
                 tts.speak(wordToSpeak, TextToSpeech.QUEUE_ADD, null);

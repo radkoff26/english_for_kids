@@ -11,6 +11,7 @@ import android.view.View;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.fragments.AlphabetFragment;
+import com.example.englishforkidsfinal.fragments.AlphabetLetterFragment;
 import com.example.englishforkidsfinal.fragments.GamesFragment;
 import com.example.englishforkidsfinal.fragments.HomeFragment;
 import com.example.englishforkidsfinal.fragments.LearningFragment;
@@ -105,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment, new LearningFragment())
+                    .commit();
+        } else if (fragments.get(fragments.size()-1).getClass() == AlphabetLetterFragment.class) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment, new AlphabetFragment())
                     .commit();
         } else {
             clearButtons();
