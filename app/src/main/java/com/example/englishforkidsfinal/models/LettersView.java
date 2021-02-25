@@ -22,7 +22,7 @@ public class LettersView extends LinearLayout {
     }
 
     public void startSettings(String word, TargetView targetView) {
-        this.word = word;
+        this.word = word.toLowerCase();
         this.targetView = targetView;
 
         setOrientation(LinearLayout.HORIZONTAL);
@@ -51,7 +51,7 @@ public class LettersView extends LinearLayout {
 
             tv = new TextView(getContext());
             addView(tv, new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            tv.setText(letters.get(i).getLetter().toString());
+            tv.setText(letters.get(i).getLetter().toString().toUpperCase());
             tv.setTextSize(35f);
             tv.setPadding(0, 0, 25, 0);
 
@@ -68,6 +68,6 @@ public class LettersView extends LinearLayout {
     }
 
     public void returnLetter(Letter letter) {
-        ((TextView) getChildAt(letter.getIndex())).setText(letter.getLetter().toString());
+        ((TextView) getChildAt(letter.getIndex())).setText(letter.getLetter().toString().toUpperCase());
     }
 }

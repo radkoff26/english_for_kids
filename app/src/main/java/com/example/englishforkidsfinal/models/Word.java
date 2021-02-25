@@ -35,7 +35,7 @@ public class Word {
 
     public boolean equals(Object o) {
         if (o instanceof Word) {
-            return this.animal.equals(((Word) o).animal);
+            return this.animal.toLowerCase().equals(((Word) o).animal.toLowerCase());
         }
         return false;
     }

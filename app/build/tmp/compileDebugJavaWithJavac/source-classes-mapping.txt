@@ -7,9 +7,8 @@ com/example/englishforkidsfinal/models/ClientAPI.java
  com.example.englishforkidsfinal.models.ClientAPI
 com/example/englishforkidsfinal/models/BackgroundMusic.java
  com.example.englishforkidsfinal.models.BackgroundMusic
-com/example/englishforkidsfinal/activities/SpeakRightGame.java
- com.example.englishforkidsfinal.activities.SpeakRightGame
- com.example.englishforkidsfinal.activities.SpeakRightGame$1
+com/example/englishforkidsfinal/fragments/MainLearningFragment.java
+ com.example.englishforkidsfinal.fragments.MainLearningFragment
 com/example/englishforkidsfinal/BuildConfig.java
  com.example.englishforkidsfinal.BuildConfig
 com/example/englishforkidsfinal/fragments/LearningFragment.java
@@ -31,8 +30,8 @@ com/example/englishforkidsfinal/models/DrawingSurfaceView.java
  com.example.englishforkidsfinal.models.DrawingSurfaceView
 com/example/englishforkidsfinal/activities/GameSpace.java
  com.example.englishforkidsfinal.activities.GameSpace
-com/example/englishforkidsfinal/models/NetworkService.java
- com.example.englishforkidsfinal.models.NetworkService
+com/example/englishforkidsfinal/fragments/HomeFragment.java
+ com.example.englishforkidsfinal.fragments.HomeFragment
 com/example/englishforkidsfinal/adapters/AlphabetRecyclerViewAdapter.java
  com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter
  com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$1
@@ -43,17 +42,16 @@ com/example/englishforkidsfinal/models/LetterTextView.java
  com.example.englishforkidsfinal.models.LetterTextView
 com/example/englishforkidsfinal/models/DrawingThread.java
  com.example.englishforkidsfinal.models.DrawingThread
-com/example/englishforkidsfinal/fragments/MainLearningFragment.java
- com.example.englishforkidsfinal.fragments.MainLearningFragment
+com/example/englishforkidsfinal/fragments/AlphabetLetterFragment.java
+ com.example.englishforkidsfinal.fragments.AlphabetLetterFragment
+com/example/englishforkidsfinal/models/Alphabet.java
+ com.example.englishforkidsfinal.models.Alphabet
 com/example/englishforkidsfinal/models/SpeechImageView.java
  com.example.englishforkidsfinal.models.SpeechImageView
-com/example/englishforkidsfinal/models/Game.java
- com.example.englishforkidsfinal.models.Game
 com/example/englishforkidsfinal/models/JsonPlaceHolderApi.java
  com.example.englishforkidsfinal.models.JsonPlaceHolderApi
-com/example/englishforkidsfinal/models/TargetView.java
- com.example.englishforkidsfinal.models.TargetView
- com.example.englishforkidsfinal.models.TargetView$1
+com/example/englishforkidsfinal/models/AlphabetView.java
+ com.example.englishforkidsfinal.models.AlphabetView
 com/example/englishforkidsfinal/models/LettersView.java
  com.example.englishforkidsfinal.models.LettersView
  com.example.englishforkidsfinal.models.LettersView$1
@@ -61,15 +59,19 @@ com/example/englishforkidsfinal/models/Word.java
  com.example.englishforkidsfinal.models.Word
 com/example/englishforkidsfinal/fragments/AlphabetFragment.java
  com.example.englishforkidsfinal.fragments.AlphabetFragment
-com/example/englishforkidsfinal/fragments/HomeFragment.java
- com.example.englishforkidsfinal.fragments.HomeFragment
-com/example/englishforkidsfinal/models/Post.java
- com.example.englishforkidsfinal.models.Post
-com/example/englishforkidsfinal/fragments/AlphabetLetterFragment.java
- com.example.englishforkidsfinal.fragments.AlphabetLetterFragment
-com/example/englishforkidsfinal/models/Alphabet.java
- com.example.englishforkidsfinal.models.Alphabet
-com/example/englishforkidsfinal/models/AlphabetView.java
- com.example.englishforkidsfinal.models.AlphabetView
 com/example/englishforkidsfinal/models/Letter.java
  com.example.englishforkidsfinal.models.Letter
+com/example/englishforkidsfinal/models/Post.java
+ com.example.englishforkidsfinal.models.Post
+com/example/englishforkidsfinal/models/SayThread.java
+ com.example.englishforkidsfinal.models.SayThread
+com/example/englishforkidsfinal/models/NetworkService.java
+ com.example.englishforkidsfinal.models.NetworkService
+com/example/englishforkidsfinal/models/Game.java
+ com.example.englishforkidsfinal.models.Game
+com/example/englishforkidsfinal/activities/SpeakRightGame.java
+ com.example.englishforkidsfinal.activities.SpeakRightGame
+ com.example.englishforkidsfinal.activities.SpeakRightGame$1
+com/example/englishforkidsfinal/models/TargetView.java
+ com.example.englishforkidsfinal.models.TargetView
+ com.example.englishforkidsfinal.models.TargetView$1

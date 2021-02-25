@@ -22,7 +22,7 @@ public class TargetView extends LinearLayout {
     }
 
     public void startSettings(Context context, String word) {
-        this.word = word;
+        this.word = word.toLowerCase();
         ctx = context;
         setOrientation(LinearLayout.HORIZONTAL);
 
@@ -56,7 +56,7 @@ public class TargetView extends LinearLayout {
         for (int i = 0; i < getChildCount(); i++) {
             tv = (LetterTextView) getChildAt(i);
             if (tv.getText().toString().trim().equals("_") && !f) {
-                tv.setText(letter.getLetter().toString());
+                tv.setText(letter.getLetter().toString().toUpperCase());
                 tv.setLetter(letter);
                 v.setText("");
                 f = true;
@@ -67,7 +67,7 @@ public class TargetView extends LinearLayout {
             s += ((LetterTextView) getChildAt(i)).getText().toString();
         }
 
-        if (word.toLowerCase().equals(s)) {
+        if (word.toLowerCase().equals(s.toLowerCase())) {
             ((GameSpace) ctx).add();
             ((GameSpace) ctx).restart();
         }
