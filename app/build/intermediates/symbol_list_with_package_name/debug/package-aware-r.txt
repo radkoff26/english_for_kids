@@ -1828,6 +1828,7 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
+id first_layer
 id fitToContents
 id fixed
 id flip
@@ -1864,6 +1865,7 @@ id item_tv
 id iv
 id jumpToEnd
 id jumpToStart
+id label
 id labeled
 id largeLabel
 id layout
@@ -1938,6 +1940,10 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id pic1
+id pic2
+id pic3
+id pic4
 id picture
 id pin
 id position
@@ -1976,6 +1982,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id second_layer
 id select_dialog_listview
 id selected
 id shortcut
@@ -2129,6 +2136,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_drawing_game
+layout activity_find_right_picture_game
 layout activity_game_space
 layout activity_main
 layout activity_speak_right_game

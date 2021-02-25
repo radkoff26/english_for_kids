@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.DrawingGame;
+import com.example.englishforkidsfinal.activities.FindRightPictureGame;
 import com.example.englishforkidsfinal.activities.GameSpace;
 import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.activities.SpeakRightGame;
@@ -40,6 +41,10 @@ public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
 
         games.add(
                 new Game("Draw it!")
+        );
+
+        games.add(
+                new Game("Where Is Right Picture?")
         );
     }
 
@@ -86,6 +91,14 @@ public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, DrawingGame.class);
+                    ((MainActivity) context).startActivity(intent);
+                }
+            });
+        } else if (position == 3) {
+            ((AlphabetViewHolder) holder).tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, FindRightPictureGame.class);
                     ((MainActivity) context).startActivity(intent);
                 }
             });

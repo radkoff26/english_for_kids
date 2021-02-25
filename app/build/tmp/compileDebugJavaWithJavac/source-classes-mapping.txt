@@ -32,12 +32,9 @@ com/example/englishforkidsfinal/activities/GameSpace.java
  com.example.englishforkidsfinal.activities.GameSpace
 com/example/englishforkidsfinal/fragments/HomeFragment.java
  com.example.englishforkidsfinal.fragments.HomeFragment
-com/example/englishforkidsfinal/adapters/AlphabetRecyclerViewAdapter.java
- com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter
- com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$1
- com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$2
- com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$3
- com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$AlphabetViewHolder
+com/example/englishforkidsfinal/models/TargetView.java
+ com.example.englishforkidsfinal.models.TargetView
+ com.example.englishforkidsfinal.models.TargetView$1
 com/example/englishforkidsfinal/models/LetterTextView.java
  com.example.englishforkidsfinal.models.LetterTextView
 com/example/englishforkidsfinal/models/DrawingThread.java
@@ -52,11 +49,11 @@ com/example/englishforkidsfinal/models/JsonPlaceHolderApi.java
  com.example.englishforkidsfinal.models.JsonPlaceHolderApi
 com/example/englishforkidsfinal/models/AlphabetView.java
  com.example.englishforkidsfinal.models.AlphabetView
+com/example/englishforkidsfinal/models/Word.java
+ com.example.englishforkidsfinal.models.Word
 com/example/englishforkidsfinal/models/LettersView.java
  com.example.englishforkidsfinal.models.LettersView
  com.example.englishforkidsfinal.models.LettersView$1
-com/example/englishforkidsfinal/models/Word.java
- com.example.englishforkidsfinal.models.Word
 com/example/englishforkidsfinal/fragments/AlphabetFragment.java
  com.example.englishforkidsfinal.fragments.AlphabetFragment
 com/example/englishforkidsfinal/models/Letter.java
@@ -69,9 +66,16 @@ com/example/englishforkidsfinal/models/NetworkService.java
  com.example.englishforkidsfinal.models.NetworkService
 com/example/englishforkidsfinal/models/Game.java
  com.example.englishforkidsfinal.models.Game
+com/example/englishforkidsfinal/adapters/AlphabetRecyclerViewAdapter.java
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$1
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$2
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$3
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$4
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$AlphabetViewHolder
 com/example/englishforkidsfinal/activities/SpeakRightGame.java
  com.example.englishforkidsfinal.activities.SpeakRightGame
  com.example.englishforkidsfinal.activities.SpeakRightGame$1
-com/example/englishforkidsfinal/models/TargetView.java
- com.example.englishforkidsfinal.models.TargetView
- com.example.englishforkidsfinal.models.TargetView$1
+com/example/englishforkidsfinal/activities/FindRightPictureGame.java
+ com.example.englishforkidsfinal.activities.FindRightPictureGame
+ com.example.englishforkidsfinal.activities.FindRightPictureGame$1

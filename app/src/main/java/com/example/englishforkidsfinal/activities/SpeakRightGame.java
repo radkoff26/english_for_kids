@@ -156,4 +156,10 @@ public class SpeakRightGame extends AppCompatActivity {
         }
         return false;
     }
+
+    @Override
+    protected void onDestroy() {
+        recognizer.destroy();
+        super.onDestroy();
+    }
 }
