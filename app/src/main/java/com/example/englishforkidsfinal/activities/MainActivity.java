@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.englishforkidsfinal.R;
@@ -16,6 +18,7 @@ import com.example.englishforkidsfinal.fragments.GamesFragment;
 import com.example.englishforkidsfinal.fragments.HomeFragment;
 import com.example.englishforkidsfinal.fragments.LearningFragment;
 import com.example.englishforkidsfinal.fragments.MainLearningFragment;
+import com.example.englishforkidsfinal.fragments.SettingsFragment;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
 
 import java.util.Arrays;
@@ -91,6 +94,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        MenuItem menuItem = menu.findItem(R.id.settings);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                getSupportFragmentManager().beginTransaction().add(R.id.fragment, new SettingsFragment()).commit();
+                clearButtons();
+                return true;
+            }
+        });
+        return true;
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         music.pause();
@@ -112,6 +131,12 @@ public class MainActivity extends AppCompatActivity {
                     .beginTransaction()
                     .add(R.id.fragment, new AlphabetFragment())
                     .commit();
+        } else if (fragments.get(fragments.size()-1).getClass() == SettingsFragment.class) {
+            clearButtons();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment, new HomeFragment())
+                    .commit();
         } else {
             clearButtons();
             getSupportFragmentManager()
@@ -119,5 +144,10 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.fragment, new HomeFragment())
                     .commit();
         }
+    }
+
+    public void nextTrack() {
+        music.updateAccess();
+        music.nextTrack();
     }
 }

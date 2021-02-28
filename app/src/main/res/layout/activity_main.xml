@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".activities.MainActivity">
 
     <FrameLayout
         android:id="@+id/fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9"/>
+        android:layout_weight="9" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,24 +24,24 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Games"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:text="Games" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/alphabet"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Alphabet"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:text="Alphabet" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/learning"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Learning"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:text="Learning" />
 
     </LinearLayout>
 

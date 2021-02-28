@@ -1016,12 +1016,15 @@ color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
 color dim_foreground_material_light
+color disabled_button
 color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color main
+color main_secondary
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1880,6 +1883,7 @@ id listMode
 id list_item
 id ll_letters
 id ll_target
+id main_ll
 id masked
 id media_actions
 id message
@@ -1962,6 +1966,7 @@ id rounded
 id row_index_key
 id ru
 id rv
+id save_changes
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -1985,6 +1990,7 @@ id search_voice_btn
 id second_layer
 id select_dialog_listview
 id selected
+id settings
 id shortcut
 id showCustom
 id showHome
@@ -2018,6 +2024,7 @@ id stop
 id stretch
 id submenuarrow
 id submit_area
+id switch_music
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -2162,6 +2169,7 @@ layout fragment_games
 layout fragment_home
 layout fragment_learning
 layout fragment_main_learning
+layout fragment_settings
 layout game_item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
@@ -2224,6 +2232,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu main_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_graph

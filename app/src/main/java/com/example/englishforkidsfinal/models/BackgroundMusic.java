@@ -1,6 +1,7 @@
 package com.example.englishforkidsfinal.models;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.util.Log;
 
@@ -13,12 +14,16 @@ public class BackgroundMusic extends Thread {
     private MediaPlayer mp;
     private Context ctx;
     private boolean isPlaying;
+    private boolean isAccessedToPlay;
+    private SharedPreferences sp;
 
     public BackgroundMusic(List<Integer> tracks, Context ctx) {
         this.tracks = tracks;
         this.ctx = ctx;
         randomizeTrack();
         mp = MediaPlayer.create(ctx, tracks.get(idOfTrack));
+        sp = ctx.getSharedPreferences("settings", Context.MODE_PRIVATE);
+        updateAccess();
     }
 
     private void randomizeTrack() {
@@ -27,26 +32,35 @@ public class BackgroundMusic extends Thread {
 
     @Override
     public void run() {
-        mp.start();
-        isPlaying = true;
-        while (isPlaying) {
-            if (mp.getCurrentPosition() + 10 > mp.getDuration()) {
-                nextTrack();
+        updateAccess();
+        if (isAccessedToPlay) {
+            mp.start();
+            isPlaying = true;
+            while (isPlaying) {
+                if (mp.getCurrentPosition() + 10 > mp.getDuration()) {
+                    nextTrack();
+                }
             }
         }
     }
 
     public void pause() {
-        isPlaying = false;
-        if (mp != null && mp.isPlaying()) {
-            mp.pause();
+        updateAccess();
+        if (isAccessedToPlay) {
+            isPlaying = false;
+            if (mp != null && mp.isPlaying()) {
+                mp.pause();
+            }
         }
     }
 
     public void resumeMusic() {
-        isPlaying = true;
-        if (mp != null && !mp.isPlaying()) {
-            mp.start();
+        updateAccess();
+        if (isAccessedToPlay) {
+            isPlaying = true;
+            if (mp != null && !mp.isPlaying()) {
+                mp.start();
+            }
         }
     }
 
@@ -54,14 +68,27 @@ public class BackgroundMusic extends Thread {
         isPlaying = false;
     }
 
-    // test void
     public void nextTrack() {
-        int id = idOfTrack;
-        while (idOfTrack == id) {
-            randomizeTrack();
+        updateAccess();
+        if (isAccessedToPlay) {
+            int id = idOfTrack;
+            while (idOfTrack == id) {
+                randomizeTrack();
+            }
+            if (mp != null) {
+                mp.pause();
+            }
+            mp = MediaPlayer.create(ctx, tracks.get(idOfTrack));
+            mp.start();
+        } else {
+            if (mp != null) {
+                mp.pause();
+            }
+            stopPlaying();
         }
-        mp.pause();
-        mp = MediaPlayer.create(ctx, tracks.get(idOfTrack));
-        mp.start();
+    }
+
+    public void updateAccess() {
+        isAccessedToPlay = sp.getBoolean("music", true);
     }
 }
