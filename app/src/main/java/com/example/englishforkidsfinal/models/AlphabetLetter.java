@@ -1,7 +1,6 @@
 package com.example.englishforkidsfinal.models;
 
-import java.io.Serializable;
-
+// Plain Old Java Class
 public class AlphabetLetter {
     private String letter;
     private int anim;

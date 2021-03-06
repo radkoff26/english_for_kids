@@ -1,5 +1,6 @@
 package com.example.englishforkidsfinal.models;
 
+// Plain Old Java Object
 public class Game {
     private String title;
 

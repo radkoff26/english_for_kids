@@ -9,16 +9,14 @@ import android.view.SurfaceHolder;
 
 public class DrawingThread extends Thread {
 
+    // Declaration of variables
     private SurfaceHolder surfaceHolder;
-
     private Paint paint = new Paint(Paint.DITHER_FLAG);
-
     private volatile boolean running = true;
-
     private Path path;
-
     private Bitmap bitmap;
 
+    // Constructor
     public DrawingThread(SurfaceHolder surfaceHolder, Bitmap btm) {
         this.surfaceHolder = surfaceHolder;
         bitmap = btm;
@@ -28,14 +26,17 @@ public class DrawingThread extends Thread {
         paint.setStrokeJoin(Paint.Join.ROUND);
     }
 
+    // Method to set path
     public void setPath(Path path) {
         this.path = path;
     }
 
+    // Method to stop running thread
     public void requestStop() {
         running = false;
     }
 
+    // Method to manage thread to draw
     @Override
     public void run() {
         while (running) {

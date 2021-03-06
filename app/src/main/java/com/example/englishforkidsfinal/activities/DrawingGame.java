@@ -13,6 +13,7 @@ import java.util.List;
 
 public class DrawingGame extends AppCompatActivity {
 
+    // Declaration of variables
     private BackgroundMusic music;
     private List<Integer> tracks;
 
@@ -21,21 +22,25 @@ public class DrawingGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(new DrawingSurfaceView(this));
 
+        // Initialization
         tracks = Arrays.asList(R.raw.first, R.raw.second, R.raw.third);
-
         music = new BackgroundMusic(tracks, this);
+
+        // Starting background music
         music.start();
     }
 
     @Override
     protected void onStart() {
-        super.onStart();
+        // Resuming background music if activity wasn't destroyed
         music.resumeMusic();
+        super.onStart();
     }
 
     @Override
     protected void onStop() {
-        super.onStop();
+        // Stopping if activity is going to be stopped
         music.pause();
+        super.onStop();
     }
 }

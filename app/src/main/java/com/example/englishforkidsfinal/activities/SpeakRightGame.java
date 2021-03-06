@@ -6,15 +6,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -27,6 +26,7 @@ import static com.example.englishforkidsfinal.models.TestModels.words;
 
 public class SpeakRightGame extends AppCompatActivity {
 
+    // Declaration of variables
     private SpeechRecognizer recognizer;
     private ImageView animal;
     private AppCompatButton answer;
@@ -37,44 +37,55 @@ public class SpeakRightGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speak_right_game);
 
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(this,
+        // Checking if recording audio is allowed
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    this,
                     new String[]{Manifest.permission.RECORD_AUDIO},
-                    1);
+                    1
+            );
         }
 
+        // Initializing views
         animal = (ImageView) findViewById(R.id.animal);
         answer = (AppCompatButton) findViewById(R.id.answer);
 
+        // Initializing id of random right word
         int id = randomId();
         word = words.get(id);
 
+        // Setting right word's resources to content view
         animal.setImageResource(word.getRes());
 
+        // Setting speech recognizer up
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-
         recognizer = SpeechRecognizer
                 .createSpeechRecognizer(this.getApplicationContext());
-        Log.d("DEBUG", SpeechRecognizer.isRecognitionAvailable(this)+"");
+
+        // Making and setting OnClickListener up to speak
         RecognitionListener listener = new RecognitionListener() {
             @Override
             public void onResults(Bundle results) {
-                ArrayList<String> voiceResults = results
-                        .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+                // Initializing vibrator and speech results
+                Vibrator v = (Vibrator) getApplication().getSystemService(Context.VIBRATOR_SERVICE);
+                ArrayList<String> voiceResults = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+
+                // Resolving results
                 if (voiceResults == null) {
                     Toast.makeText(getApplicationContext(), "You haven't said any words!", Toast.LENGTH_SHORT).show();
                 } else {
                     if (compare(word.getAnimal().toLowerCase(), voiceResults.get(0).toLowerCase())) {
+                        // If answer is right
                         restart();
                     } else {
-                        Toast.makeText(getApplicationContext(), voiceResults.get(0), Toast.LENGTH_SHORT).show();
+                        // If answer is wrong
+                        v.vibrate(100);
                     }
                 }
+
+                // Enabling activating button
                 answer.setClickable(true);
                 answer.setFocusable(true);
             }
@@ -91,18 +102,17 @@ public class SpeakRightGame extends AppCompatActivity {
 
             @Override
             public void onReadyForSpeech(Bundle params) {
-                Log.d(getString(R.string.log_label), "Ready for speech");
+
             }
 
             @Override
             public void onError(int error) {
-                Log.d(getString(R.string.log_label),
-                        "Error listening for speech: " + error);
+
             }
 
             @Override
             public void onBeginningOfSpeech() {
-                Log.d(getString(R.string.log_label), "Speech starting");
+
             }
 
             @Override
@@ -117,12 +127,14 @@ public class SpeakRightGame extends AppCompatActivity {
 
             @Override
             public void onEndOfSpeech() {
+                // Enabling activating button
                 answer.setClickable(true);
                 answer.setFocusable(true);
             }
         };
         recognizer.setRecognitionListener(listener);
 
+        // Setting OnClickListener to button to launch recognition
         answer.setOnClickListener(v -> {
             recognizer.startListening(intent);
             answer.setClickable(false);
@@ -130,15 +142,19 @@ public class SpeakRightGame extends AppCompatActivity {
         });
     }
 
+    // Method to randomize indexes of list of words
     public int randomId() {
         return (int) (Math.random() * words.size());
     }
 
+    // Method to restart activity and to randomize words
     public void restart() {
+        Intent intent = getIntent();
         finish();
-        startActivity(getIntent());
+        startActivity(intent);
     }
 
+    // Method to maximally avoid disadvantages of speech recognizer in comparing of results
     public boolean compare(String main, String word) {
         if (word.length() < 3 || main.equals(word)) {
             return main.equals(word);
@@ -159,6 +175,7 @@ public class SpeakRightGame extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        // Destroying recognizer when activity destroys
         recognizer.destroy();
         super.onDestroy();
     }

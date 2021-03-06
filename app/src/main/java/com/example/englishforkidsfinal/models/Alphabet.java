@@ -8,10 +8,12 @@ import java.util.List;
 
 public class Alphabet {
 
+    // Initializing final arrays and list
     public static final String[] ALPHABET = "a b c d e f g h i j k l m n o p q r s t u v w x y z".toLowerCase().split(" ");
     public static final String[] ALPHABET_UPPER = "a b c d e f g h i j k l m n o p q r s t u v w x y z".toUpperCase().split(" ");
     public static final ArrayList<AlphabetLetter> letters = new ArrayList<>();
 
+    // Putting test data into list
     static {
         letters.add(
                 new AlphabetLetter("a", R.anim.letter_rotating, R.drawable.a)
@@ -93,12 +95,14 @@ public class Alphabet {
         );
     }
 
+    // Method to get random char from the alphabet array
     public static char getRandomChar() {
         List<String> list = Arrays.asList(ALPHABET);
         int random = (int) (Math.random()*(list.size()));
         return list.get(random).trim().charAt(0);
     }
 
+    // Method to get AlphabetLetter by the given letter
     public static AlphabetLetter getByWord(String letter) {
         for (AlphabetLetter mLetter : letters) {
             if (mLetter.getLetter().toLowerCase().equals(letter.toLowerCase())) {
@@ -108,6 +112,7 @@ public class Alphabet {
         return null;
     }
 
+    // Method to get upper alphabet
     public static List<String> getUpperAlphabet() {
         return  Arrays.asList(ALPHABET_UPPER);
     }

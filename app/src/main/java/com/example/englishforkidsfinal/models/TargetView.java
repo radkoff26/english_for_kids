@@ -2,7 +2,6 @@ package com.example.englishforkidsfinal.models;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,13 +13,16 @@ import com.example.englishforkidsfinal.activities.GameSpace;
 
 public class TargetView extends LinearLayout {
 
+    // Declaration of variables
     private String word;
     private Context ctx;
 
+    // Constructor
     public TargetView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
+    // Method to set start adjustments
     public void startSettings(Context context, String word) {
         this.word = word.toLowerCase();
         ctx = context;
@@ -34,20 +36,18 @@ public class TargetView extends LinearLayout {
             tv.setText("_");
             tv.setPadding(0, 0, 20, 0);
 
-            tv.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!((LetterTextView) v).getText().toString().equals("_")) {
-                        ((LettersView) ((GameSpace) ctx).findViewById(R.id.ll_letters))
-                                .returnLetter(((LetterTextView) v).getLetter());
-                        ((LetterTextView) v).setText("_");
-                        ((LetterTextView) v).setLetter(null);
-                    }
+            tv.setOnClickListener(v -> {
+                if (!((LetterTextView) v).getText().toString().equals("_")) {
+                    ((LettersView) ((GameSpace) ctx).findViewById(R.id.ll_letters))
+                            .returnLetter(((LetterTextView) v).getLetter());
+                    ((LetterTextView) v).setText("_");
+                    ((LetterTextView) v).setLetter(null);
                 }
             });
         }
     }
 
+    // Method to add letter to the view
     public void addLetter(Letter letter, TextView v) {
         boolean f = false;
         String s = "";
@@ -68,7 +68,6 @@ public class TargetView extends LinearLayout {
         }
 
         if (word.toLowerCase().equals(s.toLowerCase())) {
-            ((GameSpace) ctx).add();
             ((GameSpace) ctx).restart();
         }
     }

@@ -17,12 +17,14 @@ import com.example.englishforkidsfinal.R;
 
 public class DrawingSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
+    // Declaration of variables
     private DrawingThread thread;
     private Path path;
     private Paint paint;
     private float x, y;
     private Bitmap bitmap;
 
+    // Constructor
     public DrawingSurfaceView(Context context) {
         super(context);
         getHolder().addCallback(this);
@@ -30,7 +32,7 @@ public class DrawingSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder holder) {
-        // Init
+        // Initialization of necessary variables
         path = new Path();
         paint = new Paint(Paint.DITHER_FLAG);
         paint.setStrokeJoin(Paint.Join.ROUND);
@@ -39,23 +41,22 @@ public class DrawingSurfaceView extends SurfaceView implements SurfaceHolder.Cal
         Canvas canvas = holder.lockCanvas();
         bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.circle);
 
-        // Draw Bitmap Picture
+        // Drawing Bitmap picture
         canvas.drawColor(Color.WHITE);
         canvas.drawBitmap(bitmap, 0, 0, paint);
         holder.unlockCanvasAndPost(canvas);
 
-        // Drawing Thread Init
+        // Drawing Thread initialization
         thread = new DrawingThread(holder, bitmap);
         thread.start();
     }
 
     @Override
-    public void surfaceChanged(@NonNull SurfaceHolder holder, int format, int width, int height) {
-
-    }
+    public void surfaceChanged(@NonNull SurfaceHolder holder, int format, int width, int height) {}
 
     @Override
     public void surfaceDestroyed(@NonNull SurfaceHolder holder) {
+        // Waiting until thread finish their work
         thread.requestStop();
         boolean retry = true;
         while (retry) {
@@ -68,9 +69,11 @@ public class DrawingSurfaceView extends SurfaceView implements SurfaceHolder.Cal
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        // Initializing x and y coordinates
         x = event.getX();
         y = event.getY();
 
+        // Watching touches to draw path
         if (bitmap != null) {
             if (x < bitmap.getWidth() && y < bitmap.getHeight()) {
                 switch (event.getAction()){
@@ -84,8 +87,10 @@ public class DrawingSurfaceView extends SurfaceView implements SurfaceHolder.Cal
             }
         }
 
+        // Setting path to draw in thread
         thread.setPath(path);
 
+        // Updating Surface View
         invalidate();
         return true;
     }

@@ -2,7 +2,6 @@ package com.example.englishforkidsfinal.models;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,14 +12,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class LettersView extends LinearLayout {
+
+    // Declaration of variables
     private String word;
     private TargetView targetView;
     private ArrayList<Letter> letters;
 
+    // Constructor
     public LettersView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
+    // Method to set up default adjustments
     public void startSettings(String word, TargetView targetView) {
         this.word = word.toLowerCase();
         this.targetView = targetView;
@@ -56,12 +59,9 @@ public class LettersView extends LinearLayout {
             tv.setPadding(0, 0, 25, 0);
 
             int finalI = i;
-            tv.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!((TextView) v).getText().toString().isEmpty()) {
-                        targetView.addLetter(letters.get(finalI), (TextView) v);
-                    }
+            tv.setOnClickListener(v -> {
+                if (!((TextView) v).getText().toString().isEmpty()) {
+                    targetView.addLetter(letters.get(finalI), (TextView) v);
                 }
             });
         }

@@ -14,18 +14,23 @@ import com.example.englishforkidsfinal.R;
 
 public class GamesFragment extends Fragment {
 
+    // Declaration of variables
     private RecyclerView rv;
     private AlphabetRecyclerViewAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Initializing variables
         View view = inflater.inflate(R.layout.fragment_games, container, false);
 
+        // Initializing view
         rv = (RecyclerView) view.findViewById(R.id.rv);
 
+        // Initializing adapter of Recycler View
         adapter = new AlphabetRecyclerViewAdapter(getContext());
 
+        // Setting adapter to Recycler View
         rv.setAdapter(adapter);
 
         return view;

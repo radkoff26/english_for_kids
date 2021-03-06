@@ -12,7 +12,7 @@ public class LetterTextView extends AppCompatTextView {
     }
 
     public Letter getLetter() {
-        return letter;
+        return this.letter;
     }
 
     public void setLetter(Letter letter) {

@@ -14,7 +14,6 @@ import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.DrawingGame;
 import com.example.englishforkidsfinal.activities.FindRightPictureGame;
 import com.example.englishforkidsfinal.activities.GameSpace;
-import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.activities.SpeakRightGame;
 import com.example.englishforkidsfinal.models.Game;
 
@@ -22,15 +21,18 @@ import java.util.ArrayList;
 
 public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    // Declaration of variables
     private ArrayList<Game> games;
     private LayoutInflater inflater;
     private Context context;
 
+    // Constructor
     public AlphabetRecyclerViewAdapter(Context context) {
         this.inflater = LayoutInflater.from(context);
         this.games = new ArrayList<>();
         this.context = context;
 
+        // Test data for Recycler View
         games.add(
                 new Game("Find All Letters")
         );
@@ -48,6 +50,7 @@ public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         );
     }
 
+    // Customized ViewHolder for Recycler View
     class AlphabetViewHolder extends RecyclerView.ViewHolder {
 
         final TextView tv;
@@ -70,37 +73,26 @@ public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Game game = games.get(position);
 
+        // Setting OnClickListeners to the buttons on Recycler View
         if (position == 0) {
-            ((AlphabetViewHolder) holder).tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, GameSpace.class);
-                    ((MainActivity) context).startActivity(intent);
-                }
+            ((AlphabetViewHolder) holder).tv.setOnClickListener(v -> {
+                Intent intent = new Intent(context, GameSpace.class);
+                context.startActivity(intent);
             });
         } else if (position == 1) {
-            ((AlphabetViewHolder) holder).tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, SpeakRightGame.class);
-                    ((MainActivity) context).startActivity(intent);
-                }
+            ((AlphabetViewHolder) holder).tv.setOnClickListener(v -> {
+                Intent intent = new Intent(context, SpeakRightGame.class);
+                context.startActivity(intent);
             });
         } else if (position == 2) {
-            ((AlphabetViewHolder) holder).tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, DrawingGame.class);
-                    ((MainActivity) context).startActivity(intent);
-                }
+            ((AlphabetViewHolder) holder).tv.setOnClickListener(v -> {
+                Intent intent = new Intent(context, DrawingGame.class);
+                context.startActivity(intent);
             });
         } else if (position == 3) {
-            ((AlphabetViewHolder) holder).tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, FindRightPictureGame.class);
-                    ((MainActivity) context).startActivity(intent);
-                }
+            ((AlphabetViewHolder) holder).tv.setOnClickListener(v -> {
+                Intent intent = new Intent(context, FindRightPictureGame.class);
+                context.startActivity(intent);
             });
         }
 

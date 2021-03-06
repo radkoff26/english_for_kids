@@ -3,12 +3,11 @@ package com.example.englishforkidsfinal.models;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
-import android.util.Log;
-
 import java.util.List;
 
 public class BackgroundMusic extends Thread {
 
+    // Declaration of variables
     private int idOfTrack;
     private List<Integer> tracks;
     private MediaPlayer mp;
@@ -17,19 +16,30 @@ public class BackgroundMusic extends Thread {
     private boolean isAccessedToPlay;
     private SharedPreferences sp;
 
+    // Constructor
     public BackgroundMusic(List<Integer> tracks, Context ctx) {
         this.tracks = tracks;
         this.ctx = ctx;
+
+        // Setting id of random track
         randomizeTrack();
+
+        // Initializing of media player
         mp = MediaPlayer.create(ctx, tracks.get(idOfTrack));
+
+        // Initializing SharedPreferences to get music settings
         sp = ctx.getSharedPreferences("settings", Context.MODE_PRIVATE);
+
+        // Updating access
         updateAccess();
     }
 
+    // Method to set id of random track
     private void randomizeTrack() {
         this.idOfTrack = (int) Math.floor(Math.random() * 3);
     }
 
+    // Method to manage media player to play music in new thread
     @Override
     public void run() {
         updateAccess();
@@ -44,6 +54,7 @@ public class BackgroundMusic extends Thread {
         }
     }
 
+    // Method to pause music
     public void pause() {
         updateAccess();
         if (isAccessedToPlay) {
@@ -54,6 +65,7 @@ public class BackgroundMusic extends Thread {
         }
     }
 
+    // Method to resume music
     public void resumeMusic() {
         updateAccess();
         if (isAccessedToPlay) {
@@ -64,10 +76,12 @@ public class BackgroundMusic extends Thread {
         }
     }
 
+    // Method to set playing of music false
     public void stopPlaying() {
         isPlaying = false;
     }
 
+    // Method to turn the next track with all checks
     public void nextTrack() {
         updateAccess();
         if (isAccessedToPlay) {
@@ -88,6 +102,7 @@ public class BackgroundMusic extends Thread {
         }
     }
 
+    // Method to update access to play music
     public void updateAccess() {
         isAccessedToPlay = sp.getBoolean("music", true);
     }

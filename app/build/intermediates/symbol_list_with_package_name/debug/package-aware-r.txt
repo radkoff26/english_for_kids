@@ -1590,6 +1590,7 @@ drawable btn_radio_on_to_off_mtrl_animation
 drawable c
 drawable circle
 drawable cow
+drawable crocodile
 drawable d
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
@@ -1599,10 +1600,12 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable dog
 drawable e
+drawable elephant
 drawable f
 drawable frog
 drawable g
 drawable giraffe
+drawable giraffe2
 drawable h
 drawable i
 drawable ic_launcher_background
@@ -1622,6 +1625,7 @@ drawable material_ic_keyboard_arrow_left_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable monkey
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -1654,6 +1658,7 @@ drawable r
 drawable rabbit
 drawable restart
 drawable s
+drawable snake
 drawable square
 drawable start
 drawable t
@@ -1784,6 +1789,7 @@ id confirm_button
 id container
 id content
 id contentPanel
+id contest
 id coordinator
 id cos
 id custom
@@ -1831,6 +1837,7 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
+id finish
 id first_layer
 id fitToContents
 id fixed
@@ -1883,6 +1890,7 @@ id listMode
 id list_item
 id ll_letters
 id ll_target
+id ll_to_swipe
 id main_ll
 id masked
 id media_actions
@@ -1923,7 +1931,6 @@ id nav_graph
 id nav_host_fragment_container
 id navigation_header_container
 id never
-id next
 id noScroll
 id none
 id normal
@@ -1958,6 +1965,7 @@ id radio
 id ratio
 id rectangles
 id repeat
+id result
 id reverseSawtooth
 id right
 id right_icon
@@ -2068,6 +2076,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id try_it
 id unchecked
 id uniform
 id unlabeled
@@ -2076,6 +2085,8 @@ id useLogo
 id view_offset_helper
 id visible
 id visible_removing_fragment_view_tag
+id w1
+id w2
 id withText
 id withinBounds
 id wrap
@@ -2165,10 +2176,13 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_alphabet
 layout fragment_alphabet_letter
+layout fragment_contest
 layout fragment_games
 layout fragment_home
 layout fragment_learning
+layout fragment_main_contest
 layout fragment_main_learning
+layout fragment_result_contest
 layout fragment_settings
 layout game_item
 layout mtrl_alert_dialog

@@ -13,15 +13,19 @@ import com.example.englishforkidsfinal.models.SpeechImageView;
 
 public class HomeFragment extends Fragment {
 
+    // Declaration of variable
     private SpeechImageView animal;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Initialization of main view
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        // Initializing Text-to-Speech Image view
         animal = view.findViewById(R.id.animal);
 
+        // Setting view up
         animal.setWordToSpeak("giraffe");
         animal.setAnimation(R.anim.animal_scale);
 
