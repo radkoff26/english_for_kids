@@ -30,7 +30,9 @@
         android:theme="@style/Theme.EnglishForKidsFinal" >
         <activity android:name="com.example.englishforkidsfinal.activities.FindRightPictureGame" />
         <activity android:name="com.example.englishforkidsfinal.activities.SpeakRightGame" />
-        <activity android:name="com.example.englishforkidsfinal.activities.DrawingGame" />
+        <activity
+            android:name="com.example.englishforkidsfinal.activities.DrawingGame"
+            android:screenOrientation="landscape" />
         <activity android:name="com.example.englishforkidsfinal.activities.GameSpace" />
         <activity android:name="com.example.englishforkidsfinal.activities.MainActivity" >
             <intent-filter>

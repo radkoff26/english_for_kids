@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-35:12
+ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-37:12
 MERGED from [androidx.navigation:navigation-ui:2.3.2] C:\Users\radko\.gradle\caches\transforms-2\files-2.1\aa7e71911ad4fcf6ea7004a6a29563ba\navigation-ui-2.3.2\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\radko\.gradle\caches\transforms-2\files-2.1\7e5b6cf970b6ee458e94f0de4554e685\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\radko\.gradle\caches\transforms-2\files-2.1\73327337a728e12c5c3cdecdb4b7e327\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
@@ -47,20 +47,20 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\radko\.gradle
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\radko\.gradle\caches\transforms-2\files-2.1\644567d122746ae95b6522d27232d273\lifecycle-livedata-core-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\radko\.gradle\caches\transforms-2\files-2.1\d5bf5d996d4f8c184f67d9a87d8531c0\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\radko\.gradle\caches\transforms-2\files-2.1\3fd5b4b866d23b43b0e15439a0ee99e7\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-37:12
 	package
 		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:3:5-46
 		INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-37:12
 		INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-35:12
+		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:1-37:12
 		INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:2:11-69
@@ -85,7 +85,7 @@ ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\Android
 	android:name
 		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:11:21-69
 application
-ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:15:5-33:19
+ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:15:5-35:19
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\radko\.gradle\caches\transforms-2\files-2.1\7e5b6cf970b6ee458e94f0de4554e685\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\radko\.gradle\caches\transforms-2\files-2.1\7e5b6cf970b6ee458e94f0de4554e685\material-1.2.1\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\radko\.gradle\caches\transforms-2\files-2.1\73327337a728e12c5c3cdecdb4b7e327\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -109,7 +109,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ra
 	android:theme
 		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:21:9-57
 activity#com.example.englishforkidsfinal.activities.FindRightPictureGame
-ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:22:9-78
+ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:22:9-69
 	android:name
 		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:22:19-66
 activity#com.example.englishforkidsfinal.activities.SpeakRightGame
@@ -117,27 +117,29 @@ ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\Android
 	android:name
 		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:23:19-60
 activity#com.example.englishforkidsfinal.activities.DrawingGame
-ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:24:9-60
+ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:24:9-26:53
+	android:screenOrientation
+		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:26:13-50
 	android:name
-		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:24:19-57
+		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:25:13-51
 activity#com.example.englishforkidsfinal.activities.GameSpace
-ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:25:9-58
+ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:27:9-58
 	android:name
-		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:25:19-55
+		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:27:19-55
 activity#com.example.englishforkidsfinal.activities.MainActivity
-ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:26:9-32:20
+ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:28:9-34:20
 	android:name
-		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:26:19-58
+		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:28:19-58
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:27:13-31:29
+ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:29:13-33:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:28:17-69
+ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:30:17-69
 	android:name
-		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:28:25-66
+		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:30:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:30:17-77
+ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:32:17-77
 	android:name
-		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:30:27-74
+		ADDED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml:32:27-74
 uses-sdk
 INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\radko\OneDrive\Android\english_for_kids\app\src\main\AndroidManifest.xml

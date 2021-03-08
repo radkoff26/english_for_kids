@@ -19,9 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EnglishForKidsFinal">
-        <activity android:name=".activities.FindRightPictureGame"></activity>
+        <activity android:name=".activities.FindRightPictureGame" />
         <activity android:name=".activities.SpeakRightGame" />
-        <activity android:name=".activities.DrawingGame" />
+        <activity
+            android:name=".activities.DrawingGame"
+            android:screenOrientation="landscape" />
         <activity android:name=".activities.GameSpace" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
