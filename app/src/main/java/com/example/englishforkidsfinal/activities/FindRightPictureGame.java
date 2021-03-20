@@ -2,17 +2,20 @@ package com.example.englishforkidsfinal.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.englishforkidsfinal.R;
-import com.example.englishforkidsfinal.db.DataBase;
+import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
-import com.example.englishforkidsfinal.models.Word;
+import com.example.englishforkidsfinal.models.Tools;
+import com.example.englishforkidsfinal.models.db_models.Word;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +25,7 @@ import java.util.List;
 public class FindRightPictureGame extends AppCompatActivity implements View.OnClickListener {
 
     // Declaration of variables grouped by type
-    private DataBase db;
+    private LearnedWordsDataBase db;
 
     private ImageView pic1;
     private ImageView pic2;
@@ -48,7 +51,6 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_find_right_picture_game);
 
         // Initialization
-
         // Background music
         // Tracks
         tracks = Arrays.asList(R.raw.first, R.raw.second, R.raw.third);
@@ -65,7 +67,7 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
         indexes.add(3);
 
         // Database
-        db = new DataBase(this);
+        db = new LearnedWordsDataBase(this);
 
         // Image Views
         pic1 = findViewById(R.id.pic1);
@@ -110,7 +112,7 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
         }
 
         // Setting right word up in the content view
-        label.setText(word.getAnimal().toUpperCase());
+        label.setText(word.getEng().toUpperCase());
 
     }
 
@@ -142,13 +144,12 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
             default:
                 return;
         }
-        iv.setImageResource(word.getRes());
+        Tools.LoadImageFromWebOperations(word.getUrl(), iv);
 
         // Setting OnClickListeners to right and wrong words
         if (isRight) {
             iv.setOnClickListener(v -> {
                 restart();
-                Toast.makeText(getApplicationContext(), "Right answer!", Toast.LENGTH_SHORT).show();
             });
         } else {
             iv.setOnClickListener(this);
@@ -157,8 +158,9 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
 
     // OnClick method to notify that chosen word is wrong
     @Override
-    public void onClick(View v) {
-        Toast.makeText(getApplicationContext(), "Wrong answer!", Toast.LENGTH_SHORT).show();
+    public void onClick(View view) {
+        Vibrator v = (Vibrator) getApplication().getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(150);
     }
 
     // Method to restart activity and to randomize word

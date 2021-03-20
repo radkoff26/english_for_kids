@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.DrawingGame;
 import com.example.englishforkidsfinal.activities.FindRightPictureGame;
-import com.example.englishforkidsfinal.activities.GameSpace;
+import com.example.englishforkidsfinal.activities.CollectWord;
 import com.example.englishforkidsfinal.activities.SpeakRightGame;
 import com.example.englishforkidsfinal.models.Game;
 
@@ -76,7 +76,7 @@ public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         // Setting OnClickListeners to the buttons on Recycler View
         if (position == 0) {
             ((AlphabetViewHolder) holder).tv.setOnClickListener(v -> {
-                Intent intent = new Intent(context, GameSpace.class);
+                Intent intent = new Intent(context, CollectWord.class);
                 context.startActivity(intent);
             });
         } else if (position == 1) {

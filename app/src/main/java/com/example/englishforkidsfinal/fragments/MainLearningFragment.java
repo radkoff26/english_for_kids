@@ -1,5 +1,8 @@
 package com.example.englishforkidsfinal.fragments;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,10 +15,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.models.OnSwipeTouchListener;
 import com.example.englishforkidsfinal.models.SpeechImageView;
 import com.example.englishforkidsfinal.models.TestModels;
-import com.example.englishforkidsfinal.models.Word;
+import com.example.englishforkidsfinal.models.Tools;
+import com.example.englishforkidsfinal.models.db_models.Word;
+
+import java.util.List;
+
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
 
 public class MainLearningFragment extends Fragment {
 
@@ -26,7 +37,12 @@ public class MainLearningFragment extends Fragment {
     private Word currentModel;
     private TextView eng;
     private TextView ru;
+    private SharedPreferences sp;
+    private int gr;
+    private AllWordsDataBase db;
+    private List<Word> words;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,6 +55,14 @@ public class MainLearningFragment extends Fragment {
         eng = v.findViewById(R.id.eng);
         ru = v.findViewById(R.id.ru);
         ll = v.findViewById(R.id.ll_to_swipe);
+
+        db = new AllWordsDataBase(getContext());
+
+        sp = getActivity().getSharedPreferences(CACHE_CONTEST, Context.MODE_PRIVATE);
+
+        gr = sp.getInt(CACHE_CONTEST_GROUP, CACHE_CONTEST_GROUP_DEFAULT);
+
+        words = db.getWords(gr);
 
         // Invoking method to turn the next word up
         next();
@@ -56,13 +80,17 @@ public class MainLearningFragment extends Fragment {
 
     // Method to change the word
     public void next() {
-        currentModel = TestModels.randomWord();
+        currentModel = getRandomWord(words);
 
-        picture.setImageResource(currentModel.getRes());
+        Tools.LoadImageFromWebOperations(currentModel.getUrl(), picture);
 
-        eng.setText(currentModel.getAnimal());
-        ru.setText(currentModel.getTranslation());
+        eng.setText(currentModel.getEng().toUpperCase());
+        ru.setText(currentModel.getRu().toUpperCase());
 
-        repeat.setWordToSpeak(currentModel.getAnimal());
+        repeat.setWordToSpeak(currentModel.getEng());
+    }
+
+    private Word getRandomWord(List<Word> words) {
+        return words.get((int) (Math.random() * words.size()));
     }
 }

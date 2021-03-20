@@ -32,14 +32,10 @@ public class LettersView extends LinearLayout {
 
         int length = word.length() + 3;
 
-        letters = new ArrayList<Letter>();
+        letters = new ArrayList<>();
 
-        for (int i = 0; i < length; i++) {
-            if (i < word.length()) {
-                letters.add(new Letter(word.charAt(i)));
-            } else {
-                letters.add(new Letter());
-            }
+        for (int i = 0; i < word.length(); i++) {
+            letters.add(new Letter(word.charAt(i)));
         }
 
         Collections.shuffle(letters);

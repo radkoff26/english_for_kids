@@ -35,7 +35,8 @@ anim fragment_fade_exit
 anim fragment_fast_out_extra_slow_in
 anim fragment_open_enter
 anim fragment_open_exit
-anim letter_rotating
+anim letter_rotation
+anim loader_rotation
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
@@ -1620,6 +1621,7 @@ drawable ic_mtrl_chip_close_circle
 drawable j
 drawable k
 drawable l
+drawable loading
 drawable m
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1662,6 +1664,7 @@ drawable rabbit
 drawable restart
 drawable s
 drawable snake
+drawable sound
 drawable square
 drawable start
 drawable t
@@ -1899,6 +1902,7 @@ id list_item
 id ll_letters
 id ll_target
 id ll_to_swipe
+id loader
 id main_ll
 id masked
 id media_actions
@@ -2164,6 +2168,7 @@ layout abc_tooltip
 layout activity_drawing_game
 layout activity_find_right_picture_game
 layout activity_game_space
+layout activity_loading
 layout activity_main
 layout activity_speak_right_game
 layout color_item

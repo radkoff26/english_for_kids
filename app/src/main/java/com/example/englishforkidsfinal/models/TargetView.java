@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.example.englishforkidsfinal.R;
-import com.example.englishforkidsfinal.activities.GameSpace;
+import com.example.englishforkidsfinal.activities.CollectWord;
 
 public class TargetView extends LinearLayout {
 
@@ -38,7 +38,7 @@ public class TargetView extends LinearLayout {
 
             tv.setOnClickListener(v -> {
                 if (!((LetterTextView) v).getText().toString().equals("_")) {
-                    ((LettersView) ((GameSpace) ctx).findViewById(R.id.ll_letters))
+                    ((LettersView) ((CollectWord) ctx).findViewById(R.id.ll_letters))
                             .returnLetter(((LetterTextView) v).getLetter());
                     ((LetterTextView) v).setText("_");
                     ((LetterTextView) v).setLetter(null);
@@ -68,7 +68,7 @@ public class TargetView extends LinearLayout {
         }
 
         if (word.toLowerCase().equals(s.toLowerCase())) {
-            ((GameSpace) ctx).restart();
+            ((CollectWord) ctx).restart();
         }
     }
 }

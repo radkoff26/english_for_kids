@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\radko\\OneDrive\\Android\\english_for_kids\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-in\\values-in.xml",
+            "outputFile": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-in\\values-in.xml",
             "map": [
                 {
                     "source": "C:\\Users\\radko\\.gradle\\caches\\transforms-2\\files-2.1\\aa7e71911ad4fcf6ea7004a6a29563ba\\navigation-ui-2.3.2\\res\\values-in\\values-in.xml",

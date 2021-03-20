@@ -7,7 +7,6 @@ import android.os.Bundle;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +14,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.englishforkidsfinal.R;
-import com.example.englishforkidsfinal.db.DataBase;
+import com.example.englishforkidsfinal.db.AllWordsDataBase;
+import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
+import com.example.englishforkidsfinal.models.db_models.Word;
 
-import static com.example.englishforkidsfinal.models.TestModels.words;
+import java.util.List;
+
+import static com.example.englishforkidsfinal.models.ArgumentsContractions.RESULT;
+import static com.example.englishforkidsfinal.models.ArgumentsContractions.RESULT_DEFAULT;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
 
 
 public class ResultContestFragment extends Fragment {
@@ -28,7 +35,9 @@ public class ResultContestFragment extends Fragment {
     private SharedPreferences sp;
     private AppCompatButton finish;
     private SharedPreferences.Editor editor;
-    private DataBase db;
+    private LearnedWordsDataBase db;
+    private AllWordsDataBase allWordsDB;
+    private List<Word> words;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,13 +46,15 @@ public class ResultContestFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_result_contest, container, false);
 
         // Initialization of SharedPreferences
-        sp = getActivity().getSharedPreferences("contest", Context.MODE_PRIVATE);
-
-        // Initialization of Database
-        db = new DataBase(getContext());
+        sp = getActivity().getSharedPreferences(CACHE_CONTEST, Context.MODE_PRIVATE);
 
         // Receiving previous number of group of words from SharedPreferences
-        prev = sp.getInt("group", 1);
+        prev = sp.getInt(CACHE_CONTEST_GROUP, CACHE_CONTEST_GROUP_DEFAULT);
+
+        // Initialization of Database and List
+        db = new LearnedWordsDataBase(getContext());
+        allWordsDB = new AllWordsDataBase(getContext());
+        words = allWordsDB.getWords(prev);
 
         // Initializing Editor of SharedPreferences
         editor = sp.edit();
@@ -52,7 +63,7 @@ public class ResultContestFragment extends Fragment {
         Bundle args = getArguments();
 
         // Receiving result argument from bundle from previous fragment
-        result = args.getInt("result", 0);
+        result = args.getInt(RESULT, RESULT_DEFAULT);
 
         // Initializing views
         score = view.findViewById(R.id.result);
@@ -64,12 +75,10 @@ public class ResultContestFragment extends Fragment {
         // Checking
         // If the result is the best, it will be shown in Toast and words inserted into Database
         if (result == 5) {
-            editor.putInt("group", prev + 1);
+            editor.putInt(CACHE_CONTEST_GROUP, prev + 1);
             Toast.makeText(getContext(), "You have successfully passed contest and opened words of group number " + (prev + 1) + "!", Toast.LENGTH_SHORT).show();
             for (int i = 0; i < words.size(); i++) {
-                if (words.get(i).getGr() == prev) {
-                    db.add(words.get(i));
-                }
+                db.add(words.get(i));
             }
         }
 
@@ -86,8 +95,9 @@ public class ResultContestFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        // Closing Database if fragment is going to be closed
+        // Closing databases if fragment is going to be closed
         db.close();
+        allWordsDB.close();
         super.onDestroy();
     }
 }

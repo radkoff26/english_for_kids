@@ -18,11 +18,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.englishforkidsfinal.R;
-import com.example.englishforkidsfinal.models.Word;
+import com.example.englishforkidsfinal.db.db_sql_models.SpeakRight;
+import com.example.englishforkidsfinal.models.Tools;
+import com.example.englishforkidsfinal.models.db_models.SpeakRightModel;
 
 import java.util.ArrayList;
-
-import static com.example.englishforkidsfinal.models.TestModels.words;
+import java.util.List;
 
 public class SpeakRightGame extends AppCompatActivity {
 
@@ -30,7 +31,9 @@ public class SpeakRightGame extends AppCompatActivity {
     private SpeechRecognizer recognizer;
     private ImageView animal;
     private AppCompatButton answer;
-    private Word word;
+    private SpeakRightModel word;
+    private SpeakRight speakRight;
+    private List<SpeakRightModel> models;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,16 +49,20 @@ public class SpeakRightGame extends AppCompatActivity {
             );
         }
 
+        speakRight = new SpeakRight(this);
+
+        models = speakRight.getWords();
+
         // Initializing views
-        animal = (ImageView) findViewById(R.id.animal);
-        answer = (AppCompatButton) findViewById(R.id.answer);
+        animal = findViewById(R.id.animal);
+        answer = findViewById(R.id.answer);
 
         // Initializing id of random right word
         int id = randomId();
-        word = words.get(id);
+        word = models.get(id);
 
         // Setting right word's resources to content view
-        animal.setImageResource(word.getRes());
+        Tools.LoadImageFromWebOperations(word.getUrl(), animal);
 
         // Setting speech recognizer up
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -76,7 +83,7 @@ public class SpeakRightGame extends AppCompatActivity {
                 if (voiceResults == null) {
                     Toast.makeText(getApplicationContext(), "You haven't said any words!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (compare(word.getAnimal().toLowerCase(), voiceResults.get(0).toLowerCase())) {
+                    if (compare(word.getEng().toLowerCase(), voiceResults.get(0).toLowerCase())) {
                         // If answer is right
                         restart();
                     } else {
@@ -144,7 +151,7 @@ public class SpeakRightGame extends AppCompatActivity {
 
     // Method to randomize indexes of list of words
     public int randomId() {
-        return (int) (Math.random() * words.size());
+        return (int) (Math.random() * models.size());
     }
 
     // Method to restart activity and to randomize words

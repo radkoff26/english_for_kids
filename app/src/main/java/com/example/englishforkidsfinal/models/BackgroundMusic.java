@@ -3,7 +3,17 @@ package com.example.englishforkidsfinal.models;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.util.Log;
+
+import com.example.englishforkidsfinal.R;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS_MUSIC;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS_MUSIC_DEFAULT;
 
 public class BackgroundMusic extends Thread {
 
@@ -18,28 +28,28 @@ public class BackgroundMusic extends Thread {
 
     // Constructor
     public BackgroundMusic(List<Integer> tracks, Context ctx) {
-        this.tracks = tracks;
+        this.tracks = Arrays.asList(R.raw.first, R.raw.second, R.raw.third);
         this.ctx = ctx;
 
         // Setting id of random track
-        randomizeTrack();
+        idOfTrack = randomizeTrack();
 
         // Initializing of media player
         mp = MediaPlayer.create(ctx, tracks.get(idOfTrack));
 
         // Initializing SharedPreferences to get music settings
-        sp = ctx.getSharedPreferences("settings", Context.MODE_PRIVATE);
+        sp = ctx.getSharedPreferences(CACHE_SETTINGS, Context.MODE_PRIVATE);
 
         // Updating access
         updateAccess();
     }
 
     // Method to set id of random track
-    private void randomizeTrack() {
-        this.idOfTrack = (int) Math.floor(Math.random() * 3);
+    private int randomizeTrack() {
+        return (int) (Math.random() * tracks.size());
     }
 
-    // Method to manage media player to play music in new thread
+    // Method to manage media player to play music in a new thread
     @Override
     public void run() {
         updateAccess();
@@ -47,7 +57,7 @@ public class BackgroundMusic extends Thread {
             mp.start();
             isPlaying = true;
             while (isPlaying) {
-                if (mp.getCurrentPosition() + 10 > mp.getDuration()) {
+                if (mp.getCurrentPosition() + 1500 > mp.getDuration()) {
                     nextTrack();
                 }
             }
@@ -85,12 +95,12 @@ public class BackgroundMusic extends Thread {
     public void nextTrack() {
         updateAccess();
         if (isAccessedToPlay) {
-            int id = idOfTrack;
-            while (idOfTrack == id) {
-                randomizeTrack();
-            }
             if (mp != null) {
                 mp.pause();
+            }
+            int id = idOfTrack;
+            while (idOfTrack == id) {
+                idOfTrack = randomizeTrack();
             }
             mp = MediaPlayer.create(ctx, tracks.get(idOfTrack));
             mp.start();
@@ -104,6 +114,6 @@ public class BackgroundMusic extends Thread {
 
     // Method to update access to play music
     public void updateAccess() {
-        isAccessedToPlay = sp.getBoolean("music", true);
+        isAccessedToPlay = sp.getBoolean(CACHE_SETTINGS_MUSIC, CACHE_SETTINGS_MUSIC_DEFAULT);
     }
 }

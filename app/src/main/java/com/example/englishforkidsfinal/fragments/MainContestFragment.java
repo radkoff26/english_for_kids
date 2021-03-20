@@ -13,13 +13,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.englishforkidsfinal.R;
-import com.example.englishforkidsfinal.models.Word;
+import com.example.englishforkidsfinal.db.AllWordsDataBase;
+import com.example.englishforkidsfinal.models.Tools;
+import com.example.englishforkidsfinal.models.db_models.Word;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.example.englishforkidsfinal.models.TestModels.words;
+import static com.example.englishforkidsfinal.models.ArgumentsContractions.RESULT;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
 
 public class MainContestFragment extends Fragment {
 
@@ -29,6 +33,7 @@ public class MainContestFragment extends Fragment {
     private List<Word> mWords;
     private SharedPreferences sp;
     private int group, right, wrong, current = 0, score;
+    private AllWordsDataBase db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,22 +41,17 @@ public class MainContestFragment extends Fragment {
         // Initialization of main view
         View view = inflater.inflate(R.layout.fragment_main_contest, container, false);
 
-        // Initializing list of words
-        mWords = new ArrayList<>();
-
         // Initializing score by zero to increment it in case of right answers
         score = 0;
 
         // Initializing SharedPreferences and its Editor
-        sp = getActivity().getSharedPreferences("contest", Context.MODE_PRIVATE);
-        group = sp.getInt("group", 1);
+        sp = getActivity().getSharedPreferences(CACHE_CONTEST, Context.MODE_PRIVATE);
+        group = sp.getInt(CACHE_CONTEST_GROUP, CACHE_CONTEST_GROUP_DEFAULT);
 
-        // Searching for words that need to be in contest
-        for (int i = 0; i < words.size(); i++) {
-            if (words.get(i).getGr() == group) {
-                mWords.add(words.get(i));
-            }
-        }
+        db = new AllWordsDataBase(getContext());
+
+        // Initializing list of words
+        mWords = db.getWords(group);
 
         // Randomizing list of words
         Collections.shuffle(mWords);
@@ -89,14 +89,14 @@ public class MainContestFragment extends Fragment {
         wrong = 1 - right;
 
         // Setting resources to views
-        picture.setImageResource(mWords.get(current).getRes());
+        Tools.LoadImageFromWebOperations(mWords.get(current).getUrl(), picture);
 
         if (right == 0) {
-            w1.setText(mWords.get(current).getAnimal());
-            w2.setText(wrongWord.getAnimal());
+            w1.setText(mWords.get(current).getEng());
+            w2.setText(wrongWord.getEng());
         } else {
-            w1.setText(wrongWord.getAnimal());
-            w2.setText(mWords.get(current).getAnimal());
+            w1.setText(wrongWord.getEng());
+            w2.setText(mWords.get(current).getEng());
         }
 
         // Setting OnClickListeners to the buttons
@@ -111,7 +111,7 @@ public class MainContestFragment extends Fragment {
                 ResultContestFragment fragment = new ResultContestFragment();
 
                 Bundle args = new Bundle();
-                args.putInt("result", score);
+                args.putInt(RESULT, score);
                 fragment.setArguments(args);
 
                 getActivity()
@@ -136,7 +136,7 @@ public class MainContestFragment extends Fragment {
                 ResultContestFragment fragment = new ResultContestFragment();
 
                 Bundle args = new Bundle();
-                args.putInt("result", score);
+                args.putInt(RESULT, score);
                 fragment.setArguments(args);
 
                 getActivity()

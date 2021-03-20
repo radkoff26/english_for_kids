@@ -27,19 +27,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.EnglishForKidsFinal" >
-        <activity android:name="com.example.englishforkidsfinal.activities.FindRightPictureGame" />
-        <activity android:name="com.example.englishforkidsfinal.activities.SpeakRightGame" />
+        android:theme="@style/Theme.EnglishForKidsFinal"
+        android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.example.englishforkidsfinal.activities.DrawingGame"
-            android:screenOrientation="landscape" />
-        <activity android:name="com.example.englishforkidsfinal.activities.GameSpace" />
-        <activity android:name="com.example.englishforkidsfinal.activities.MainActivity" >
+            android:name="com.example.englishforkidsfinal.activities.LoadingActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.englishforkidsfinal.activities.FindRightPictureGame"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.englishforkidsfinal.activities.SpeakRightGame"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.englishforkidsfinal.activities.DrawingGame"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.example.englishforkidsfinal.activities.CollectWord"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.englishforkidsfinal.activities.MainActivity"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

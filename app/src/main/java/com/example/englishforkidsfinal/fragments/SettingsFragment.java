@@ -15,6 +15,10 @@ import android.view.ViewGroup;
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.MainActivity;
 
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS_MUSIC;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS_MUSIC_DEFAULT;
+
 public class SettingsFragment extends Fragment {
 
     // Declaration of variables
@@ -30,14 +34,14 @@ public class SettingsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
         // Initializing SharedPreferences
-        sp = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
+        sp = getActivity().getSharedPreferences(CACHE_SETTINGS, Context.MODE_PRIVATE);
 
         // Initializing views
         saveChanges = view.findViewById(R.id.save_changes);
         music = view.findViewById(R.id.switch_music);
 
         // Receiving data about music settings
-        isTurned = sp.getBoolean("music", true);
+        isTurned = sp.getBoolean(CACHE_SETTINGS_MUSIC, CACHE_SETTINGS_MUSIC_DEFAULT);
 
         // Disabling button
         toggleButton(false);
@@ -53,11 +57,11 @@ public class SettingsFragment extends Fragment {
         // Setting OnClickListener to the save button
         saveChanges.setOnClickListener(v -> {
             // Initializing SharedPreferences and its Editor
-            SharedPreferences sp = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
+            SharedPreferences sp = getActivity().getSharedPreferences(CACHE_SETTINGS, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();
 
             // Inserting data about music settings into Editor and applying changes
-            editor.putBoolean("music", music.isChecked());
+            editor.putBoolean(CACHE_SETTINGS_MUSIC, music.isChecked());
             editor.apply();
 
             // Applying changes in Main Activity and removing fragment

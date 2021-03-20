@@ -39,8 +39,8 @@
         android:layout_height="0dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_weight="1"
-        android:src="@drawable/restart" />
+        android:layout_weight="0.7"
+        android:src="@drawable/sound" />
 
 
 </LinearLayout>
