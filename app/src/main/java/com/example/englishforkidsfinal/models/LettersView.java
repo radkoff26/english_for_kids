@@ -25,6 +25,7 @@ public class LettersView extends LinearLayout {
 
     // Method to set up default adjustments
     public void startSettings(String word, TargetView targetView) {
+        removeAllViews();
         this.word = word.toLowerCase();
         this.targetView = targetView;
 

@@ -28,6 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoadingActivity extends AppCompatActivity {
 
+    // Declaration of variables
     private ImageView loader;
     private Retrofit retrofit;
     private ClientAPI clientAPI;
@@ -37,6 +38,7 @@ public class LoadingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
+        // Initialization
         loader = findViewById(R.id.loader);
 
         retrofit = new Retrofit.Builder()
@@ -46,6 +48,7 @@ public class LoadingActivity extends AppCompatActivity {
 
         clientAPI = retrofit.create(ClientAPI.class);
 
+        // Setting animation to the loader ImageView
         float ROTATE_FROM = 0.0f;
         float ROTATE_TO = 10.0f * 360.0f;
 
@@ -56,16 +59,21 @@ public class LoadingActivity extends AppCompatActivity {
 
         loader.startAnimation(r);
 
+        // Starting preparing data async
         new Loader().execute();
     }
 
+    // AsyncTask class to prepare data
     public class Loader extends AsyncTask<String, Integer, List<Word>> {
 
         @Override
         protected List<Word> doInBackground(String... strings) {
+            // Here is check if databases are empty
+            // If so databases will be completed with data
             AllWordsDataBase allWordsDB = new AllWordsDataBase(getApplicationContext());
             LearnedWordsDataBase learnedWordsDB = new LearnedWordsDataBase(getApplicationContext());
 
+            // Check for database of all words
             if (allWordsDB.isEmpty()) {
                 clientAPI.getAllWords()
                         .enqueue(new Callback<List<Word>>() {
@@ -86,6 +94,7 @@ public class LoadingActivity extends AppCompatActivity {
                         });
             }
 
+            // Check for database of learned words
             if (learnedWordsDB.isEmpty()) {
                 clientAPI.getWords(1)
                         .enqueue(new Callback<List<Word>>() {
@@ -105,6 +114,8 @@ public class LoadingActivity extends AppCompatActivity {
                             }
                         });
             }
+
+            // Closing databases
             allWordsDB.close();
             learnedWordsDB.close();
             return null;
@@ -118,7 +129,9 @@ public class LoadingActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<Word> words) {
             super.onPostExecute(words);
+            // When checking of data is finished MainActivity starts
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
         }
 
         @Override

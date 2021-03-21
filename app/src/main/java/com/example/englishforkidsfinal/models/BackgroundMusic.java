@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.example.englishforkidsfinal.activities.MainActivity.currentPosition;
+import static com.example.englishforkidsfinal.activities.MainActivity.currentTrack;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS_MUSIC;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS_MUSIC_DEFAULT;
@@ -27,17 +29,23 @@ public class BackgroundMusic extends Thread {
     private SharedPreferences sp;
 
     // Constructor
-    public BackgroundMusic(List<Integer> tracks, Context ctx) {
+    public BackgroundMusic(Context ctx) {
         this.tracks = Arrays.asList(R.raw.first, R.raw.second, R.raw.third);
         this.ctx = ctx;
 
         // Setting id of random track
-        idOfTrack = randomizeTrack();
+        if (currentTrack == -1) {
+            idOfTrack = randomizeTrack();
+        }
 
         // Initializing of media player
-        mp = MediaPlayer.create(ctx, tracks.get(idOfTrack));
+        mp = MediaPlayer.create(ctx, currentTrack == -1 ? tracks.get(idOfTrack) : currentTrack);
+        if (currentTrack == -1) {
+            currentTrack = tracks.get(idOfTrack);
+        }
+        setCurrentPosition(currentPosition);
 
-        // Initializing SharedPreferences to get music settings
+                // Initializing SharedPreferences to get music settings
         sp = ctx.getSharedPreferences(CACHE_SETTINGS, Context.MODE_PRIVATE);
 
         // Updating access
@@ -57,6 +65,7 @@ public class BackgroundMusic extends Thread {
             mp.start();
             isPlaying = true;
             while (isPlaying) {
+                currentPosition = mp.getCurrentPosition();
                 if (mp.getCurrentPosition() + 1500 > mp.getDuration()) {
                     nextTrack();
                 }
@@ -89,6 +98,7 @@ public class BackgroundMusic extends Thread {
     // Method to set playing of music false
     public void stopPlaying() {
         isPlaying = false;
+        currentPosition = 0;
     }
 
     // Method to turn the next track with all checks
@@ -102,7 +112,9 @@ public class BackgroundMusic extends Thread {
             while (idOfTrack == id) {
                 idOfTrack = randomizeTrack();
             }
+            currentPosition = 0;
             mp = MediaPlayer.create(ctx, tracks.get(idOfTrack));
+            currentTrack = tracks.get(idOfTrack);
             mp.start();
         } else {
             if (mp != null) {
@@ -115,5 +127,12 @@ public class BackgroundMusic extends Thread {
     // Method to update access to play music
     public void updateAccess() {
         isAccessedToPlay = sp.getBoolean(CACHE_SETTINGS_MUSIC, CACHE_SETTINGS_MUSIC_DEFAULT);
+    }
+
+    // Method to set current position of playing
+    public void setCurrentPosition(int mSec) {
+        if (mp != null) {
+            mp.seekTo(mSec);
+        }
     }
 }

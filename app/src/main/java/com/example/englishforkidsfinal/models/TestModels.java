@@ -26,6 +26,7 @@ public class TestModels {
             )
     );
 
+    // Method to get random test picture
     public static Picture getRandomPicture() {
         return pictures.get((int) (Math.random() * pictures.size()));
     }

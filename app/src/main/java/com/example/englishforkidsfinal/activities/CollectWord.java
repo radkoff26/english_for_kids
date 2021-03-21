@@ -20,6 +20,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static com.example.englishforkidsfinal.activities.MainActivity.currentPosition;
+import static com.example.englishforkidsfinal.models.ArgumentsContractions.MUSIC_CURRENT_POSITION;
+
 
 public class CollectWord extends AppCompatActivity {
 
@@ -52,10 +55,7 @@ public class CollectWord extends AppCompatActivity {
         }
 
         // Background music
-        // Tracks
-        tracks = Arrays.asList(R.raw.first, R.raw.second, R.raw.third);
-        // Music
-        music = new BackgroundMusic(tracks, this);
+        music = new BackgroundMusic(this);
         // Starting music
         music.start();
 
@@ -78,11 +78,9 @@ public class CollectWord extends AppCompatActivity {
         Tools.LoadImageFromWebOperations(words.get(0).getUrl(), iv);
     }
 
-    // Method to restart activity and to randomize words
+    // Method to randomize words
     public void restart() {
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
+        shuffle();
     }
 
 

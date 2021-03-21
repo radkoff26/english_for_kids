@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+// Additional class for DrawingView that contains all paths to draw and simplifies work with its removing and appending
 public class PathList extends HashMap<Path, Paint> {
 
     private ArrayList<Object[]> sequence = new ArrayList<>();

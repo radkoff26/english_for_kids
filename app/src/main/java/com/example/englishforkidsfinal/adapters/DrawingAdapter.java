@@ -18,17 +18,19 @@ import java.util.List;
 
 public class DrawingAdapter extends ArrayAdapter<ColorsPaint> {
 
+    // Declaration of variables
     private List<ColorsPaint> colors;
 
     public DrawingAdapter(@NonNull Context context, int resource, @NonNull List<ColorsPaint> objects) {
         super(context, resource, objects);
-
+        // Initialization of variables
         colors = objects;
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        // Setting color button to ListView
         ColorsPaint color = getItem(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.color_item, parent, false);

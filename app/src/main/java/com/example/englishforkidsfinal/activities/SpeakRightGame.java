@@ -57,19 +57,28 @@ public class SpeakRightGame extends AppCompatActivity {
         animal = findViewById(R.id.animal);
         answer = findViewById(R.id.answer);
 
-        // Initializing id of random right word
-        int id = randomId();
-        word = models.get(id);
-
-        // Setting right word's resources to content view
-        Tools.LoadImageFromWebOperations(word.getUrl(), animal);
-
         // Setting speech recognizer up
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         recognizer = SpeechRecognizer
                 .createSpeechRecognizer(this.getApplicationContext());
+
+        // Initializing id of random right word
+        randomize();
+
+        // Setting OnClickListener to button to launch recognition
+        answer.setOnClickListener(v -> {
+            recognizer.startListening(intent);
+            answer.setClickable(false);
+            answer.setFocusable(false);
+        });
+    }
+
+    // Method to randomize
+    public void randomize() {
+        int id = randomId();
+        word = models.get(id);
 
         // Making and setting OnClickListener up to speak
         RecognitionListener listener = new RecognitionListener() {
@@ -141,12 +150,8 @@ public class SpeakRightGame extends AppCompatActivity {
         };
         recognizer.setRecognitionListener(listener);
 
-        // Setting OnClickListener to button to launch recognition
-        answer.setOnClickListener(v -> {
-            recognizer.startListening(intent);
-            answer.setClickable(false);
-            answer.setFocusable(false);
-        });
+        // Setting right word's resources to content view
+        Tools.LoadImageFromWebOperations(word.getUrl(), animal);
     }
 
     // Method to randomize indexes of list of words
@@ -156,9 +161,7 @@ public class SpeakRightGame extends AppCompatActivity {
 
     // Method to restart activity and to randomize words
     public void restart() {
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
+        randomize();
     }
 
     // Method to maximally avoid disadvantages of speech recognizer in comparing of results

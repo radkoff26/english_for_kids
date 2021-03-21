@@ -17,6 +17,7 @@ import java.util.Map;
 
 public class DrawingView extends View {
 
+    // Declaration of variables
     private Paint paint;
     private Path path;
     private PathList paths;
@@ -27,13 +28,15 @@ public class DrawingView extends View {
     public DrawingView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
+        // Initialization of variables
         paths = new PathList();
-
         path = new Path();
 
+        // Putting the first path to draw
         paths.put(path, new Paint());
     }
 
+    // Method to set picture to the background of DrawingView
     public void setPicture(Picture picture) {
         this.picture = picture;
         setBackground(getResources().getDrawable(picture.getResource()));
@@ -43,11 +46,13 @@ public class DrawingView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        // Drawing all paths in PathList
         for (Map.Entry<Path, Paint> entry : paths.entrySet()) {
             canvas.drawPath(entry.getKey(), entry.getValue());
         }
     }
 
+    // OnTouchEvent method to analyze where was last touch to get coordinates to draw new path
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         x = event.getX();
@@ -68,6 +73,7 @@ public class DrawingView extends View {
         return true;
     }
 
+    // SetColor method to set color and reinitialize paint
     public void setColor(int color) {
         paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
@@ -79,6 +85,7 @@ public class DrawingView extends View {
         paths.put(path, paint);
     }
 
+    // Method to remove last path from PathList and canvas
     public void back() {
         paths.removePreLast();
         invalidate();

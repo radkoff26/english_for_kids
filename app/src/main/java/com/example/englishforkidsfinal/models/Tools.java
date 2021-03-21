@@ -10,11 +10,16 @@ import android.widget.ImageView;
 import java.io.InputStream;
 import java.net.URL;
 
+// Class that contains tools for application
 public class Tools {
+
+    // Method to load image by url
     public static void LoadImageFromWebOperations(String url, ImageView imageView) {
+        // Invoking execute method to load image by url
         new DownloadImageTask(imageView).execute(url);
     }
 
+    // AsyncTask class to receive image by url and display in given ImageView
     private static class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
         public DownloadImageTask(ImageView bmImage) {

@@ -2,6 +2,7 @@ package com.example.englishforkidsfinal.models;
 
 import java.util.List;
 
+// Plain Old Java Object
 public class Picture {
     private int resource;
     private List<ColorsPaint> colors;

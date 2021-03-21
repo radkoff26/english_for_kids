@@ -11,6 +11,7 @@ import retrofit2.http.Query;
 
 public interface ClientAPI {
 
+    // GET queries for server
     @GET("/getAllWords")
     Call<List<Word>> getAllWords();
 

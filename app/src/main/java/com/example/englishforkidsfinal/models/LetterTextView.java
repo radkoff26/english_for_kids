@@ -3,6 +3,7 @@ package com.example.englishforkidsfinal.models;
 import android.content.Context;
 import androidx.appcompat.widget.AppCompatTextView;
 
+// Plain Old Java Object
 public class LetterTextView extends AppCompatTextView {
 
     private Letter letter;

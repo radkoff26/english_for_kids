@@ -24,6 +24,7 @@ public class TargetView extends LinearLayout {
 
     // Method to set start adjustments
     public void startSettings(Context context, String word) {
+        removeAllViews();
         this.word = word.toLowerCase();
         ctx = context;
         setOrientation(LinearLayout.HORIZONTAL);

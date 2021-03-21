@@ -18,8 +18,11 @@ import com.example.englishforkidsfinal.models.TestModels;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.example.englishforkidsfinal.activities.MainActivity.currentPosition;
+
 public class DrawingGame extends AppCompatActivity {
 
+    // Declaration of variables
     private DrawingView draw;
     private ListView lv_colors;
     private DrawingAdapter adapter;
@@ -32,27 +35,35 @@ public class DrawingGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawing_game);
 
-        music = new BackgroundMusic(Arrays.asList(R.raw.first, R.raw.second, R.raw.third), this);
+        // Initialization of BackgroundMusic and starting it
+        music = new BackgroundMusic(this);
         music.start();
 
+        // Setting random picture
         picture = TestModels.getRandomPicture();
 
+        // Initialization of views and setting it up
         draw = findViewById(R.id.draw);
         lv_colors = findViewById(R.id.colors);
         back = findViewById(R.id.back);
 
         draw.setPicture(picture);
 
+        // Initialization of adapter
         adapter = new DrawingAdapter(this, R.layout.color_item, picture.getColors());
 
+        // Setting the first color by default
         draw.setColor(picture.getColors().get(0).getIntColor());
 
+        // Setting adapter to ListView
         lv_colors.setAdapter(adapter);
 
+        // Setting OnItemClickListener to the ListView to change current color
         lv_colors.setOnItemClickListener((parent, view, position, id) -> {
             draw.setColor(picture.getColors().get(position).getIntColor());
         });
 
+        // Setting OnItemClickListener to the button to call last drawing action off
         back.setOnClickListener(v -> {
             draw.back();
         });
@@ -60,12 +71,14 @@ public class DrawingGame extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        // Resuming background music if activity wasn't destroyed
         music.resumeMusic();
         super.onStart();
     }
 
     @Override
     protected void onStop() {
+        // Stopping if activity is going to be stopped
         music.pause();
         super.onStop();
     }

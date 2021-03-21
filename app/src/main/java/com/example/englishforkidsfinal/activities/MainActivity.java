@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
     // Declaration of variables
     private AppCompatButton games, alphabet, learning, contest;
-    private View view;
-    private List<Integer> tracks;
     private BackgroundMusic music;
+    public static int currentPosition = 0;
+    public static int currentTrack = -1;
 
 
     @Override
@@ -48,12 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Background music
-        // Tracks
-        tracks = Arrays.asList(R.raw.first, R.raw.second, R.raw.third);
-        // Music
-        music = new BackgroundMusic(tracks, this);
-        // Starting music
-        music.start();
+        updateTrack();
 
         // Initializing views
         games = (AppCompatButton) findViewById(R.id.games);
@@ -182,9 +177,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Method to update access and to turn the next track up
+    // Method to update access and to turn the next track
     public void nextTrack() {
         music.updateAccess();
         music.nextTrack();
+    }
+
+    // Method to update track
+    public void updateTrack() {
+        if (music != null) {
+            music.pause();
+        }
+        music = new BackgroundMusic(this);
+        music.setCurrentPosition(currentPosition);
+        music.start();
     }
 }

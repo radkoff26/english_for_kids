@@ -22,6 +22,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static com.example.englishforkidsfinal.activities.MainActivity.currentPosition;
+
 public class FindRightPictureGame extends AppCompatActivity implements View.OnClickListener {
 
     // Declaration of variables grouped by type
@@ -52,10 +54,7 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
 
         // Initialization
         // Background music
-        // Tracks
-        tracks = Arrays.asList(R.raw.first, R.raw.second, R.raw.third);
-        // Music
-        music = new BackgroundMusic(tracks, this);
+        music = new BackgroundMusic(this);
 
         // Starting music
         music.start();
@@ -88,6 +87,11 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
             return;
         }
 
+        randomize();
+
+    }
+
+    public void randomize() {
         // Randomizing list of all words
         Collections.shuffle(words);
 
@@ -114,6 +118,7 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
         // Setting right word up in the content view
         label.setText(word.getEng().toUpperCase());
 
+        indexes.add(index);
     }
 
     // Method to simplify indexes' randomizing
@@ -163,11 +168,9 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
         v.vibrate(150);
     }
 
-    // Method to restart activity and to randomize word
+    // Method to randomize word
     public void restart() {
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
+        randomize();
     }
 
     @Override
