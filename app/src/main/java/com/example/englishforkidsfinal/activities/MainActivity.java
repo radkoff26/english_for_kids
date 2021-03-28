@@ -1,5 +1,6 @@
 package com.example.englishforkidsfinal.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.fragments.AlphabetFragment;
@@ -22,14 +25,14 @@ import com.example.englishforkidsfinal.fragments.MainContestFragment;
 import com.example.englishforkidsfinal.fragments.MainLearningFragment;
 import com.example.englishforkidsfinal.fragments.SettingsFragment;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     // Declaration of variables
-    private AppCompatButton games, alphabet, learning, contest;
+    private BottomNavigationView bnv;
     private BackgroundMusic music;
     public static int currentPosition = 0;
     public static int currentTrack = -1;
@@ -51,62 +54,42 @@ public class MainActivity extends AppCompatActivity {
         updateTrack();
 
         // Initializing views
-        games = (AppCompatButton) findViewById(R.id.games);
-        alphabet = (AppCompatButton) findViewById(R.id.alphabet);
-        learning = (AppCompatButton) findViewById(R.id.learning);
-        contest = (AppCompatButton) findViewById(R.id.contest);
+        bnv = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
-        // Initializing listener for buttons in the Navigation Bar
-        NavigateListener listener = new NavigateListener();
-
-        // Setting OnClickListeners to the buttons
-        games.setOnClickListener(listener);
-        alphabet.setOnClickListener(listener);
-        learning.setOnClickListener(listener);
-        contest.setOnClickListener(listener);
-    }
-
-    // NavigationListener class to get rid of repeating of code (DRY)
-    class NavigateListener implements View.OnClickListener {
-
-        @Override
-        public void onClick(View v) {
-            // Clear colors of buttons
-            clearButtons();
-
-            // Initializing transaction
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-            // Choosing right fragment to transact to
-            switch (v.getId()) {
-                case R.id.games:
-                    transaction.add(R.id.fragment, new GamesFragment());
+        bnv.setOnNavigationItemSelectedListener(item -> {
+            getSupportActionBar().setDisplayShowTitleEnabled(true);
+            switch (item.getItemId()) {
+                case R.id.home:
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .add(R.id.fragment, new HomeFragment())
+                            .commit();
+                    getSupportActionBar().setTitle(R.string.home);
                     break;
                 case R.id.alphabet:
-                    transaction.add(R.id.fragment, new AlphabetFragment());
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .add(R.id.fragment, new AlphabetFragment())
+                            .commit();
+                    getSupportActionBar().setTitle(R.string.alphabet);
+                    break;
+                case R.id.games:
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .add(R.id.fragment, new GamesFragment())
+                            .commit();
+                    getSupportActionBar().setTitle(R.string.games);
                     break;
                 case R.id.learning:
-                    transaction.add(R.id.fragment, new LearningFragment());
-                    break;
-                case R.id.contest:
-                    transaction.add(R.id.fragment, new ContestFragment());
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .add(R.id.fragment, new LearningFragment())
+                            .commit();
+                    getSupportActionBar().setTitle(R.string.learning);
                     break;
             }
-
-            // Setting color to right button
-            ((AppCompatButton) v).setBackgroundColor(Color.GREEN);
-
-            // Committing transaction
-            transaction.commit();
-        }
-    }
-
-    // Method to reset all buttons' background
-    public void clearButtons() {
-        games.setBackgroundColor(Color.WHITE);
-        alphabet.setBackgroundColor(Color.WHITE);
-        learning.setBackgroundColor(Color.WHITE);
-        contest.setBackgroundColor(Color.WHITE);
+            return true;
+        });
     }
 
     @Override
@@ -128,12 +111,12 @@ public class MainActivity extends AppCompatActivity {
         // Setting Options Menu
         getMenuInflater().inflate(R.menu.main_menu, menu);
         MenuItem menuItem = menu.findItem(R.id.settings);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setTitle(R.string.home);
 
         // Setting OnClickListener to settings fragment button to transact to
         menuItem.setOnMenuItemClickListener(item -> {
             getSupportFragmentManager().beginTransaction().add(R.id.fragment, new SettingsFragment()).commit();
-            clearButtons();
+            getSupportActionBar().setTitle(R.string.settings);
             return true;
         });
 
@@ -152,28 +135,31 @@ public class MainActivity extends AppCompatActivity {
                     .beginTransaction()
                     .add(R.id.fragment, new LearningFragment())
                     .commit();
+            bnv.setSelectedItemId(R.id.learning);
         } else if (fragments.get(fragments.size()-1).getClass() == MainContestFragment.class) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment, new ContestFragment())
                     .commit();
+            bnv.setSelectedItemId(R.id.learning);
         } else if (fragments.get(fragments.size()-1).getClass() == AlphabetLetterFragment.class) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment, new AlphabetFragment())
                     .commit();
+            bnv.setSelectedItemId(R.id.alphabet);
         } else if (fragments.get(fragments.size()-1).getClass() == SettingsFragment.class) {
-            clearButtons();
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment, new HomeFragment())
                     .commit();
+            bnv.setSelectedItemId(R.id.home);
         } else {
-            clearButtons();
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment, new HomeFragment())
                     .commit();
+            bnv.setSelectedItemId(R.id.home);
         }
     }
 

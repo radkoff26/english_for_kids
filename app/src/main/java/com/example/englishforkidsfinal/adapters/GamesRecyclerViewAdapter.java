@@ -5,21 +5,21 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.activities.CollectWord;
 import com.example.englishforkidsfinal.activities.DrawingGame;
 import com.example.englishforkidsfinal.activities.FindRightPictureGame;
-import com.example.englishforkidsfinal.activities.CollectWord;
 import com.example.englishforkidsfinal.activities.SpeakRightGame;
 import com.example.englishforkidsfinal.models.Game;
 
 import java.util.ArrayList;
 
-public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class GamesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     // Declaration of variables
     private ArrayList<Game> games;
@@ -27,37 +27,37 @@ public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     private Context context;
 
     // Constructor
-    public AlphabetRecyclerViewAdapter(Context context) {
+    public GamesRecyclerViewAdapter(Context context) {
         this.inflater = LayoutInflater.from(context);
         this.games = new ArrayList<>();
         this.context = context;
 
         // Test data for Recycler View
         games.add(
-                new Game("Find All Letters")
+                new Game(R.drawable.make_word_game, CollectWord.class)
         );
 
         games.add(
-                new Game("Speak Right")
+                new Game(R.drawable.speak_right_game, SpeakRightGame.class)
         );
 
         games.add(
-                new Game("Draw it!")
+                new Game(R.drawable.drawing_game, DrawingGame.class)
         );
 
         games.add(
-                new Game("Where Is Right Picture?")
+                new Game(R.drawable.find_right_picture_game, FindRightPictureGame.class)
         );
     }
 
     // Customized ViewHolder for Recycler View
     class AlphabetViewHolder extends RecyclerView.ViewHolder {
 
-        final TextView tv;
+        final ImageButton iv_btn;
 
         public AlphabetViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv = itemView.findViewById(R.id.item_tv);
+            iv_btn = itemView.findViewById(R.id.iv_btn);
         }
     }
 
@@ -74,29 +74,11 @@ public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         Game game = games.get(position);
 
         // Setting OnClickListeners to the buttons on Recycler View
-        if (position == 0) {
-            ((AlphabetViewHolder) holder).tv.setOnClickListener(v -> {
-                Intent intent = new Intent(context, CollectWord.class);
-                context.startActivity(intent);
-            });
-        } else if (position == 1) {
-            ((AlphabetViewHolder) holder).tv.setOnClickListener(v -> {
-                Intent intent = new Intent(context, SpeakRightGame.class);
-                context.startActivity(intent);
-            });
-        } else if (position == 2) {
-            ((AlphabetViewHolder) holder).tv.setOnClickListener(v -> {
-                Intent intent = new Intent(context, DrawingGame.class);
-                context.startActivity(intent);
-            });
-        } else if (position == 3) {
-            ((AlphabetViewHolder) holder).tv.setOnClickListener(v -> {
-                Intent intent = new Intent(context, FindRightPictureGame.class);
-                context.startActivity(intent);
-            });
-        }
+        ((AlphabetViewHolder) holder).iv_btn.setOnClickListener(v -> {
+            context.startActivity(new Intent(context, game.getGameClass()));
+        });
 
-        ((AlphabetViewHolder) holder).tv.setText(game.getTitle());
+        ((AlphabetViewHolder) holder).iv_btn.setImageDrawable(context.getResources().getDrawable(game.getRes()));
     }
 
     @Override

@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">EnglishForKidsFinal</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="log_label">SPEECH_RECOGNITION</string>
+    <string name="games">Игры</string>
+    <string name="home">Дом</string>
+    <string name="alphabet">Алфавит</string>
+    <string name="learning">Изучение</string>
+    <string name="settings">Настройки</string>
+    <string name="string_learning_fragment">Может поучим ещё?</string>
+    <string name="string_learning_fragment_to_learn">Выучить новые слова</string>
+    <string name="string_learning_fragment_to_pass_test">Перейти на новый уровень</string>
 </resources>

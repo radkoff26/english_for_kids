@@ -17,6 +17,7 @@ import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
 import com.example.englishforkidsfinal.models.ClientAPI;
 import com.example.englishforkidsfinal.models.db_models.Word;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class LoadingActivity extends AppCompatActivity {
     private ImageView loader;
     private Retrofit retrofit;
     private ClientAPI clientAPI;
+    private boolean isDataFailed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class LoadingActivity extends AppCompatActivity {
         loader = findViewById(R.id.loader);
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.106:8080")
+                .baseUrl("http://192.168.0.107:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

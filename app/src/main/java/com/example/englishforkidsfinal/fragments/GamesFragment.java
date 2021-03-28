@@ -9,14 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter;
+import com.example.englishforkidsfinal.adapters.GamesRecyclerViewAdapter;
 import com.example.englishforkidsfinal.R;
 
 public class GamesFragment extends Fragment {
 
     // Declaration of variables
     private RecyclerView rv;
-    private AlphabetRecyclerViewAdapter adapter;
+    private GamesRecyclerViewAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,7 +28,7 @@ public class GamesFragment extends Fragment {
         rv = (RecyclerView) view.findViewById(R.id.rv);
 
         // Initializing adapter of Recycler View
-        adapter = new AlphabetRecyclerViewAdapter(getContext());
+        adapter = new GamesRecyclerViewAdapter(getContext());
 
         // Setting adapter to Recycler View
         rv.setAdapter(adapter);

@@ -14,4 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="android:windowFullscreen">true</item>
     </style>
+    <style name="Navigation">
+        <item name="colorPrimary">@color/brand</item>
+    </style>
 </resources>
