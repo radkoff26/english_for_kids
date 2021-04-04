@@ -78,6 +78,12 @@ public class MainLearningFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void onDestroyView() {
+        db.close();
+        super.onDestroyView();
+    }
+
     // Method to change the word
     public void next() {
         currentModel = getRandomWord(words);

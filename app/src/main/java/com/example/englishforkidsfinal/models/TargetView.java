@@ -34,6 +34,7 @@ public class TargetView extends LinearLayout {
             tv = new LetterTextView(getContext());
             addView(tv, new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             tv.setTextSize(50f);
+            tv.setTextColor(getResources().getColor(R.color.font_color));
             tv.setText("_");
             tv.setPadding(0, 0, 20, 0);
 
@@ -59,6 +60,7 @@ public class TargetView extends LinearLayout {
             if (tv.getText().toString().trim().equals("_") && !f) {
                 tv.setText(letter.getLetter().toString().toUpperCase());
                 tv.setLetter(letter);
+                tv.setTextColor(getResources().getColor(R.color.font_color));
                 v.setText("");
                 f = true;
             }

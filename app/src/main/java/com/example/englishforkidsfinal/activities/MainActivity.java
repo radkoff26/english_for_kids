@@ -1,18 +1,11 @@
 package com.example.englishforkidsfinal.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.fragments.AlphabetFragment;
@@ -87,9 +80,22 @@ public class MainActivity extends AppCompatActivity {
                             .commit();
                     getSupportActionBar().setTitle(R.string.learning);
                     break;
+                default:
+                    return true;
             }
+            removeBesidesLast();
             return true;
         });
+    }
+
+    private void removeBesidesLast() {
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        for (int i = 0; i < fragments.size(); i++) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .remove(fragments.get(i))
+                    .commit();
+        }
     }
 
     @Override
@@ -127,28 +133,29 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         // Watching Back Presses to transact to right fragment
         List<Fragment> fragments = getSupportFragmentManager().getFragments();
-        if (fragments.get(fragments.size()-1).getClass() == HomeFragment.class) {
+        if (fragments.get(fragments.size() - 1).getClass() == HomeFragment.class) {
             music.pause();
             finish();
-        } else if (fragments.get(fragments.size()-1).getClass() == MainLearningFragment.class) {
+            return;
+        } else if (fragments.get(fragments.size() - 1).getClass() == MainLearningFragment.class) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment, new LearningFragment())
                     .commit();
             bnv.setSelectedItemId(R.id.learning);
-        } else if (fragments.get(fragments.size()-1).getClass() == MainContestFragment.class) {
+        } else if (fragments.get(fragments.size() - 1).getClass() == MainContestFragment.class) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment, new ContestFragment())
                     .commit();
             bnv.setSelectedItemId(R.id.learning);
-        } else if (fragments.get(fragments.size()-1).getClass() == AlphabetLetterFragment.class) {
+        } else if (fragments.get(fragments.size() - 1).getClass() == AlphabetLetterFragment.class) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment, new AlphabetFragment())
                     .commit();
             bnv.setSelectedItemId(R.id.alphabet);
-        } else if (fragments.get(fragments.size()-1).getClass() == SettingsFragment.class) {
+        } else if (fragments.get(fragments.size() - 1).getClass() == SettingsFragment.class) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment, new HomeFragment())
@@ -161,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
             bnv.setSelectedItemId(R.id.home);
         }
+        removeBesidesLast();
     }
 
     // Method to update access and to turn the next track

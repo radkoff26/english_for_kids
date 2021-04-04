@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="android:windowFullscreen">true</item>
     </style>
-    <style name="Navigation">
-        <item name="colorPrimary">@color/brand</item>
+    <style name="Navigation" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="colorPrimary">@color/navigation</item>
     </style>
 </resources>

@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.englishforkidsfinal.R;
@@ -23,6 +25,7 @@ public class LearningFragment extends Fragment {
     private MaterialButton start, test;
     private LearnedWordsDataBase db;
     private TextView tv;
+    private ImageView sunImageView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,9 +34,14 @@ public class LearningFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_learning, container, false);
 
         // Initializing view
+        sunImageView = v.findViewById(R.id.sun);
         start = v.findViewById(R.id.learn);
         test = v.findViewById(R.id.test);
         tv = v.findViewById(R.id.number_of_words);
+
+        // Setting animation to the sun
+        Animation sunRiseAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.dawn);
+        sunImageView.startAnimation(sunRiseAnimation);
 
         db = new LearnedWordsDataBase(getContext());
 
@@ -54,8 +62,8 @@ public class LearningFragment extends Fragment {
     }
 
     @Override
-    public void onPause() {
+    public void onDestroyView() {
         db.close();
-        super.onPause();
+        super.onDestroyView();
     }
 }

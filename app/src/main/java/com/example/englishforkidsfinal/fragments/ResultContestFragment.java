@@ -94,10 +94,10 @@ public class ResultContestFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroyView() {
         // Closing databases if fragment is going to be closed
         db.close();
         allWordsDB.close();
-        super.onDestroy();
+        super.onDestroyView();
     }
 }

@@ -7,8 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="main">#83FF91</color>
-    <color name="main_secondary">#016108</color>
+    <color name="main">#70FF80</color>
+    <color name="navigation">#70FF80</color>
+    <color name="main_secondary">#D0FFD5</color>
     <color name="disabled_button">#7E7E7E</color>
     <color name="brand">#01E013</color>
+    <color name="font_color">#737373</color>
 </resources>

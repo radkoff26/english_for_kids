@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.example.englishforkidsfinal.R;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -53,6 +55,7 @@ public class LettersView extends LinearLayout {
             addView(tv, new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             tv.setText(letters.get(i).getLetter().toString().toUpperCase());
             tv.setTextSize(35f);
+            tv.setTextColor(getResources().getColor(R.color.font_color));
             tv.setPadding(0, 0, 25, 0);
 
             int finalI = i;

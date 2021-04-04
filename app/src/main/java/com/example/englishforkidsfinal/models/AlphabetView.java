@@ -1,9 +1,12 @@
 package com.example.englishforkidsfinal.models;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.view.Display;
 import android.view.Gravity;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -13,6 +16,8 @@ import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.fragments.AlphabetLetterFragment;
 
 import java.util.List;
+
+import static android.content.Context.WINDOW_SERVICE;
 
 public class AlphabetView extends TableLayout {
 
@@ -33,6 +38,8 @@ public class AlphabetView extends TableLayout {
         setOrientation(VERTICAL);
         TextView tv;
         LinearLayout ll;
+        float y = Resources.getSystem().getDisplayMetrics().heightPixels * 0.25f;
+        float textSize = ((float) y)/6;
 
         // Initializing number of letters inserted
         int w = 0;
@@ -48,7 +55,7 @@ public class AlphabetView extends TableLayout {
                 // Initializing and setting up Text View that contains letter
                 tv = new TextView(getContext());
                 tv.setGravity(Gravity.CENTER);
-                tv.setTextSize(50f);
+                tv.setTextSize(textSize);
                 tv.setLayoutParams(new LayoutParams(0, LayoutParams.MATCH_PARENT, 1));
                 tv.setText(alphabet.get(w));
 
@@ -76,7 +83,7 @@ public class AlphabetView extends TableLayout {
         while (w < 26) {
             tv = new TextView(getContext());
             tv.setGravity(Gravity.CENTER);
-            tv.setTextSize(50f);
+            tv.setTextSize(textSize);
             tv.setLayoutParams(new LayoutParams(0, LayoutParams.MATCH_PARENT, 1));
             tv.setText(alphabet.get(w));
 

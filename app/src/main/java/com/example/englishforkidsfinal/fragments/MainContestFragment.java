@@ -77,6 +77,12 @@ public class MainContestFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        db.close();
+        super.onDestroyView();
+    }
+
     // Method to turn the next couple of words
     private void next() {
         // Getting random wrong word

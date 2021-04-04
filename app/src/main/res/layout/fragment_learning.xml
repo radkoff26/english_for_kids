@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/main_secondary"
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical">
@@ -15,7 +15,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="Выучено: ... слов"
-        android:textColor="@color/black"
+        android:textColor="@color/font_color"
         android:textSize="30sp" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -25,12 +25,12 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="@string/string_learning_fragment"
-        android:textColor="@color/black"
+        android:textColor="@color/font_color"
         android:textSize="30sp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/learn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="1"
@@ -38,22 +38,41 @@
         android:textColor="@color/white"
         android:textSize="25sp" />
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="3"
-        android:adjustViewBounds="true"
-        android:background="@color/white"
-        android:scaleType="fitCenter"
-        android:src="@drawable/field" />
+        android:background="#93CFFF">
+
+        <ImageView
+            android:id="@+id/sky"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/sky_solid" />
+
+        <ImageView
+            android:id="@+id/sun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/sun" />
+
+        <ImageView
+            android:id="@+id/grass"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/grass_solid" />
+
+    </RelativeLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/test"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
         android:layout_weight="1"
         android:text="@string/string_learning_fragment_to_pass_test"
         android:textColor="@color/white"

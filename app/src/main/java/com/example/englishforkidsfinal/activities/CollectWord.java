@@ -60,9 +60,9 @@ public class CollectWord extends AppCompatActivity {
         music.start();
 
         // Initializing all views
-        targetView = (TargetView) findViewById(R.id.ll_target);
-        lettersView = (LettersView) findViewById(R.id.ll_letters);
-        iv = (ImageView) findViewById(R.id.iv);
+        targetView = findViewById(R.id.ll_target);
+        lettersView = findViewById(R.id.ll_letters);
+        iv = findViewById(R.id.iv);
 
         // Randomizing words received from Database
         shuffle();

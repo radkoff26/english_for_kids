@@ -6,7 +6,7 @@
     tools:context=".fragments.AlphabetFragment"
     android:clickable="true"
     android:focusable="true"
-    android:background="@color/white">
+    android:background="@color/main_secondary">
 
     <com.example.englishforkidsfinal.models.AlphabetView
         android:layout_width="match_parent"
