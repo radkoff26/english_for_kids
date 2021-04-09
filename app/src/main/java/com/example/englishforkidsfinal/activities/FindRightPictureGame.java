@@ -52,6 +52,8 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_right_picture_game);
 
+        getActionBar().hide();
+
         // Initialization
         // Background music
         music = new BackgroundMusic(this);
@@ -76,6 +78,8 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
 
         // Text View with title of right word
         label = findViewById(R.id.label);
+
+        label.setTypeface(MainActivity.typeface);
 
         // Receiving all words from Database
         words = db.getWords();

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.Word;
@@ -60,6 +61,9 @@ public class MainContestFragment extends Fragment {
         picture = view.findViewById(R.id.picture);
         w1 = view.findViewById(R.id.w1);
         w2 = view.findViewById(R.id.w2);
+
+        w1.setTypeface(MainActivity.typeface);
+        w2.setTypeface(MainActivity.typeface);
 
         // Invoking method to turn the next couple of words
         next();

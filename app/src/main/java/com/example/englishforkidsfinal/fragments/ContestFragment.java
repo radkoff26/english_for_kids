@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.activities.MainActivity;
 
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
@@ -34,6 +35,8 @@ public class ContestFragment extends Fragment {
 
         // Initializing view
         try_it = view.findViewById(R.id.try_it);
+
+        try_it.setTypeface(MainActivity.typeface);
 
         // Setting OnClickListener to the button to transact to MainContestFragment
         try_it.setOnClickListener(v -> {

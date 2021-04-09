@@ -2,6 +2,7 @@ package com.example.englishforkidsfinal.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
@@ -39,6 +40,9 @@ public class SettingsFragment extends Fragment {
         // Initializing views
         saveChanges = view.findViewById(R.id.save_changes);
         music = view.findViewById(R.id.switch_music);
+
+        saveChanges.setTypeface(MainActivity.typeface);
+        music.setTypeface(MainActivity.typeface);
 
         // Receiving data about music settings
         isTurned = sp.getBoolean(CACHE_SETTINGS_MUSIC, CACHE_SETTINGS_MUSIC_DEFAULT);

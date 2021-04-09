@@ -40,6 +40,8 @@ public class SpeakRightGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speak_right_game);
 
+        getActionBar().hide();
+
         // Checking if recording audio is allowed
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
@@ -56,6 +58,8 @@ public class SpeakRightGame extends AppCompatActivity {
         // Initializing views
         animal = findViewById(R.id.animal);
         answer = findViewById(R.id.answer);
+
+        answer.setTypeface(MainActivity.typeface);
 
         // Setting speech recognizer up
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);

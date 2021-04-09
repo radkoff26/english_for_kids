@@ -56,8 +56,10 @@ public class AlphabetView extends TableLayout {
                 tv = new TextView(getContext());
                 tv.setGravity(Gravity.CENTER);
                 tv.setTextSize(textSize);
+                tv.setTypeface(MainActivity.typeface);
                 tv.setLayoutParams(new LayoutParams(0, LayoutParams.MATCH_PARENT, 1));
                 tv.setText(alphabet.get(w));
+                tv.setTextColor(getResources().getColor(R.color.font_color));
 
                 // Setting OnClickListener to the letter to transact to AlphabetLetterFragment
                 TextView finalTv = tv;
@@ -86,6 +88,8 @@ public class AlphabetView extends TableLayout {
             tv.setTextSize(textSize);
             tv.setLayoutParams(new LayoutParams(0, LayoutParams.MATCH_PARENT, 1));
             tv.setText(alphabet.get(w));
+            tv.setTypeface(MainActivity.typeface);
+            tv.setTextColor(getResources().getColor(R.color.font_color));
 
             TextView finalTv = tv;
             tv.setOnClickListener(v -> {

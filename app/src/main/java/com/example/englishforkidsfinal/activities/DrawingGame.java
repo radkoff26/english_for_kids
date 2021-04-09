@@ -39,6 +39,8 @@ public class DrawingGame extends AppCompatActivity {
         music = new BackgroundMusic(this);
         music.start();
 
+        getActionBar().hide();
+
         // Setting random picture
         picture = TestModels.getRandomPicture();
 

@@ -9,7 +9,7 @@
         android:id="@+id/alphabet"
         android:enabled="true"
         android:icon="@drawable/alphabet_icon_main"
-        android:title="@string/alphabet"/>
+        android:title="@string/alphabet" />
     <item
         android:id="@+id/games"
         android:enabled="true"

@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.models.OnSwipeTouchListener;
 import com.example.englishforkidsfinal.models.SpeechImageView;
@@ -35,8 +36,7 @@ public class MainLearningFragment extends Fragment {
     private SpeechImageView repeat;
     private LinearLayout ll;
     private Word currentModel;
-    private TextView eng;
-    private TextView ru;
+    private TextView eng, ru;
     private SharedPreferences sp;
     private int gr;
     private AllWordsDataBase db;
@@ -55,6 +55,9 @@ public class MainLearningFragment extends Fragment {
         eng = v.findViewById(R.id.eng);
         ru = v.findViewById(R.id.ru);
         ll = v.findViewById(R.id.ll_to_swipe);
+
+        eng.setTypeface(MainActivity.typeface);
+        ru.setTypeface(MainActivity.typeface);
 
         db = new AllWordsDataBase(getContext());
 

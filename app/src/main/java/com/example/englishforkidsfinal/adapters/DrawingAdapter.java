@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.models.ColorsPaint;
 
 import java.util.List;
@@ -38,6 +39,7 @@ public class DrawingAdapter extends ArrayAdapter<ColorsPaint> {
         FrameLayout btn = convertView.findViewById(R.id.color);
         TextView tv = convertView.findViewById(R.id.text);
         tv.setText(color.getNumber() + "");
+        tv.setTypeface(MainActivity.typeface);
         btn.setBackgroundColor(color.getIntColor());
 
         return convertView;

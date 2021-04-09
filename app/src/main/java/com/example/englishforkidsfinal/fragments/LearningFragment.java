@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
 import com.example.englishforkidsfinal.models.db_models.Word;
 import com.google.android.material.button.MaterialButton;
@@ -24,8 +25,7 @@ public class LearningFragment extends Fragment {
     // Declaration of variable
     private MaterialButton start, test;
     private LearnedWordsDataBase db;
-    private TextView tv;
-    private ImageView sunImageView;
+    private TextView tv, add_tv;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,28 +34,33 @@ public class LearningFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_learning, container, false);
 
         // Initializing view
-        sunImageView = v.findViewById(R.id.sun);
         start = v.findViewById(R.id.learn);
         test = v.findViewById(R.id.test);
         tv = v.findViewById(R.id.number_of_words);
+        add_tv = v.findViewById(R.id.add_tv);
 
-        // Setting animation to the sun
-        Animation sunRiseAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.dawn);
-        sunImageView.startAnimation(sunRiseAnimation);
+        start.setTypeface(MainActivity.typeface);
+        test.setTypeface(MainActivity.typeface);
+        tv.setTypeface(MainActivity.typeface);
+        add_tv.setTypeface(MainActivity.typeface);
 
         db = new LearnedWordsDataBase(getContext());
 
         List<Word> words = db.getWords();
 
-        tv.setText("Выучено: " + words.size() + " слов");
+        tv.setText(getResources().getString(R.string.amount_of_words, words.size()));
 
         test.setOnClickListener(view -> {
-            getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fragment, new MainContestFragment()).commit();
+            if (words.size() < 10) {
+                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fragment, new MainContestFragment()).commit();
+            }
         });
 
         // Setting OnClickListener to the button to transact to MainLearningFragment
         start.setOnClickListener(v1 -> {
-            getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fragment, new MainLearningFragment()).commit();
+            if (words.size() < 10) {
+                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fragment, new MainLearningFragment()).commit();
+            }
         });
 
         return v;

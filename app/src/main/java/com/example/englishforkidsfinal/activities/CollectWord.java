@@ -44,6 +44,8 @@ public class CollectWord extends AppCompatActivity {
         // Initialization of Database
         db = new LearnedWordsDataBase(this);
 
+        getActionBar().hide();
+
         // Receiving all words from Database
         words = db.getWords();
 

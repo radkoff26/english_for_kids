@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.CollectWord;
+import com.example.englishforkidsfinal.activities.MainActivity;
 
 public class TargetView extends LinearLayout {
 
@@ -36,6 +37,7 @@ public class TargetView extends LinearLayout {
             tv.setTextSize(50f);
             tv.setTextColor(getResources().getColor(R.color.font_color));
             tv.setText("_");
+            tv.setTypeface(MainActivity.typeface);
             tv.setPadding(0, 0, 20, 0);
 
             tv.setOnClickListener(v -> {
@@ -43,6 +45,7 @@ public class TargetView extends LinearLayout {
                     ((LettersView) ((CollectWord) ctx).findViewById(R.id.ll_letters))
                             .returnLetter(((LetterTextView) v).getLetter());
                     ((LetterTextView) v).setText("_");
+                    ((LetterTextView) v).setTypeface(MainActivity.typeface);
                     ((LetterTextView) v).setLetter(null);
                 }
             });
@@ -60,6 +63,7 @@ public class TargetView extends LinearLayout {
             if (tv.getText().toString().trim().equals("_") && !f) {
                 tv.setText(letter.getLetter().toString().toUpperCase());
                 tv.setLetter(letter);
+                tv.setTypeface(MainActivity.typeface);
                 tv.setTextColor(getResources().getColor(R.color.font_color));
                 v.setText("");
                 f = true;

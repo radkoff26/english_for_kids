@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
 import com.example.englishforkidsfinal.models.db_models.Word;
@@ -68,6 +69,9 @@ public class ResultContestFragment extends Fragment {
         // Initializing views
         score = view.findViewById(R.id.result);
         finish = view.findViewById(R.id.finish);
+
+        score.setTypeface(MainActivity.typeface);
+        finish.setTypeface(MainActivity.typeface);
 
         // Setting text to the Text View
         score.setText(result + "/5");

@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/main_secondary">
+    android:background="@color/main_secondary"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/first_layer"
@@ -53,6 +53,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
+        android:textColor="@color/font_color"
         android:textSize="25sp" />
 
 </LinearLayout>

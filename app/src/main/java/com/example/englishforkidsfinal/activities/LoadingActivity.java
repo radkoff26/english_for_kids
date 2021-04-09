@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
@@ -16,6 +17,7 @@ import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
 import com.example.englishforkidsfinal.models.ClientAPI;
+import com.example.englishforkidsfinal.models.DefaultData;
 import com.example.englishforkidsfinal.models.db_models.Word;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -92,6 +94,10 @@ public class LoadingActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(Call<List<Word>> call, Throwable t) {
                                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                                List<Word> allWords = DefaultData.words;
+                                for (int i = 0; i < allWords.size(); i++) {
+                                    allWordsDB.add(allWords.get(i));
+                                }
                             }
                         });
             }
@@ -113,6 +119,10 @@ public class LoadingActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(Call<List<Word>> call, Throwable t) {
                                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                                List<Word> words = DefaultData.words;
+                                for (int i = 0; i < 5; i++) {
+                                    learnedWordsDB.add(words.get(i));
+                                }
                             }
                         });
             }

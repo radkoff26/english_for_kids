@@ -3,6 +3,7 @@ package com.example.englishforkidsfinal.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private BackgroundMusic music;
     public static int currentPosition = 0;
     public static int currentTrack = -1;
+    public static Typeface typeface;
 
 
     @Override
@@ -46,11 +48,14 @@ public class MainActivity extends AppCompatActivity {
         // Background music
         updateTrack();
 
+        typeface = Typeface.createFromAsset(getAssets(), "fonts/FuturaRoundBold.ttf");
+
         // Initializing views
         bnv = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
         bnv.setOnNavigationItemSelectedListener(item -> {
             getSupportActionBar().setDisplayShowTitleEnabled(true);
+
             switch (item.getItemId()) {
                 case R.id.home:
                     getSupportFragmentManager()

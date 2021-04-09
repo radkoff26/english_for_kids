@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/main"
-        android:text="Save" />
+        android:text="Save"
+        android:textColor="@color/font_color" />
 
 
 </LinearLayout>

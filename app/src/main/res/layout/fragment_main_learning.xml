@@ -22,6 +22,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="ENG"
+        android:textColor="@color/font_color"
         android:textSize="30dp" />
 
     <TextView
@@ -31,6 +32,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="RU"
+        android:textColor="@color/font_color"
         android:textSize="30dp" />
 
     <com.example.englishforkidsfinal.models.SpeechImageView
@@ -40,7 +42,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_weight="0.7"
-        android:src="@drawable/sound" />
+        android:src="@drawable/sound"
+        android:tint="@color/font_color" />
 
 
 </LinearLayout>

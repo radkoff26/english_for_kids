@@ -1,81 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_secondary"
     android:clickable="true"
-    android:focusable="true"
-    android:orientation="vertical">
+    android:focusable="true">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/number_of_words"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Выучено: ... слов"
         android:textColor="@color/font_color"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/add_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/add_tv"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/string_learning_fragment"
         android:textColor="@color/font_color"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/learn"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="1"
+        android:background="@drawable/btn_bg"
+        android:paddingLeft="32dp"
+        android:paddingTop="18dp"
+        android:paddingRight="32dp"
+        android:paddingBottom="18dp"
         android:text="@string/string_learning_fragment_to_learn"
         android:textColor="@color/white"
-        android:textSize="25sp" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="3"
-        android:background="#93CFFF">
-
-        <ImageView
-            android:id="@+id/sky"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/sky_solid" />
-
-        <ImageView
-            android:id="@+id/sun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/sun" />
-
-        <ImageView
-            android:id="@+id/grass"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_alignParentBottom="true"
-            android:src="@drawable/grass_solid" />
-
-    </RelativeLayout>
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_tv" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/test"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="1"
+        android:background="@drawable/btn_bg"
+        android:paddingLeft="32dp"
+        android:paddingTop="18dp"
+        android:paddingRight="32dp"
+        android:paddingBottom="18dp"
         android:text="@string/string_learning_fragment_to_pass_test"
         android:textColor="@color/white"
-        android:textSize="25sp" />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/learn" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
