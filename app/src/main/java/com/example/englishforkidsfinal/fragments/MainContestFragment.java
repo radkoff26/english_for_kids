@@ -99,7 +99,7 @@ public class MainContestFragment extends Fragment {
         wrong = 1 - right;
 
         // Setting resources to views
-        Tools.LoadImageFromWebOperations(mWords.get(current).getUrl(), picture);
+        Tools.loadImageFromStorage(mWords.get(current).getEng(), getContext(), picture);
 
         if (right == 0) {
             w1.setText(mWords.get(current).getEng());

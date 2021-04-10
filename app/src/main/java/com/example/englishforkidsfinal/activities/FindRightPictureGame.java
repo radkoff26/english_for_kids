@@ -3,7 +3,6 @@ package com.example.englishforkidsfinal.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
@@ -18,11 +17,8 @@ import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.Word;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import static com.example.englishforkidsfinal.activities.MainActivity.currentPosition;
 
 public class FindRightPictureGame extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,8 +47,6 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_right_picture_game);
-
-        getActionBar().hide();
 
         // Initialization
         // Background music
@@ -153,7 +147,7 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
             default:
                 return;
         }
-        Tools.LoadImageFromWebOperations(word.getUrl(), iv);
+        Tools.loadImageFromStorage(word.getEng(), getApplicationContext(), iv);
 
         // Setting OnClickListeners to right and wrong words
         if (isRight) {

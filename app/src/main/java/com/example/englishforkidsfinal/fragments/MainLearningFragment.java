@@ -19,11 +19,12 @@ import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.models.OnSwipeTouchListener;
 import com.example.englishforkidsfinal.models.SpeechImageView;
-import com.example.englishforkidsfinal.models.TestModels;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.Word;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Stack;
 
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
@@ -41,6 +42,7 @@ public class MainLearningFragment extends Fragment {
     private int gr;
     private AllWordsDataBase db;
     private List<Word> words;
+    private Stack<Word> wordsStack;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -67,6 +69,8 @@ public class MainLearningFragment extends Fragment {
 
         words = db.getWords(gr);
 
+        wordsStack = new Stack<>();
+
         // Invoking method to turn the next word up
         next();
 
@@ -89,9 +93,16 @@ public class MainLearningFragment extends Fragment {
 
     // Method to change the word
     public void next() {
-        currentModel = getRandomWord(words);
+        if (wordsStack.isEmpty()) {
+            Collections.shuffle(words);
+            for (int i = 0; i < words.size(); i++) {
+                wordsStack.push(words.get(i));
+            }
+        }
 
-        Tools.LoadImageFromWebOperations(currentModel.getUrl(), picture);
+        currentModel = wordsStack.pop();
+
+        Tools.loadImageFromStorage(currentModel.getEng(), getContext(), picture);
 
         eng.setText(currentModel.getEng().toUpperCase());
         ru.setText(currentModel.getRu().toUpperCase());

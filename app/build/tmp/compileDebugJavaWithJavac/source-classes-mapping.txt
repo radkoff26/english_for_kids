@@ -1,5 +1,5 @@
-com/example/englishforkidsfinal/models/DefaultData.java
- com.example.englishforkidsfinal.models.DefaultData
+com/example/englishforkidsfinal/activities/MainActivity.java
+ com.example.englishforkidsfinal.activities.MainActivity
 com/example/englishforkidsfinal/models/ClientAPI.java
  com.example.englishforkidsfinal.models.ClientAPI
 com/example/englishforkidsfinal/fragments/MainLearningFragment.java
@@ -7,13 +7,13 @@ com/example/englishforkidsfinal/fragments/MainLearningFragment.java
  com.example.englishforkidsfinal.fragments.MainLearningFragment$1
 com/example/englishforkidsfinal/BuildConfig.java
  com.example.englishforkidsfinal.BuildConfig
-com/example/englishforkidsfinal/activities/FindRightPictureGame.java
- com.example.englishforkidsfinal.activities.FindRightPictureGame
 com/example/englishforkidsfinal/activities/LoadingActivity.java
  com.example.englishforkidsfinal.activities.LoadingActivity
  com.example.englishforkidsfinal.activities.LoadingActivity$Loader
  com.example.englishforkidsfinal.activities.LoadingActivity$Loader$1
  com.example.englishforkidsfinal.activities.LoadingActivity$Loader$2
+com/example/englishforkidsfinal/fragments/LearningFragment.java
+ com.example.englishforkidsfinal.fragments.LearningFragment
 com/example/englishforkidsfinal/db/db_sql_models/FindRightPicture.java
  com.example.englishforkidsfinal.db.db_sql_models.FindRightPicture
 com/example/englishforkidsfinal/fragments/MainContestFragment.java
@@ -44,10 +44,10 @@ com/example/englishforkidsfinal/models/ColorsPaint.java
  com.example.englishforkidsfinal.models.ColorsPaint
 com/example/englishforkidsfinal/fragments/AlphabetLetterFragment.java
  com.example.englishforkidsfinal.fragments.AlphabetLetterFragment
-com/example/englishforkidsfinal/models/ArgumentsContractions.java
- com.example.englishforkidsfinal.models.ArgumentsContractions
 com/example/englishforkidsfinal/models/SpeechImageView.java
  com.example.englishforkidsfinal.models.SpeechImageView
+com/example/englishforkidsfinal/models/ArgumentsContractions.java
+ com.example.englishforkidsfinal.models.ArgumentsContractions
 com/example/englishforkidsfinal/fragments/SettingsFragment.java
  com.example.englishforkidsfinal.fragments.SettingsFragment
 com/example/englishforkidsfinal/fragments/AlphabetFragment.java
@@ -71,6 +71,8 @@ com/example/englishforkidsfinal/models/DrawingView.java
  com.example.englishforkidsfinal.models.DrawingView
 com/example/englishforkidsfinal/models/TestModels.java
  com.example.englishforkidsfinal.models.TestModels
+com/example/englishforkidsfinal/models/DefaultData.java
+ com.example.englishforkidsfinal.models.DefaultData
 com/example/englishforkidsfinal/db/contractions/DataBaseContract.java
  com.example.englishforkidsfinal.db.contractions.DataBaseContract
  com.example.englishforkidsfinal.db.contractions.DataBaseContract$MainTableContractions
@@ -104,7 +106,5 @@ com/example/englishforkidsfinal/db/db_sql_models/SpeakRight.java
  com.example.englishforkidsfinal.db.db_sql_models.SpeakRight
 com/example/englishforkidsfinal/models/TargetView.java
  com.example.englishforkidsfinal.models.TargetView
-com/example/englishforkidsfinal/activities/MainActivity.java
- com.example.englishforkidsfinal.activities.MainActivity
-com/example/englishforkidsfinal/fragments/LearningFragment.java
- com.example.englishforkidsfinal.fragments.LearningFragment
+com/example/englishforkidsfinal/activities/FindRightPictureGame.java
+ com.example.englishforkidsfinal.activities.FindRightPictureGame

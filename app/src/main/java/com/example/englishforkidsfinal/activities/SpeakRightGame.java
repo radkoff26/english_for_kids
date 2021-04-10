@@ -40,8 +40,6 @@ public class SpeakRightGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speak_right_game);
 
-        getActionBar().hide();
-
         // Checking if recording audio is allowed
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
@@ -155,7 +153,7 @@ public class SpeakRightGame extends AppCompatActivity {
         recognizer.setRecognitionListener(listener);
 
         // Setting right word's resources to content view
-        Tools.LoadImageFromWebOperations(word.getUrl(), animal);
+        Tools.loadImageFromStorage(word.getEng(), getApplicationContext(), animal);
     }
 
     // Method to randomize indexes of list of words

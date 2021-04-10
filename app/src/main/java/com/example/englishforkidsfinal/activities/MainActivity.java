@@ -7,8 +7,10 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.fragments.AlphabetFragment;
 import com.example.englishforkidsfinal.fragments.AlphabetLetterFragment;
 import com.example.englishforkidsfinal.fragments.ContestFragment;
@@ -19,6 +21,7 @@ import com.example.englishforkidsfinal.fragments.MainContestFragment;
 import com.example.englishforkidsfinal.fragments.MainLearningFragment;
 import com.example.englishforkidsfinal.fragments.SettingsFragment;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
+import com.example.englishforkidsfinal.models.Tools;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public static int currentPosition = 0;
     public static int currentTrack = -1;
     public static Typeface typeface;
+    private AllWordsDataBase allWordsDB;
 
 
     @Override
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.fragment, new HomeFragment())
                 .commit();
 
+        allWordsDB = new AllWordsDataBase(this);
 
         // Background music
         updateTrack();

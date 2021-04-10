@@ -3,7 +3,7 @@ package com.example.englishforkidsfinal.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -15,13 +15,11 @@ import com.example.englishforkidsfinal.models.LettersView;
 import com.example.englishforkidsfinal.models.TargetView;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.Word;
+import com.squareup.picasso.Picasso;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import static com.example.englishforkidsfinal.activities.MainActivity.currentPosition;
-import static com.example.englishforkidsfinal.models.ArgumentsContractions.MUSIC_CURRENT_POSITION;
+import java.util.Stack;
 
 
 public class CollectWord extends AppCompatActivity {
@@ -31,10 +29,11 @@ public class CollectWord extends AppCompatActivity {
     private LettersView lettersView;
     private ImageView iv;
     private BackgroundMusic music;
-    private List<Integer> tracks;
+    private Word currentWord;
     private LearnedWordsDataBase db;
     private List<Word> words;
-
+    private Stack<Word> wordsStack;
+    private Bitmap picture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +43,9 @@ public class CollectWord extends AppCompatActivity {
         // Initialization of Database
         db = new LearnedWordsDataBase(this);
 
-        getActionBar().hide();
-
         // Receiving all words from Database
         words = db.getWords();
+        wordsStack = new Stack<>();
 
         // Checking if there are any learned words unless access won't be gained
         if (words.size() == 0) {
@@ -67,24 +65,25 @@ public class CollectWord extends AppCompatActivity {
         iv = findViewById(R.id.iv);
 
         // Randomizing words received from Database
-        shuffle();
+        next();
     }
 
     // Method to randomize words from Database and to set default adjustments
-    public void shuffle() {
-        Collections.shuffle(words);
+    public void next() {
+        if (wordsStack.isEmpty()) {
+            Collections.shuffle(words);
+            for (int i = 0; i < words.size(); i++) {
+                wordsStack.push(words.get(i));
+            }
+        }
 
-        targetView.startSettings(this, words.get(0).getEng());
-        lettersView.startSettings(words.get(0).getEng(), targetView);
+        currentWord = wordsStack.pop();
 
-        Tools.LoadImageFromWebOperations(words.get(0).getUrl(), iv);
+        Tools.loadImageFromStorage(currentWord.getEng(), getApplicationContext(), iv);
+
+        targetView.startSettings(this, currentWord.getEng());
+        lettersView.startSettings(currentWord.getEng(), targetView);
     }
-
-    // Method to randomize words
-    public void restart() {
-        shuffle();
-    }
-
 
     @Override
     protected void onStart() {
