@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
@@ -13,9 +14,11 @@ import com.example.englishforkidsfinal.models.db_models.Word;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.All_WORDS_TABLE_NAME;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_ENG;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_GR;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_ID;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_IS_LOADED;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_RU;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_URL;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.TABLE_NAME;
@@ -24,12 +27,12 @@ public class LearnedWordsDataBase extends SQLiteOpenHelper {
 
     // Initializing constant variables that are necessary for instantiating of object
     public static final String DATABASE_NAME = "learned_words_db";
-    public static final int VERSION = 7;
+    public static final int VERSION = 8;
 
     // Default SQL queries to create and to delete table
     public static final String CREATE = "CREATE TABLE " + TABLE_NAME +
             " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
-            COLUMN_ENG+ " TEXT, " +
+            COLUMN_ENG + " TEXT, " +
             COLUMN_RU + " TEXT, " +
             COLUMN_URL + " TEXT, " +
             COLUMN_GR + " INTEGER)";
@@ -47,10 +50,8 @@ public class LearnedWordsDataBase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion < newVersion) {
-            db.execSQL(DELETE);
-            onCreate(db);
-        }
+        db.execSQL(DELETE);
+        onCreate(db);
     }
 
     // Method to get all words in Database
@@ -110,7 +111,7 @@ public class LearnedWordsDataBase extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME,
                 COLUMN_ID + " = ?",
-                new String[] {Integer.toString(word.getId())});
+                new String[]{Integer.toString(word.getId())});
     }
 
     // Method to find out if the word is in Database

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,11 +32,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.NUMBER_OF_WORDS_IN_GROUP;
+import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.ONE_PART;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CACHE;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_IS_LOADED;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_IS_LOADED_DEFAULT;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_WORD_IS_LOADED;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_WORD_IS_LOADED_DEFAULT;
 
 public class LoadingActivity extends AppCompatActivity {
 
@@ -84,8 +84,8 @@ public class LoadingActivity extends AppCompatActivity {
     // AsyncTask class to prepare data
     public class Loader extends AsyncTask<String, Integer, List<Word>> {
 
-        private Thread load, download;
-        private boolean flag = false;
+        private Thread load;
+        private boolean flag = true;
 
         @Override
         protected List<Word> doInBackground(String... strings) {
@@ -94,121 +94,96 @@ public class LoadingActivity extends AppCompatActivity {
             AllWordsDataBase allWordsDB = new AllWordsDataBase(getApplicationContext());
             LearnedWordsDataBase learnedWordsDB = new LearnedWordsDataBase(getApplicationContext());
 
-            if (!sp.getBoolean(CACHE_WORD_IS_LOADED, CACHE_WORD_IS_LOADED_DEFAULT)) {
-                download = new Thread(() -> {
-                    // Check for database of all words
-                    if (allWordsDB.isEmpty()) {
-                        clientAPI.getAllWords()
-                                .enqueue(new Callback<List<Word>>() {
-                                    @Override
-                                    public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
-                                        List<Word> allWords = response.body();
-                                        if (allWords != null) {
-                                            for (int i = 0; i < allWords.size(); i++) {
-                                                allWordsDB.add(allWords.get(i));
-                                            }
-                                        }
-                                    }
+            int level = sp.getInt(CACHE_CONTEST_GROUP, CACHE_CONTEST_GROUP_DEFAULT);
 
-                                    @Override
-                                    public void onFailure(Call<List<Word>> call, Throwable t) {
-                                        Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                                        List<Word> allWords = DefaultData.words;
-                                        for (int i = 0; i < allWords.size(); i++) {
-                                            allWordsDB.add(allWords.get(i));
-                                        }
-                                    }
-                                });
-                    }
+            List<Word> allWords = allWordsDB.getWords(null);
+            List<Word> learnedWords = learnedWordsDB.getWords();
 
-                    // Check for database of learned words
-                    if (learnedWordsDB.isEmpty()) {
-                        clientAPI.getWords(1)
-                                .enqueue(new Callback<List<Word>>() {
-                                    @Override
-                                    public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
-                                        List<Word> words = response.body();
-                                        if (words != null) {
-                                            for (int i = 0; i < words.size(); i++) {
-                                                learnedWordsDB.add(words.get(i));
-                                            }
-                                        }
-                                        flag = true;
+            if (learnedWords.isEmpty() || allWords.size() < Math.ceil(((double) level + 1) / 10) * ONE_PART) {
+                flag = false;
+                // Check for database of all words
+                clientAPI.getAllWords()
+                        .enqueue(new Callback<List<Word>>() {
+                            @Override
+                            public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
+                                List<Word> allWords = response.body();
+                                if (allWords != null) {
+                                    for (int i = 0; i < allWords.size(); i++) {
+                                        allWords.get(i).setLoaded(false);
+                                        allWordsDB.add(allWords.get(i));
                                     }
+                                }
+                                flag = true;
+                            }
 
-                                    @Override
-                                    public void onFailure(Call<List<Word>> call, Throwable t) {
-                                        Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                                        List<Word> words = DefaultData.words;
-                                        for (int i = 0; i < 5; i++) {
-                                            learnedWordsDB.add(words.get(i));
-                                        }
-                                        flag = true;
+                            @Override
+                            public void onFailure(Call<List<Word>> call, Throwable t) {
+                                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                                List<Word> allWords = DefaultData.words;
+                                for (int i = 0; i < allWords.size(); i++) {
+                                    allWords.get(i).setLoaded(false);
+                                    allWordsDB.add(allWords.get(i));
+                                }
+                                flag = true;
+                            }
+                        });
+
+                // Check for database of learned words
+                clientAPI.getWords(1)
+                        .enqueue(new Callback<List<Word>>() {
+                            @Override
+                            public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
+                                List<Word> words = response.body();
+                                if (words != null) {
+                                    for (int i = 0; i < words.size(); i++) {
+                                        learnedWordsDB.add(words.get(i));
                                     }
-                                });
-                    }
-                });
+                                }
+                                flag = true;
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<Word>> call, Throwable t) {
+                                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                                List<Word> words = DefaultData.words;
+                                for (int i = 0; i < NUMBER_OF_WORDS_IN_GROUP; i++) {
+                                    learnedWordsDB.add(words.get(i));
+                                }
+                                flag = true;
+                            }
+                        });
             }
 
+            while (!flag) {}
 
-            if (download != null) {
-                download.start();
-
-                boolean f = true;
-
-                while (f) {
-                    try {
-                        download.join();
-                        f = false;
-                    } catch (InterruptedException e) {
-                        f = true;
-                    }
-                }
-
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putBoolean(CACHE_WORD_IS_LOADED, true);
-                editor.apply();
-            } else {
-                flag = true;
-            }
-
-            while (!flag) {
-            }
-
-            List<Word> words = allWordsDB.getWords(null);
-
-            if (!sp.getBoolean(CACHE_IS_LOADED, CACHE_IS_LOADED_DEFAULT)) {
-                load = new Thread(() -> {
-                    for (int i = 0; i < words.size(); i++) {
+            load = new Thread(() -> {
+                List<Word> words = allWordsDB.getWords(null);
+                for (int i = 0; i < words.size(); i++) {
+                    Log.d("DEBUG", words.get(i).getEng());
+                    if (!words.get(i).isLoaded()) {
                         try {
                             Bitmap b = Picasso.with(getApplicationContext())
                                     .load(words.get(i).getUrl())
                                     .get();
                             Tools.saveToInternalStorage(words.get(i).getEng(), b, getApplicationContext());
+                            words.get(i).setLoaded(true);
+                            allWordsDB.add(words.get(i));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
-                });
-            }
-
-            if (load != null) {
-                load.start();
-
-                boolean f = true;
-
-                while (f) {
-                    try {
-                        load.join();
-                        f = false;
-                    } catch (InterruptedException e) {
-                        f = true;
-                    }
                 }
+            });
 
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putBoolean(CACHE_IS_LOADED, true);
-                editor.apply();
+            load.start();
+
+            boolean f = true;
+
+            while (f) try {
+                load.join();
+                f = false;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
             // Closing databases
@@ -225,7 +200,6 @@ public class LoadingActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<Word> receivedWords) {
             super.onPostExecute(receivedWords);
-
             // When checking of data is finished MainActivity starts
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();

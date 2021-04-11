@@ -48,6 +48,7 @@ public class MainContestFragment extends Fragment {
         // Initializing SharedPreferences and its Editor
         sp = getActivity().getSharedPreferences(CACHE_CONTEST, Context.MODE_PRIVATE);
         group = sp.getInt(CACHE_CONTEST_GROUP, CACHE_CONTEST_GROUP_DEFAULT);
+        group = group == 0 ? 1 : group;
 
         db = new AllWordsDataBase(getContext());
 

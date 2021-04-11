@@ -21,6 +21,7 @@ import com.example.englishforkidsfinal.models.db_models.Word;
 
 import java.util.List;
 
+import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.NUMBER_OF_WORDS_IN_GROUP;
 import static com.example.englishforkidsfinal.models.ArgumentsContractions.RESULT;
 import static com.example.englishforkidsfinal.models.ArgumentsContractions.RESULT_DEFAULT;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST;
@@ -51,6 +52,7 @@ public class ResultContestFragment extends Fragment {
 
         // Receiving previous number of group of words from SharedPreferences
         prev = sp.getInt(CACHE_CONTEST_GROUP, CACHE_CONTEST_GROUP_DEFAULT);
+        prev = prev == 0 ? 1 : prev;
 
         // Initialization of Database and List
         db = new LearnedWordsDataBase(getContext());
@@ -74,11 +76,11 @@ public class ResultContestFragment extends Fragment {
         finish.setTypeface(MainActivity.typeface);
 
         // Setting text to the Text View
-        score.setText(result + "/5");
+        score.setText(result + "/" + NUMBER_OF_WORDS_IN_GROUP);
 
         // Checking
         // If the result is the best, it will be shown in Toast and words inserted into Database
-        if (result == 5) {
+        if (result == NUMBER_OF_WORDS_IN_GROUP) {
             editor.putInt(CACHE_CONTEST_GROUP, prev + 1);
             Toast.makeText(getContext(), "You have successfully passed contest and opened words of group number " + (prev + 1) + "!", Toast.LENGTH_SHORT).show();
             for (int i = 0; i < words.size(); i++) {

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
@@ -16,6 +17,7 @@ import java.util.List;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_ENG;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_GR;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_ID;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_IS_LOADED;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_RU;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_URL;
 import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.All_WORDS_TABLE_NAME;
@@ -24,7 +26,7 @@ public class AllWordsDataBase extends SQLiteOpenHelper {
 
     // Initializing constant variables that are necessary for instantiating of object
     public static final String DATABASE_NAME = "all_words_db";
-    public static final int VERSION = 7;
+    public static final int VERSION = 8;
 
     // Default SQL queries to create and to delete table
     public static final String CREATE = "CREATE TABLE " + All_WORDS_TABLE_NAME +
@@ -32,7 +34,8 @@ public class AllWordsDataBase extends SQLiteOpenHelper {
             COLUMN_ENG+ " TEXT, " +
             COLUMN_RU + " TEXT, " +
             COLUMN_URL + " TEXT, " +
-            COLUMN_GR + " INTEGER)";
+            COLUMN_GR + " INTEGER, " +
+            COLUMN_IS_LOADED + " INTEGER)";
     public static final String DELETE = "DROP TABLE IF EXISTS " + All_WORDS_TABLE_NAME;
 
     // Constructor
@@ -70,6 +73,7 @@ public class AllWordsDataBase extends SQLiteOpenHelper {
             int ru = cursor.getColumnIndex(COLUMN_RU);
             int url = cursor.getColumnIndex(COLUMN_URL);
             int group = cursor.getColumnIndex(COLUMN_GR);
+            int isLoaded = cursor.getColumnIndex(COLUMN_IS_LOADED);
 
             do {
                 Word word_to_add = new Word(
@@ -77,7 +81,8 @@ public class AllWordsDataBase extends SQLiteOpenHelper {
                         cursor.getString(eng),
                         cursor.getString(ru),
                         cursor.getString(url),
-                        cursor.getInt(group));
+                        cursor.getInt(group),
+                        cursor.getInt(isLoaded) == 1);
                 words.add(word_to_add);
             } while (cursor.moveToNext());
         }
@@ -90,9 +95,6 @@ public class AllWordsDataBase extends SQLiteOpenHelper {
     // Method to insert word into Database
     public long add(Word word) {
         // Checking if the word in Database, it won't be inserted into Database
-        if (isInDB(word)) {
-            return 0;
-        }
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -100,8 +102,13 @@ public class AllWordsDataBase extends SQLiteOpenHelper {
         cv.put(COLUMN_RU, word.getRu());
         cv.put(COLUMN_URL, word.getUrl());
         cv.put(COLUMN_GR, word.getGr());
+        cv.put(COLUMN_IS_LOADED, word.isLoaded() ? 1 : 0);
 
-        return db.insert(All_WORDS_TABLE_NAME, null, cv);
+        if (isInDB(word)) {
+            return db.update(All_WORDS_TABLE_NAME, cv, "id = " + word.getId(), null);
+        } else {
+            return db.insert(All_WORDS_TABLE_NAME, null, cv);
+        }
     }
 
     public int remove(Word word) {

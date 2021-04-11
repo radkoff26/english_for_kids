@@ -67,6 +67,8 @@ public class MainLearningFragment extends Fragment {
 
         gr = sp.getInt(CACHE_CONTEST_GROUP, CACHE_CONTEST_GROUP_DEFAULT);
 
+        gr = gr == 0 ? 1 : gr;
+
         words = db.getWords(gr);
 
         wordsStack = new Stack<>();

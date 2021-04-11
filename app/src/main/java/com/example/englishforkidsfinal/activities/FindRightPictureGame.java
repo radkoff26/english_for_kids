@@ -19,6 +19,7 @@ import com.example.englishforkidsfinal.models.db_models.Word;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Stack;
 
 public class FindRightPictureGame extends AppCompatActivity implements View.OnClickListener {
 
@@ -29,18 +30,12 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
     private ImageView pic2;
     private ImageView pic3;
     private ImageView pic4;
-
     private TextView label;
-
     private List<Word> words;
-
+    private Stack<Word> wordsStack;
     private Word word;
-
     private BackgroundMusic music;
-
     private ArrayList<Integer> indexes = new ArrayList<>();
-
-    private List<Integer> tracks;
 
 
     @Override
@@ -77,6 +72,7 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
 
         // Receiving all words from Database
         words = db.getWords();
+        wordsStack = new Stack<>();
 
         // Checking if the number of words is okay to gain access
         if (words.size() < 4) {
@@ -91,32 +87,29 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
 
     public void randomize() {
         // Randomizing list of all words
+        wordsStack.clear();
         Collections.shuffle(words);
-
-        // Choose one right word
-        word = words.get(0);
-
-        // Removing right word from list of all words to make work with wrong words easier
-        words.remove(word);
+        for (int i = 0; i < 4; i++) {
+            wordsStack.push(words.get(i));
+        }
 
         // Declaring and initializing index of right word
         int index = randomIndex(0, 4);
 
-        // Removing right word's index from list of all indexes to make work with wrong words' indexes easier
-        indexes.remove(index);
-
-        // Inserting into content view the right word
-        setResource(word, index, true);
-
-        // Inserting into content view the wrong words
-        for (int i = 0; i < 3; i++) {
-            setResource(words.get(i), indexes.get(i), false);
+        for (int i = 0; i < 4; i++) {
+            if (i == index) {
+                word = wordsStack.pop();
+                setResource(word, i, true);
+            } else {
+                setResource(wordsStack.pop(), i, false);
+            }
         }
 
         // Setting right word up in the content view
         label.setText(word.getEng().toUpperCase());
 
         indexes.add(index);
+        Collections.sort(indexes);
     }
 
     // Method to simplify indexes' randomizing
@@ -152,7 +145,7 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
         // Setting OnClickListeners to right and wrong words
         if (isRight) {
             iv.setOnClickListener(v -> {
-                restart();
+                randomize();
             });
         } else {
             iv.setOnClickListener(this);
@@ -164,11 +157,6 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
     public void onClick(View view) {
         Vibrator v = (Vibrator) getApplication().getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(150);
-    }
-
-    // Method to randomize word
-    public void restart() {
-        randomize();
     }
 
     @Override

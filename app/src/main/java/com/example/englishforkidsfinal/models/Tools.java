@@ -9,6 +9,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
+
 import com.example.englishforkidsfinal.models.db_models.Word;
 import com.squareup.picasso.Picasso;
 
@@ -78,14 +80,16 @@ public class Tools {
         }
     }
 
-    public static Bitmap loadImageFromStorage(String name, Context context, ImageView iv) {
+    public static Bitmap loadImageFromStorage(String name, Context context, @Nullable ImageView iv) {
         try {
             ContextWrapper cw = new ContextWrapper(context);
             File directory = cw.getDir("images", Context.MODE_PRIVATE);
             File path = new File(directory, name + ".jpg");
-            Picasso.with(context)
-                    .load(path)
-                    .into(iv);
+            if (iv != null) {
+                Picasso.with(context)
+                        .load(path)
+                        .into(iv);
+            }
             return BitmapFactory.decodeStream(new FileInputStream(path));
         } catch (FileNotFoundException e) {
             return null;
