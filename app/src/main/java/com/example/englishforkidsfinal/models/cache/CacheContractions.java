@@ -12,4 +12,5 @@ public class CacheContractions {
     public static final Boolean CACHE_IS_LOADED_DEFAULT = false;
     public static final String CACHE_WORD_IS_LOADED = "is_word_cache_loaded";
     public static final Boolean CACHE_WORD_IS_LOADED_DEFAULT = false;
+    public static final String CACHE_CATEGORIES = "categories";
 }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -13,6 +14,8 @@ import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.fragments.AlphabetFragment;
 import com.example.englishforkidsfinal.fragments.AlphabetLetterFragment;
+import com.example.englishforkidsfinal.fragments.CategoriesFragment;
+import com.example.englishforkidsfinal.fragments.CategoryFragment;
 import com.example.englishforkidsfinal.fragments.ContestFragment;
 import com.example.englishforkidsfinal.fragments.GamesFragment;
 import com.example.englishforkidsfinal.fragments.HomeFragment;
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void removeBesidesLast() {
+    public void removeBesidesLast() {
         List<Fragment> fragments = getSupportFragmentManager().getFragments();
         for (int i = 0; i < fragments.size(); i++) {
             getSupportFragmentManager()
@@ -171,6 +174,18 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.fragment, new HomeFragment())
                     .commit();
             bnv.setSelectedItemId(R.id.home);
+        } else if (fragments.get(fragments.size() - 1).getClass() == CategoriesFragment.class) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment, new LearningFragment())
+                    .commit();
+            bnv.setSelectedItemId(R.id.learning);
+        } else if (fragments.get(fragments.size() - 1).getClass() == CategoryFragment.class) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment, new CategoriesFragment())
+                    .commit();
+            bnv.setSelectedItemId(R.id.learning);
         } else {
             getSupportFragmentManager()
                     .beginTransaction()

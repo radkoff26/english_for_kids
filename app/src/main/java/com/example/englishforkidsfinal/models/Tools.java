@@ -96,4 +96,21 @@ public class Tools {
         }
     }
 
+    public static Bitmap loadImageFromStorageFit(String name, Context context, @Nullable ImageView iv) {
+        try {
+            ContextWrapper cw = new ContextWrapper(context);
+            File directory = cw.getDir("images", Context.MODE_PRIVATE);
+            File path = new File(directory, name + ".jpg");
+            if (iv != null) {
+                Picasso.with(context)
+                        .load(path)
+                        .fit()
+                        .into(iv);
+            }
+            return BitmapFactory.decodeStream(new FileInputStream(path));
+        } catch (FileNotFoundException e) {
+            return null;
+        }
+    }
+
 }

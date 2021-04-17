@@ -1901,6 +1901,8 @@ id buttonPanel
 id cache_measures
 id cancel_action
 id cancel_button
+id categories
+id category_title
 id center
 id center_horizontal
 id center_vertical
@@ -1984,6 +1986,7 @@ id finish
 id first_layer
 id fitToContents
 id fixed
+id fl
 id flip
 id floating
 id forever
@@ -2185,6 +2188,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id sound
 id spacer
 id spline
 id split_action_bar
@@ -2262,10 +2266,12 @@ id useLogo
 id view_offset_helper
 id visible
 id visible_removing_fragment_view_tag
+id vocabulary
 id w1
 id w2
 id withText
 id withinBounds
+id words
 id wrap
 id wrap_content
 id zero_corner_chip
@@ -2336,6 +2342,7 @@ layout activity_game_space
 layout activity_loading
 layout activity_main
 layout activity_speak_right_game
+layout category_item
 layout color_item
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -2355,6 +2362,8 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_alphabet
 layout fragment_alphabet_letter
+layout fragment_categories
+layout fragment_category
 layout fragment_contest
 layout fragment_games
 layout fragment_home
@@ -2439,6 +2448,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+layout word_item
 menu bottom_navigation_menu
 menu main_menu
 mipmap ic_launcher
@@ -2560,6 +2570,7 @@ string status_bar_notification_info_overflow
 string string_learning_fragment
 string string_learning_fragment_to_learn
 string string_learning_fragment_to_pass_test
+string to_vocabulary
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow

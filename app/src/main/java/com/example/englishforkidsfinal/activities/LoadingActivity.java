@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
+import com.example.englishforkidsfinal.models.Category;
 import com.example.englishforkidsfinal.models.ClientAPI;
 import com.example.englishforkidsfinal.models.DefaultData;
 import com.example.englishforkidsfinal.models.Tools;
@@ -24,7 +25,9 @@ import com.example.englishforkidsfinal.models.db_models.Word;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +38,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.NUMBER_OF_WORDS_IN_GROUP;
 import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.ONE_PART;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CACHE;
+import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CATEGORIES;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
 import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_WORD_IS_LOADED;
@@ -47,6 +51,7 @@ public class LoadingActivity extends AppCompatActivity {
     private ClientAPI clientAPI;
     private boolean isDataFailed = false;
     private SharedPreferences sp;
+    private boolean flag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +90,6 @@ public class LoadingActivity extends AppCompatActivity {
     public class Loader extends AsyncTask<String, Integer, List<Word>> {
 
         private Thread load;
-        private boolean flag = true;
 
         @Override
         protected List<Word> doInBackground(String... strings) {
@@ -98,6 +102,34 @@ public class LoadingActivity extends AppCompatActivity {
 
             List<Word> allWords = allWordsDB.getWords(null);
             List<Word> learnedWords = learnedWordsDB.getWords();
+
+            clientAPI.getCategories()
+                    .enqueue(new Callback<List<Category>>() {
+                        @Override
+                        public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
+                            List<Category> categories = response.body();
+                            if (categories != null) {
+                                SharedPreferences.Editor editor = sp.edit();
+                                Set<String> res = new HashSet<>();
+                                for (int i = 0; i < categories.size(); i++) {
+                                    res.add(categories.get(i).getTitle());
+                                }
+                                editor.putStringSet(CACHE_CATEGORIES, res);
+                                editor.apply();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<Category>> call, Throwable t) {
+                            SharedPreferences.Editor editor = sp.edit();
+                            Set<String> res = new HashSet<>();
+                            for (int i = 0; i < DefaultData.categories.size(); i++) {
+                                res.add(DefaultData.categories.get(i).getTitle());
+                            }
+                            editor.putStringSet(CACHE_CATEGORIES, res);
+                            editor.apply();
+                        }
+                    });
 
             if (learnedWords.isEmpty() || allWords.size() < Math.ceil(((double) level + 1) / 10) * ONE_PART) {
                 flag = false;
@@ -153,13 +185,40 @@ public class LoadingActivity extends AppCompatActivity {
                             }
                         });
             }
+            new LoadImages().execute();
+            // Closing databases
+            allWordsDB.close();
+            learnedWordsDB.close();
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(List<Word> receivedWords) {
+            super.onPostExecute(receivedWords);
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+        }
+    }
+
+    class LoadImages extends AsyncTask<String, Integer, Integer> {
+
+        @Override
+        protected Integer doInBackground(String... strings) {
+            AllWordsDataBase allWordsDB = new AllWordsDataBase(getApplicationContext());
 
             while (!flag) {}
 
-            load = new Thread(() -> {
+            Thread load = new Thread(() -> {
                 List<Word> words = allWordsDB.getWords(null);
                 for (int i = 0; i < words.size(); i++) {
-                    Log.d("DEBUG", words.get(i).getEng());
                     if (!words.get(i).isLoaded()) {
                         try {
                             Bitmap b = Picasso.with(getApplicationContext())
@@ -185,29 +244,17 @@ public class LoadingActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            // Closing databases
             allWordsDB.close();
-            learnedWordsDB.close();
+
             return null;
         }
 
         @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onPostExecute(List<Word> receivedWords) {
-            super.onPostExecute(receivedWords);
+        protected void onPostExecute(Integer integer) {
+            super.onPostExecute(integer);
             // When checking of data is finished MainActivity starts
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
-        }
-
-        @Override
-        protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
         }
     }
 }

@@ -23,5 +23,6 @@ public class DataBaseContract {
         public static final String COLUMN_URL = "url";
         public static final String COLUMN_GR = "gr";
         public static final String COLUMN_IS_LOADED = "is_loaded";
+        public static final String COLUMN_CATEGORY = "category";
     }
 }

@@ -18,4 +18,7 @@ public interface ClientAPI {
     @GET("/getWords")
     Call<List<Word>> getWords(@Query("gr") Integer group);
 
+    @GET("/getCategories")
+    Call<List<Category>> getCategories();
+
 }

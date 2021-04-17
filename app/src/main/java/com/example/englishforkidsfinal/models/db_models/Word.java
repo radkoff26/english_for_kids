@@ -10,22 +10,25 @@ public class Word {
     private String url;
     private Integer gr;
     private Boolean isLoaded = false;
+    private String category;
 
-    public Word(int id, String eng, String ru, String url, int gr) {
+    public Word(int id, String eng, String ru, String url, int gr, String category) {
         this.id = id;
         this.eng = eng;
         this.ru = ru;
         this.url = url;
         this.gr = gr;
+        this.category = category;
     }
 
-    public Word(int id, String eng, String ru, String url, int gr, Boolean isLoaded) {
+    public Word(int id, String eng, String ru, String url, int gr, Boolean isLoaded, String category) {
         this.id = id;
         this.eng = eng;
         this.ru = ru;
         this.url = url;
         this.gr = gr;
         this.isLoaded = isLoaded;
+        this.category = category;
     }
 
     public Boolean isLoaded() {
@@ -56,6 +59,10 @@ public class Word {
         return gr;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
     public boolean equals(Object o) {
         if (o instanceof Word) {
             return this.eng.toLowerCase().equals(((Word) o).eng.toLowerCase());
@@ -69,8 +76,10 @@ public class Word {
                 "id=" + id +
                 ", eng='" + eng + '\'' +
                 ", ru='" + ru + '\'' +
-                ", url=" + url +
+                ", url='" + url + '\'' +
                 ", gr=" + gr +
+                ", isLoaded=" + isLoaded +
+                ", category='" + category + '\'' +
                 '}';
     }
 }

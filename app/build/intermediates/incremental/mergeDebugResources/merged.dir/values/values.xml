@@ -1143,6 +1143,7 @@
     <string name="string_learning_fragment">Может поучим ещё?</string>
     <string name="string_learning_fragment_to_learn">Выучить новые слова</string>
     <string name="string_learning_fragment_to_pass_test">Перейти на новый уровень</string>
+    <string name="to_vocabulary">К словарю</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="AndroidThemeColorAccentYellow" ns2:ignore="NewApi">

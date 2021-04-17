@@ -8,5 +8,6 @@
     <string name="string_learning_fragment">Может поучим ещё?</string>
     <string name="string_learning_fragment_to_learn">Выучить новые слова</string>
     <string name="string_learning_fragment_to_pass_test">Перейти на новый уровень</string>
+    <string name="to_vocabulary">К словарю</string>
     <string name="amount_of_words" formatted="true">Выучено: %d слов</string>
 </resources>

@@ -31,7 +31,7 @@ import static com.example.englishforkidsfinal.models.cache.CacheContractions.CAC
 public class LearningFragment extends Fragment {
 
     // Declaration of variable
-    private MaterialButton start, test;
+    private MaterialButton start, test, vocabulary;
     private AllWordsDataBase db;
     private TextView tv, add_tv;
     private SharedPreferences sp;
@@ -47,6 +47,7 @@ public class LearningFragment extends Fragment {
         // Initializing view
         start = v.findViewById(R.id.learn);
         test = v.findViewById(R.id.test);
+        vocabulary = v.findViewById(R.id.vocabulary);
         tv = v.findViewById(R.id.number_of_words);
         add_tv = v.findViewById(R.id.add_tv);
 
@@ -54,6 +55,14 @@ public class LearningFragment extends Fragment {
         test.setTypeface(MainActivity.typeface);
         tv.setTypeface(MainActivity.typeface);
         add_tv.setTypeface(MainActivity.typeface);
+        vocabulary.setTypeface(MainActivity.typeface);
+
+        vocabulary.setOnClickListener(view -> {
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment, new CategoriesFragment())
+                    .commit();
+            ((MainActivity) getActivity()).removeBesidesLast();
+        });
 
         db = new AllWordsDataBase(getContext());
 
