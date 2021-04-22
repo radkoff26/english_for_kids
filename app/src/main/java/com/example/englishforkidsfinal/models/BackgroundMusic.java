@@ -45,7 +45,7 @@ public class BackgroundMusic extends Thread {
         }
         setCurrentPosition(currentPosition);
 
-                // Initializing SharedPreferences to get music settings
+        // Initializing SharedPreferences to get music settings
         sp = ctx.getSharedPreferences(CACHE_SETTINGS, Context.MODE_PRIVATE);
 
         // Updating access

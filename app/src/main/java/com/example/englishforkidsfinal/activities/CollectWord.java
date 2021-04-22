@@ -4,7 +4,11 @@ package com.example.englishforkidsfinal.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -27,7 +31,7 @@ public class CollectWord extends AppCompatActivity {
     // Declaration of variables
     private TargetView targetView;
     private LettersView lettersView;
-    private ImageView iv;
+    private ImageView iv, cheer;
     private BackgroundMusic music;
     private Word currentWord;
     private LearnedWordsDataBase db;
@@ -63,13 +67,21 @@ public class CollectWord extends AppCompatActivity {
         targetView = findViewById(R.id.ll_target);
         lettersView = findViewById(R.id.ll_letters);
         iv = findViewById(R.id.iv);
+        cheer = findViewById(R.id.cheer);
 
         // Randomizing words received from Database
-        next();
+        next(false);
     }
 
     // Method to randomize words from Database and to set default adjustments
-    public void next() {
+    public void next(boolean isWon) {
+        if (isWon) {
+            Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.cheer_scale);
+            cheer.setVisibility(View.VISIBLE);
+            cheer.startAnimation(anim);
+            iv.setImageDrawable(null);
+            new RemoveAnimation().execute();
+        }
         if (wordsStack.isEmpty()) {
             Collections.shuffle(words);
             for (int i = 0; i < words.size(); i++) {
@@ -79,10 +91,14 @@ public class CollectWord extends AppCompatActivity {
 
         currentWord = wordsStack.pop();
 
-        Tools.loadImageFromStorage(currentWord.getEng(), getApplicationContext(), iv);
+        if (!isWon) {
+            Tools.loadImageFromStorage(currentWord.getEng(), getApplicationContext(), iv);
+        }
 
-        targetView.startSettings(this, currentWord.getEng());
-        lettersView.startSettings(currentWord.getEng(), targetView);
+        if (!isWon) {
+            targetView.startSettings(this, currentWord.getEng());
+            lettersView.startSettings(currentWord.getEng(), targetView);
+        }
     }
 
     @Override
@@ -104,5 +120,28 @@ public class CollectWord extends AppCompatActivity {
         // Closing Database when activity is going to be destroyed
         db.close();
         super.onDestroy();
+    }
+
+    class RemoveAnimation extends AsyncTask<Integer, Integer, String> {
+
+        @Override
+        protected String doInBackground(Integer... integers) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            cheer.clearAnimation();
+            cheer.setVisibility(View.GONE);
+            Tools.loadImageFromStorage(currentWord.getEng(), getApplicationContext(), iv);
+            targetView.startSettings(CollectWord.this, currentWord.getEng());
+            lettersView.startSettings(currentWord.getEng(), targetView);
+            super.onPostExecute(s);
+        }
     }
 }

@@ -49,7 +49,6 @@ public class LoadingActivity extends AppCompatActivity {
     private ImageView loader, data;
     private Retrofit retrofit;
     private ClientAPI clientAPI;
-    private boolean isDataFailed = false;
     private SharedPreferences sp;
     private boolean flag = true;
 
@@ -88,8 +87,6 @@ public class LoadingActivity extends AppCompatActivity {
 
     // AsyncTask class to prepare data
     public class Loader extends AsyncTask<String, Integer, List<Word>> {
-
-        private Thread load;
 
         @Override
         protected List<Word> doInBackground(String... strings) {

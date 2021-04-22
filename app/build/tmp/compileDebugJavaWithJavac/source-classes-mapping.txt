@@ -36,9 +36,8 @@ com/example/englishforkidsfinal/models/AlphabetLetter.java
  com.example.englishforkidsfinal.models.AlphabetLetter
 com/example/englishforkidsfinal/models/db_models/FindRightPictureModel.java
  com.example.englishforkidsfinal.models.db_models.FindRightPictureModel
-com/example/englishforkidsfinal/adapters/GamesRecyclerViewAdapter.java
- com.example.englishforkidsfinal.adapters.GamesRecyclerViewAdapter
- com.example.englishforkidsfinal.adapters.GamesRecyclerViewAdapter$AlphabetViewHolder
+com/example/englishforkidsfinal/db/db_sql_models/SpeakRight.java
+ com.example.englishforkidsfinal.db.db_sql_models.SpeakRight
 com/example/englishforkidsfinal/models/OnSwipeTouchListener.java
  com.example.englishforkidsfinal.models.OnSwipeTouchListener
  com.example.englishforkidsfinal.models.OnSwipeTouchListener$1
@@ -100,8 +99,8 @@ com/example/englishforkidsfinal/fragments/HomeFragment.java
  com.example.englishforkidsfinal.fragments.HomeFragment
 com/example/englishforkidsfinal/models/Category.java
  com.example.englishforkidsfinal.models.Category
-com/example/englishforkidsfinal/activities/CollectWord.java
- com.example.englishforkidsfinal.activities.CollectWord
+com/example/englishforkidsfinal/activities/FindRightPictureGame.java
+ com.example.englishforkidsfinal.activities.FindRightPictureGame
 com/example/englishforkidsfinal/fragments/CategoriesFragment.java
  com.example.englishforkidsfinal.fragments.CategoriesFragment
 com/example/englishforkidsfinal/models/Alphabet.java
@@ -118,9 +117,11 @@ com/example/englishforkidsfinal/models/cache/CacheContractions.java
  com.example.englishforkidsfinal.models.cache.CacheContractions
 com/example/englishforkidsfinal/models/Picture.java
  com.example.englishforkidsfinal.models.Picture
-com/example/englishforkidsfinal/db/db_sql_models/SpeakRight.java
- com.example.englishforkidsfinal.db.db_sql_models.SpeakRight
+com/example/englishforkidsfinal/activities/CollectWord.java
+ com.example.englishforkidsfinal.activities.CollectWord
+ com.example.englishforkidsfinal.activities.CollectWord$RemoveAnimation
+com/example/englishforkidsfinal/adapters/GamesRecyclerViewAdapter.java
+ com.example.englishforkidsfinal.adapters.GamesRecyclerViewAdapter
+ com.example.englishforkidsfinal.adapters.GamesRecyclerViewAdapter$AlphabetViewHolder
 com/example/englishforkidsfinal/models/TargetView.java
  com.example.englishforkidsfinal.models.TargetView
-com/example/englishforkidsfinal/activities/FindRightPictureGame.java
- com.example.englishforkidsfinal.activities.FindRightPictureGame

@@ -24,6 +24,7 @@ anim btn_radio_to_off_mtrl_ring_outer_path_animation
 anim btn_radio_to_on_mtrl_dot_group_animation
 anim btn_radio_to_on_mtrl_ring_outer_animation
 anim btn_radio_to_on_mtrl_ring_outer_path_animation
+anim cheer_scale
 anim dawn
 anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
@@ -1696,6 +1697,7 @@ drawable btn_radio_on_to_off_mtrl_animation
 drawable c
 drawable cat
 drawable cat_to_draw
+drawable cheer
 drawable circle
 drawable cow
 drawable crocodile
@@ -1910,6 +1912,7 @@ id chain
 id chains
 id checkbox
 id checked
+id cheer
 id chip
 id chip1
 id chip2

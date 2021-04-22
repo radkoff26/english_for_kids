@@ -75,7 +75,7 @@ public class TargetView extends LinearLayout {
         }
 
         if (word.toLowerCase().equals(s.toLowerCase())) {
-            ((CollectWord) ctx).next();
+            ((CollectWord) ctx).next(true);
         }
     }
 }
