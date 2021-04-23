@@ -5,20 +5,13 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
-import com.example.englishforkidsfinal.models.ColorsPaint;
 import com.example.englishforkidsfinal.adapters.DrawingAdapter;
-import com.example.englishforkidsfinal.models.DrawingView;
+import com.example.englishforkidsfinal.models.view_models.DrawingView;
 import com.example.englishforkidsfinal.models.Picture;
 import com.example.englishforkidsfinal.models.TestModels;
-
-import java.util.Arrays;
-import java.util.List;
-
-import static com.example.englishforkidsfinal.activities.MainActivity.currentPosition;
 
 public class DrawingGame extends AppCompatActivity {
 

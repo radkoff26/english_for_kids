@@ -35,7 +35,7 @@
         android:textColor="@color/font_color"
         android:textSize="30dp" />
 
-    <com.example.englishforkidsfinal.models.SpeechImageView
+    <com.example.englishforkidsfinal.models.view_models.SpeechImageView
         android:id="@+id/repeat"
         android:layout_width="match_parent"
         android:layout_height="0dp"

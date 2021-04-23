@@ -7,10 +7,12 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
+import com.example.englishforkidsfinal.activities.CollectWord;
 import com.example.englishforkidsfinal.models.db_models.Word;
 import com.squareup.picasso.Picasso;
 
@@ -22,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.Callable;
 
 // Class that contains tools for application
 public class Tools {
@@ -110,6 +113,36 @@ public class Tools {
             return BitmapFactory.decodeStream(new FileInputStream(path));
         } catch (FileNotFoundException e) {
             return null;
+        }
+    }
+
+    public static class CountDown extends AsyncTask<Integer, Integer, Void> {
+
+        private Callable<Void> function;
+
+        public CountDown(Callable<Void> function) {
+            this.function = function;
+        }
+
+        @Override
+        protected Void doInBackground(Integer... integers) {
+            int mSec = integers[0];
+            try {
+                Thread.sleep(mSec);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void v) {
+            try {
+                function.call();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            super.onPostExecute(v);
         }
     }
 

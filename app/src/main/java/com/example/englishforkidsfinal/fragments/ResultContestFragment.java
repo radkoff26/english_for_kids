@@ -22,11 +22,11 @@ import com.example.englishforkidsfinal.models.db_models.Word;
 import java.util.List;
 
 import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.NUMBER_OF_WORDS_IN_GROUP;
-import static com.example.englishforkidsfinal.models.ArgumentsContractions.RESULT;
-import static com.example.englishforkidsfinal.models.ArgumentsContractions.RESULT_DEFAULT;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.RESULT;
+import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.RESULT_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
 
 
 public class ResultContestFragment extends Fragment {

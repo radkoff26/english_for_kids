@@ -3,12 +3,12 @@ package com.example.englishforkidsfinal.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.FrameLayout;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
@@ -23,11 +23,19 @@ import com.example.englishforkidsfinal.fragments.LearningFragment;
 import com.example.englishforkidsfinal.fragments.MainContestFragment;
 import com.example.englishforkidsfinal.fragments.MainLearningFragment;
 import com.example.englishforkidsfinal.fragments.SettingsFragment;
+import com.example.englishforkidsfinal.fragments.tutorial_fragments.FragmentTutorial;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
-import com.example.englishforkidsfinal.models.Tools;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.Callable;
+
+import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.TUTORIAL_ARGUMENT_MENU;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CACHE;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_HAD_TUTORIAL;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_HAD_TUTORIAL_DEFAULT;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     public static int currentPosition = 0;
     public static int currentTrack = -1;
     public static Typeface typeface;
-    private AllWordsDataBase allWordsDB;
+    private SharedPreferences sp;
 
 
     @Override
@@ -45,13 +53,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // When main activity starts, home fragment appears in the foreground
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.fragment, new HomeFragment())
-                .commit();
-
-        allWordsDB = new AllWordsDataBase(this);
+        sp = getSharedPreferences(CACHE_CACHE, MODE_PRIVATE);
 
         // Background music
         updateTrack();
@@ -59,8 +61,51 @@ public class MainActivity extends AppCompatActivity {
         typeface = Typeface.createFromAsset(getAssets(), "fonts/FuturaRoundBold.ttf");
 
         // Initializing views
-        bnv = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bnv = findViewById(R.id.bottom_navigation);
 
+        if (!sp.getBoolean(CACHE_HAD_TUTORIAL, CACHE_HAD_TUTORIAL_DEFAULT)) {
+            Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment, new FragmentTutorial())
+                    .commit();
+            removeBesidesLast();
+            return;
+        }
+
+        // When main activity starts, home fragment appears in the foreground
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragment, new HomeFragment())
+                .commit();
+
+        loadNavigation();
+    }
+
+    public void restart() {
+        startActivity(getIntent());
+        finish();
+    }
+
+    public void clearNavigation() {
+        bnv.setOnNavigationItemSelectedListener(null);
+    }
+
+    public void loadTheOnlyNavigation(int id, Callable<Void> callable) {
+        bnv.setOnNavigationItemSelectedListener(item -> {
+
+            if (item.getItemId() == id) {
+                try {
+                    callable.call();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return true;
+        });
+    }
+
+    public void loadNavigation() {
         bnv.setOnNavigationItemSelectedListener(item -> {
             getSupportActionBar().setDisplayShowTitleEnabled(true);
 
@@ -127,17 +172,19 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Setting Options Menu
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        MenuItem menuItem = menu.findItem(R.id.settings);
-        getSupportActionBar().setTitle(R.string.home);
+        if (sp.getBoolean(CACHE_HAD_TUTORIAL, CACHE_HAD_TUTORIAL_DEFAULT)) {
+            // Setting Options Menu
+            getMenuInflater().inflate(R.menu.main_menu, menu);
+            MenuItem menuItem = menu.findItem(R.id.settings);
+            getSupportActionBar().setTitle(R.string.home);
 
-        // Setting OnClickListener to settings fragment button to transact to
-        menuItem.setOnMenuItemClickListener(item -> {
-            getSupportFragmentManager().beginTransaction().add(R.id.fragment, new SettingsFragment()).commit();
-            getSupportActionBar().setTitle(R.string.settings);
-            return true;
-        });
+            // Setting OnClickListener to settings fragment button to transact to
+            menuItem.setOnMenuItemClickListener(item -> {
+                getSupportFragmentManager().beginTransaction().add(R.id.fragment, new SettingsFragment()).commit();
+                getSupportActionBar().setTitle(R.string.settings);
+                return true;
+            });
+        }
 
         return true;
     }

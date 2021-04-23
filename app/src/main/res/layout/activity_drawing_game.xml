@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:background="@color/main_secondary">
 
-    <com.example.englishforkidsfinal.models.DrawingView
+    <com.example.englishforkidsfinal.models.view_models.DrawingView
         android:id="@+id/draw"
         android:layout_width="0dp"
         android:layout_height="match_parent"

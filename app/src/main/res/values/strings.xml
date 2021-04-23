@@ -10,4 +10,12 @@
     <string name="string_learning_fragment_to_pass_test">Перейти на новый уровень</string>
     <string name="to_vocabulary">К словарю</string>
     <string name="amount_of_words" formatted="true">Выучено: %d слов</string>
+    <string name="welcome">Привет, друг! В этом приложении ты сможешь выучить новые английские слова!</string>
+    <string name="home_tutorial">Здесь ты сможешь увидеть животное дня! Нажав на него, ты сможешь услышать как оно называется на английском!</string>
+    <string name="alphabet_tutorial">Здесь ты сможешь выучить все буквы английского алфавита!</string>
+    <string name="games_tutorial">Здесь ты сможешь найти много интересных игр!</string>
+    <string name="learning_tutorial">Здесь ты сможешь учить слова и проходить тесты!</string>
+    <string name="next">Нажимай на кнопку!</string>
+    <string name="finish">Завершить обучение</string>
+    <string name="btn_continue">Далее</string>
 </resources>

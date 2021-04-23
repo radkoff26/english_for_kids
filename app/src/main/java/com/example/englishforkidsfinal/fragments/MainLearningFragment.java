@@ -18,7 +18,7 @@ import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.models.OnSwipeTouchListener;
-import com.example.englishforkidsfinal.models.SpeechImageView;
+import com.example.englishforkidsfinal.models.view_models.SpeechImageView;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.Word;
 
@@ -26,9 +26,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
 
 public class MainLearningFragment extends Fragment {
 

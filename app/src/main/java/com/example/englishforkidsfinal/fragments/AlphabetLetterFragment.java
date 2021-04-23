@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.models.Alphabet;
 import com.example.englishforkidsfinal.models.AlphabetLetter;
-import com.example.englishforkidsfinal.models.SpeechImageView;
+import com.example.englishforkidsfinal.models.view_models.SpeechImageView;
 
 public class AlphabetLetterFragment extends Fragment {
 

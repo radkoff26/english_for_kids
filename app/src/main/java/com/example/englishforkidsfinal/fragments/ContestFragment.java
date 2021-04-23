@@ -14,9 +14,9 @@ import android.view.ViewGroup;
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.MainActivity;
 
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
 
 public class ContestFragment extends Fragment {
 

@@ -1,8 +1,5 @@
 package com.example.englishforkidsfinal.fragments;
 
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,11 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
-import com.example.englishforkidsfinal.models.SpeechImageView;
-import com.example.englishforkidsfinal.models.Tools;
-import com.squareup.picasso.Picasso;
-
-import java.io.File;
+import com.example.englishforkidsfinal.models.view_models.SpeechImageView;
 
 public class HomeFragment extends Fragment {
 

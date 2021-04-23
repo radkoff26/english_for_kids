@@ -4,7 +4,6 @@ package com.example.englishforkidsfinal.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,15 +14,15 @@ import android.widget.Toast;
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
-import com.example.englishforkidsfinal.models.LettersView;
-import com.example.englishforkidsfinal.models.TargetView;
+import com.example.englishforkidsfinal.models.view_models.LettersView;
+import com.example.englishforkidsfinal.models.view_models.TargetView;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.Word;
-import com.squareup.picasso.Picasso;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
+import java.util.concurrent.Callable;
 
 
 public class CollectWord extends AppCompatActivity {
@@ -38,6 +37,7 @@ public class CollectWord extends AppCompatActivity {
     private List<Word> words;
     private Stack<Word> wordsStack;
     private Bitmap picture;
+    Callable<Void> callable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +69,15 @@ public class CollectWord extends AppCompatActivity {
         iv = findViewById(R.id.iv);
         cheer = findViewById(R.id.cheer);
 
+        callable = () -> {
+            cheer.clearAnimation();
+            cheer.setVisibility(View.GONE);
+            Tools.loadImageFromStorage(currentWord.getEng(), getApplicationContext(), iv);
+            targetView.startSettings(CollectWord.this, currentWord.getEng());
+            lettersView.startSettings(currentWord.getEng(), targetView);
+            return null;
+        };
+
         // Randomizing words received from Database
         next(false);
     }
@@ -80,7 +89,7 @@ public class CollectWord extends AppCompatActivity {
             cheer.setVisibility(View.VISIBLE);
             cheer.startAnimation(anim);
             iv.setImageDrawable(null);
-            new RemoveAnimation().execute();
+            new Tools.CountDown(callable).execute(1000);
         }
         if (wordsStack.isEmpty()) {
             Collections.shuffle(words);
@@ -122,26 +131,5 @@ public class CollectWord extends AppCompatActivity {
         super.onDestroy();
     }
 
-    class RemoveAnimation extends AsyncTask<Integer, Integer, String> {
 
-        @Override
-        protected String doInBackground(Integer... integers) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            cheer.clearAnimation();
-            cheer.setVisibility(View.GONE);
-            Tools.loadImageFromStorage(currentWord.getEng(), getApplicationContext(), iv);
-            targetView.startSettings(CollectWord.this, currentWord.getEng());
-            lettersView.startSettings(currentWord.getEng(), targetView);
-            super.onPostExecute(s);
-        }
-    }
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -12,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.MainActivity;
-import com.example.englishforkidsfinal.models.SpeechImageView;
+import com.example.englishforkidsfinal.models.view_models.SpeechImageView;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.Word;
 import com.google.android.material.textview.MaterialTextView;

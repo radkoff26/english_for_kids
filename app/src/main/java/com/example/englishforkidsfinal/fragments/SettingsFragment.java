@@ -2,7 +2,6 @@ package com.example.englishforkidsfinal.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
@@ -16,9 +15,9 @@ import android.view.ViewGroup;
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.MainActivity;
 
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS_MUSIC;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS_MUSIC_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS_MUSIC;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS_MUSIC_DEFAULT;
 
 public class SettingsFragment extends Fragment {
 

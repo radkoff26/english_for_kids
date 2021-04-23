@@ -16,11 +16,10 @@ import com.example.englishforkidsfinal.adapters.WordsRecyclerViewAdapter;
 import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
 import com.example.englishforkidsfinal.models.Category;
 
-import static com.example.englishforkidsfinal.models.ArgumentsContractions.CATEGORY;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CACHE;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.CATEGORY;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
 
 
 public class CategoryFragment extends Fragment {

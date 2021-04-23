@@ -1,31 +1,24 @@
 package com.example.englishforkidsfinal.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.englishforkidsfinal.R;
-import com.example.englishforkidsfinal.activities.CollectWord;
-import com.example.englishforkidsfinal.activities.DrawingGame;
-import com.example.englishforkidsfinal.activities.FindRightPictureGame;
 import com.example.englishforkidsfinal.activities.MainActivity;
-import com.example.englishforkidsfinal.activities.SpeakRightGame;
 import com.example.englishforkidsfinal.fragments.CategoryFragment;
 import com.example.englishforkidsfinal.models.Category;
-import com.example.englishforkidsfinal.models.Game;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
 
-import static com.example.englishforkidsfinal.models.ArgumentsContractions.CATEGORY;
+import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.CATEGORY;
 
 public class CategoriesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

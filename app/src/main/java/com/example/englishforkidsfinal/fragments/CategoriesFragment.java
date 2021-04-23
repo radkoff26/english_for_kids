@@ -18,8 +18,8 @@ import com.example.englishforkidsfinal.models.Category;
 import java.util.ArrayList;
 import java.util.Set;
 
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CACHE;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CATEGORIES;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CACHE;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CATEGORIES;
 
 public class CategoriesFragment extends Fragment {
 

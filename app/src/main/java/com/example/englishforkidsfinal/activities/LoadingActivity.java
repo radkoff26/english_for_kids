@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
@@ -37,11 +36,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.NUMBER_OF_WORDS_IN_GROUP;
 import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.ONE_PART;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CACHE;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CATEGORIES;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_WORD_IS_LOADED;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CACHE;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CATEGORIES;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
 
 public class LoadingActivity extends AppCompatActivity {
 

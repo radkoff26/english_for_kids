@@ -38,7 +38,7 @@
 
     </LinearLayout>
 
-    <com.example.englishforkidsfinal.models.SpeechImageView
+    <com.example.englishforkidsfinal.models.view_models.SpeechImageView
         android:id="@+id/sound"
         android:layout_width="0dp"
         android:layout_height="48dp"

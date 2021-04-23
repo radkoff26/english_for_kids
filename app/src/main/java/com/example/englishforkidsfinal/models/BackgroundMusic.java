@@ -3,19 +3,17 @@ package com.example.englishforkidsfinal.models;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
-import android.util.Log;
 
 import com.example.englishforkidsfinal.R;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static com.example.englishforkidsfinal.activities.MainActivity.currentPosition;
 import static com.example.englishforkidsfinal.activities.MainActivity.currentTrack;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS_MUSIC;
-import static com.example.englishforkidsfinal.models.cache.CacheContractions.CACHE_SETTINGS_MUSIC_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS_MUSIC;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS_MUSIC_DEFAULT;
 
 public class BackgroundMusic extends Thread {
 

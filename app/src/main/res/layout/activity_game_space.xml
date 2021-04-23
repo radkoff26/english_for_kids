@@ -19,7 +19,7 @@
             android:layout_gravity="center"
             android:layout_weight="1" />
 
-        <com.example.englishforkidsfinal.models.TargetView
+        <com.example.englishforkidsfinal.models.view_models.TargetView
             android:id="@+id/ll_target"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -27,7 +27,7 @@
             android:gravity="center"
             android:orientation="horizontal" />
 
-        <com.example.englishforkidsfinal.models.LettersView
+        <com.example.englishforkidsfinal.models.view_models.LettersView
             android:id="@+id/ll_letters"
             android:layout_width="match_parent"
             android:layout_height="0dp"
