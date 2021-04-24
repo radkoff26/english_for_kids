@@ -233,6 +233,8 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.fragment, new CategoriesFragment())
                     .commit();
             bnv.setSelectedItemId(R.id.learning);
+        } else if (fragments.get(fragments.size() - 1).getClass() == FragmentTutorial.class) {
+            return;
         } else {
             getSupportFragmentManager()
                     .beginTransaction()
