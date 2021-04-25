@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,30 +35,32 @@ public class GamesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
 
         // Test data for Recycler View
         games.add(
-                new Game(R.drawable.make_word_game, CollectWord.class)
+                new Game(R.drawable.collect_word_bg, CollectWord.class)
         );
 
         games.add(
-                new Game(R.drawable.speak_right_game, SpeakRightGame.class)
+                new Game(R.drawable.speak_right_bg, SpeakRightGame.class)
         );
 
         games.add(
-                new Game(R.drawable.drawing_game, DrawingGame.class)
+                new Game(R.drawable.drawing_bg, DrawingGame.class)
         );
 
         games.add(
-                new Game(R.drawable.find_right_picture_game, FindRightPictureGame.class)
+                new Game(R.drawable.find_picture_bg, FindRightPictureGame.class)
         );
     }
 
     // Customized ViewHolder for Recycler View
     class AlphabetViewHolder extends RecyclerView.ViewHolder {
 
+        final ImageView iv;
         final ImageButton iv_btn;
 
         public AlphabetViewHolder(@NonNull View itemView) {
             super(itemView);
-            iv_btn = itemView.findViewById(R.id.iv_btn);
+            iv = itemView.findViewById(R.id.iv);
+            iv_btn = itemView.findViewById(R.id.play);
         }
     }
 
@@ -78,7 +81,7 @@ public class GamesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
             context.startActivity(new Intent(context, game.getGameClass()));
         });
 
-        ((AlphabetViewHolder) holder).iv_btn.setImageDrawable(context.getResources().getDrawable(game.getRes()));
+        ((AlphabetViewHolder) holder).iv.setImageDrawable(context.getResources().getDrawable(game.getRes()));
     }
 
     @Override

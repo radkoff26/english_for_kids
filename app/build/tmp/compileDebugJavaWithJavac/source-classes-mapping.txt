@@ -89,9 +89,13 @@ com/example/englishforkidsfinal/fragments/tutorial_fragments/FragmentTutorial.ja
  com.example.englishforkidsfinal.fragments.tutorial_fragments.FragmentTutorial$4
 com/example/englishforkidsfinal/models/BackgroundMusic.java
  com.example.englishforkidsfinal.models.BackgroundMusic
+com/example/englishforkidsfinal/models/CacheStore.java
+ com.example.englishforkidsfinal.models.CacheStore
 com/example/englishforkidsfinal/adapters/WordsRecyclerViewAdapter.java
  com.example.englishforkidsfinal.adapters.WordsRecyclerViewAdapter
  com.example.englishforkidsfinal.adapters.WordsRecyclerViewAdapter$WordsViewHolder
+com/example/englishforkidsfinal/models/CarouselPageTransformer.java
+ com.example.englishforkidsfinal.models.CarouselPageTransformer
 com/example/englishforkidsfinal/models/TestModels.java
  com.example.englishforkidsfinal.models.TestModels
 com/example/englishforkidsfinal/models/contractions/CacheContractions.java
@@ -107,12 +111,16 @@ com/example/englishforkidsfinal/activities/DrawingGame.java
  com.example.englishforkidsfinal.activities.DrawingGame
 com/example/englishforkidsfinal/fragments/GamesFragment.java
  com.example.englishforkidsfinal.fragments.GamesFragment
+ com.example.englishforkidsfinal.fragments.GamesFragment$1
 com/example/englishforkidsfinal/adapters/DrawingAdapter.java
  com.example.englishforkidsfinal.adapters.DrawingAdapter
 com/example/englishforkidsfinal/fragments/HomeFragment.java
  com.example.englishforkidsfinal.fragments.HomeFragment
 com/example/englishforkidsfinal/models/Category.java
  com.example.englishforkidsfinal.models.Category
+com/example/englishforkidsfinal/adapters/AlphabetRecyclerViewAdapter.java
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$AlphabetViewHolder
 com/example/englishforkidsfinal/activities/CollectWord.java
  com.example.englishforkidsfinal.activities.CollectWord
 com/example/englishforkidsfinal/fragments/CategoriesFragment.java
@@ -129,5 +137,7 @@ com/example/englishforkidsfinal/models/Picture.java
  com.example.englishforkidsfinal.models.Picture
 com/example/englishforkidsfinal/db/db_sql_models/SpeakRight.java
  com.example.englishforkidsfinal.db.db_sql_models.SpeakRight
+com/example/englishforkidsfinal/models/ImageSaver.java
+ com.example.englishforkidsfinal.models.ImageSaver
 com/example/englishforkidsfinal/activities/FindRightPictureGame.java
  com.example.englishforkidsfinal.activities.FindRightPictureGame

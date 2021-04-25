@@ -16,82 +16,82 @@ public class Alphabet {
     // Putting test data into list
     static {
         letters.add(
-                new AlphabetLetter("a", R.anim.letter_rotation, R.drawable.a)
+                new AlphabetLetter("a", R.anim.letter_up_down, R.drawable.a)
         );
         letters.add(
-                new AlphabetLetter("b", R.anim.letter_rotation, R.drawable.b)
+                new AlphabetLetter("b", R.anim.letter_up_down, R.drawable.b)
         );
         letters.add(
-                new AlphabetLetter("c", R.anim.letter_rotation, R.drawable.c)
+                new AlphabetLetter("c", R.anim.letter_up_down, R.drawable.c)
         );
         letters.add(
-                new AlphabetLetter("d", R.anim.letter_rotation, R.drawable.d)
+                new AlphabetLetter("d", R.anim.letter_up_down, R.drawable.d)
         );
         letters.add(
-                new AlphabetLetter("e", R.anim.letter_rotation, R.drawable.e)
+                new AlphabetLetter("e", R.anim.letter_up_down, R.drawable.e)
         );
         letters.add(
-                new AlphabetLetter("f", R.anim.letter_rotation, R.drawable.f)
+                new AlphabetLetter("f", R.anim.letter_up_down, R.drawable.f)
         );
         letters.add(
-                new AlphabetLetter("g", R.anim.letter_rotation, R.drawable.g)
+                new AlphabetLetter("g", R.anim.letter_up_down, R.drawable.g)
         );
         letters.add(
-                new AlphabetLetter("h", R.anim.letter_rotation, R.drawable.h)
+                new AlphabetLetter("h", R.anim.letter_up_down, R.drawable.h)
         );
         letters.add(
-                new AlphabetLetter("i", R.anim.letter_rotation, R.drawable.i)
+                new AlphabetLetter("i", R.anim.letter_up_down, R.drawable.i)
         );
         letters.add(
-                new AlphabetLetter("j", R.anim.letter_rotation, R.drawable.j)
+                new AlphabetLetter("j", R.anim.letter_up_down, R.drawable.j)
         );
         letters.add(
-                new AlphabetLetter("k", R.anim.letter_rotation, R.drawable.k)
+                new AlphabetLetter("k", R.anim.letter_up_down, R.drawable.k)
         );
         letters.add(
-                new AlphabetLetter("l", R.anim.letter_rotation, R.drawable.l)
+                new AlphabetLetter("l", R.anim.letter_up_down, R.drawable.l)
         );
         letters.add(
-                new AlphabetLetter("m", R.anim.letter_rotation, R.drawable.m)
+                new AlphabetLetter("m", R.anim.letter_up_down, R.drawable.m)
         );
         letters.add(
-                new AlphabetLetter("n", R.anim.letter_rotation, R.drawable.n)
+                new AlphabetLetter("n", R.anim.letter_up_down, R.drawable.n)
         );
         letters.add(
-                new AlphabetLetter("o", R.anim.letter_rotation, R.drawable.o)
+                new AlphabetLetter("o", R.anim.letter_up_down, R.drawable.o)
         );
         letters.add(
-                new AlphabetLetter("p", R.anim.letter_rotation, R.drawable.p)
+                new AlphabetLetter("p", R.anim.letter_up_down, R.drawable.p)
         );
         letters.add(
-                new AlphabetLetter("q", R.anim.letter_rotation, R.drawable.q)
+                new AlphabetLetter("q", R.anim.letter_up_down, R.drawable.q)
         );
         letters.add(
-                new AlphabetLetter("r", R.anim.letter_rotation, R.drawable.r)
+                new AlphabetLetter("r", R.anim.letter_up_down, R.drawable.r)
         );
         letters.add(
-                new AlphabetLetter("s", R.anim.letter_rotation, R.drawable.s)
+                new AlphabetLetter("s", R.anim.letter_up_down, R.drawable.s)
         );
         letters.add(
-                new AlphabetLetter("t", R.anim.letter_rotation, R.drawable.t)
+                new AlphabetLetter("t", R.anim.letter_up_down, R.drawable.t)
         );
         letters.add(
-                new AlphabetLetter("u", R.anim.letter_rotation, R.drawable.u)
+                new AlphabetLetter("u", R.anim.letter_up_down, R.drawable.u)
         );
         letters.add(
-                new AlphabetLetter("v", R.anim.letter_rotation, R.drawable.v)
+                new AlphabetLetter("v", R.anim.letter_up_down, R.drawable.v)
         );
         letters.add(
-                new AlphabetLetter("w", R.anim.letter_rotation, R.drawable.w)
+                new AlphabetLetter("w", R.anim.letter_up_down, R.drawable.w)
         );
         letters.add(
-                new AlphabetLetter("x", R.anim.letter_rotation, R.drawable.x)
+                new AlphabetLetter("x", R.anim.letter_up_down, R.drawable.x)
         );
         letters.add(
-                new AlphabetLetter("y", R.anim.letter_rotation, R.drawable.y)
+                new AlphabetLetter("y", R.anim.letter_up_down, R.drawable.y)
         );
         letters.add(
-                new AlphabetLetter("z", R.anim.letter_rotation, R.drawable.z)
+                new AlphabetLetter("z", R.anim.letter_up_down, R.drawable.z)
         );
     }
 
