@@ -33,7 +33,7 @@ public class DefaultData {
                         3,
                         "cow",
                         "корова",
-                        "https://3dpng.com/wp-content/uploads/2020/04/Cartoon-Cow-Transparent.png",
+                        "https://pixy.org/src/467/4674051.png",
                         1,
                         "животные"
                 )

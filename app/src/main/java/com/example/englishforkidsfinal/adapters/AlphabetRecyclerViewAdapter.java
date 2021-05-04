@@ -55,10 +55,7 @@ public class AlphabetRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
 
         ((AlphabetViewHolder) holder).iv.setImageResource(element.getRes());
         ((AlphabetViewHolder) holder).iv.setWordToSpeak(element.getLetter());
-        ((AlphabetViewHolder) holder).iv.setOnClickListener(v -> {
-            Animation animation = AnimationUtils.loadAnimation(context, R.anim.letter_up_down);
-            v.startAnimation(animation);
-        });
+        ((AlphabetViewHolder) holder).iv.setAnimation(R.anim.letter_up_down);
     }
 
     @Override

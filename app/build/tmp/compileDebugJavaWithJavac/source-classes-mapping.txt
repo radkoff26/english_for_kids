@@ -11,13 +11,8 @@ com/example/englishforkidsfinal/models/contractions/ArgumentsContractions.java
  com.example.englishforkidsfinal.models.contractions.ArgumentsContractions
 com/example/englishforkidsfinal/BuildConfig.java
  com.example.englishforkidsfinal.BuildConfig
-com/example/englishforkidsfinal/activities/LoadingActivity.java
- com.example.englishforkidsfinal.activities.LoadingActivity
- com.example.englishforkidsfinal.activities.LoadingActivity$LoadImages
- com.example.englishforkidsfinal.activities.LoadingActivity$Loader
- com.example.englishforkidsfinal.activities.LoadingActivity$Loader$1
- com.example.englishforkidsfinal.activities.LoadingActivity$Loader$2
- com.example.englishforkidsfinal.activities.LoadingActivity$Loader$3
+com/example/englishforkidsfinal/activities/FindRightPictureGame.java
+ com.example.englishforkidsfinal.activities.FindRightPictureGame
 com/example/englishforkidsfinal/fragments/LearningFragment.java
  com.example.englishforkidsfinal.fragments.LearningFragment
 com/example/englishforkidsfinal/models/view_models/TargetView.java
@@ -58,8 +53,8 @@ com/example/englishforkidsfinal/fragments/AlphabetLetterFragment.java
  com.example.englishforkidsfinal.fragments.AlphabetLetterFragment
 com/example/englishforkidsfinal/fragments/SettingsFragment.java
  com.example.englishforkidsfinal.fragments.SettingsFragment
-com/example/englishforkidsfinal/fragments/AlphabetFragment.java
- com.example.englishforkidsfinal.fragments.AlphabetFragment
+com/example/englishforkidsfinal/models/ImageSaver.java
+ com.example.englishforkidsfinal.models.ImageSaver
 com/example/englishforkidsfinal/models/Letter.java
  com.example.englishforkidsfinal.models.Letter
 com/example/englishforkidsfinal/db/AllWordsDataBase.java
@@ -118,9 +113,8 @@ com/example/englishforkidsfinal/fragments/HomeFragment.java
  com.example.englishforkidsfinal.fragments.HomeFragment
 com/example/englishforkidsfinal/models/Category.java
  com.example.englishforkidsfinal.models.Category
-com/example/englishforkidsfinal/adapters/AlphabetRecyclerViewAdapter.java
- com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter
- com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$AlphabetViewHolder
+com/example/englishforkidsfinal/fragments/AlphabetFragment.java
+ com.example.englishforkidsfinal.fragments.AlphabetFragment
 com/example/englishforkidsfinal/activities/CollectWord.java
  com.example.englishforkidsfinal.activities.CollectWord
 com/example/englishforkidsfinal/fragments/CategoriesFragment.java
@@ -137,7 +131,13 @@ com/example/englishforkidsfinal/models/Picture.java
  com.example.englishforkidsfinal.models.Picture
 com/example/englishforkidsfinal/db/db_sql_models/SpeakRight.java
  com.example.englishforkidsfinal.db.db_sql_models.SpeakRight
-com/example/englishforkidsfinal/models/ImageSaver.java
- com.example.englishforkidsfinal.models.ImageSaver
-com/example/englishforkidsfinal/activities/FindRightPictureGame.java
- com.example.englishforkidsfinal.activities.FindRightPictureGame
+com/example/englishforkidsfinal/adapters/AlphabetRecyclerViewAdapter.java
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter
+ com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter$AlphabetViewHolder
+com/example/englishforkidsfinal/activities/LoadingActivity.java
+ com.example.englishforkidsfinal.activities.LoadingActivity
+ com.example.englishforkidsfinal.activities.LoadingActivity$LoadImages
+ com.example.englishforkidsfinal.activities.LoadingActivity$Loader
+ com.example.englishforkidsfinal.activities.LoadingActivity$Loader$1
+ com.example.englishforkidsfinal.activities.LoadingActivity$Loader$2
+ com.example.englishforkidsfinal.activities.LoadingActivity$Loader$3

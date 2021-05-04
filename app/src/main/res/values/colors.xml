@@ -13,4 +13,5 @@
     <color name="disabled_button">#7E7E7E</color>
     <color name="brand">#01E013</color>
     <color name="font_color">#FFF</color>
+    <color name="inactive_color_of_seekbar">#B2C6F3</color>
 </resources>

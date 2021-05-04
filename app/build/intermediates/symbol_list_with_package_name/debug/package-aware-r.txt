@@ -1077,6 +1077,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color inactive_color_of_seekbar
 color main
 color main_secondary
 color material_blue_grey_800
@@ -1717,6 +1718,7 @@ drawable drawing_bg
 drawable drawing_game
 drawable e
 drawable elephant
+drawable english_bg
 drawable f
 drawable field
 drawable find_picture_bg
@@ -1951,7 +1953,6 @@ id counterclockwise
 id custom
 id customPanel
 id cut
-id data
 id date_picker_actions
 id decelerate
 id decelerateAndComplete

@@ -21,12 +21,15 @@ import com.example.englishforkidsfinal.models.ClientAPI;
 import com.example.englishforkidsfinal.models.DefaultData;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.Word;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
+import com.google.android.material.slider.Slider;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.Callable;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,11 +47,11 @@ import static com.example.englishforkidsfinal.models.contractions.CacheContracti
 public class LoadingActivity extends AppCompatActivity {
 
     // Declaration of variables
-    private ImageView loader, data;
+    private LinearProgressIndicator loader;
     private Retrofit retrofit;
     private ClientAPI clientAPI;
     private SharedPreferences sp;
-    private boolean flag = true;
+    private boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,30 +60,19 @@ public class LoadingActivity extends AppCompatActivity {
 
         // Initialization
         loader = findViewById(R.id.loader);
-        data = findViewById(R.id.data);
 
         sp = getSharedPreferences(CACHE_CACHE, MODE_PRIVATE);
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.113:8080")
+                .baseUrl("http://192.168.0.107:8080")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         clientAPI = retrofit.create(ClientAPI.class);
 
-        // Setting animation to the loader ImageView
-        float ROTATE_FROM = 0.0f;
-        float ROTATE_TO = 10.0f * 360.0f;
-
-        RotateAnimation r = new RotateAnimation(ROTATE_FROM, ROTATE_TO, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        r.setDuration(7500);
-        r.setRepeatCount(Animation.INFINITE);
-        r.setInterpolator(new LinearInterpolator());
-
-        loader.startAnimation(r);
-
         // Starting to prepare data async
         new Loader().execute();
+        new LoadImages().execute();
     }
 
     // AsyncTask class to prepare data
@@ -166,21 +158,19 @@ public class LoadingActivity extends AppCompatActivity {
                                         learnedWordsDB.add(words.get(i));
                                     }
                                 }
-                                flag = true;
                             }
 
                             @Override
                             public void onFailure(Call<List<Word>> call, Throwable t) {
-                                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
                                 List<Word> words = DefaultData.words;
                                 for (int i = 0; i < NUMBER_OF_WORDS_IN_GROUP; i++) {
                                     learnedWordsDB.add(words.get(i));
                                 }
-                                flag = true;
                             }
                         });
+            } else {
+                flag = true;
             }
-            new LoadImages().execute();
             // Closing databases
             allWordsDB.close();
             learnedWordsDB.close();
@@ -189,6 +179,11 @@ public class LoadingActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
+            Callable<Void> callable = () -> {
+                loader.setProgressCompat(1, true);
+                return null;
+            };
+            new Tools.CountDown(callable).execute(1000);
             super.onPreExecute();
         }
 
@@ -245,11 +240,26 @@ public class LoadingActivity extends AppCompatActivity {
         }
 
         @Override
+        protected void onPreExecute() {
+            Callable<Void> callable = () -> {
+                loader.setProgressCompat(2, true);
+                return null;
+            };
+            new Tools.CountDown(callable).execute(1000);
+            super.onPreExecute();
+        }
+
+        @Override
         protected void onPostExecute(Integer integer) {
+            loader.setProgressCompat(3, true);
             super.onPostExecute(integer);
-            // When checking of data is finished MainActivity starts
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
+            Callable<Void> callable = () -> {
+                // When checking of data is finished MainActivity starts
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
+                return null;
+            };
+            new Tools.CountDown(callable).execute(200);
         }
     }
 }
