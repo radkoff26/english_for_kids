@@ -52,6 +52,8 @@ public class LoadingActivity extends AppCompatActivity {
     private ClientAPI clientAPI;
     private SharedPreferences sp;
     private boolean flag = false;
+    private static final String BASE_URL = "http://192.168.0.107:8080";
+    private boolean hasConnection = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,7 @@ public class LoadingActivity extends AppCompatActivity {
         sp = getSharedPreferences(CACHE_CACHE, MODE_PRIVATE);
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.107:8080")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -133,6 +135,7 @@ public class LoadingActivity extends AppCompatActivity {
                                     }
                                 }
                                 flag = true;
+                                hasConnection = true;
                             }
 
                             @Override
@@ -211,9 +214,16 @@ public class LoadingActivity extends AppCompatActivity {
                 for (int i = 0; i < words.size(); i++) {
                     if (!words.get(i).isLoaded()) {
                         try {
-                            Bitmap b = Picasso.with(getApplicationContext())
-                                    .load(words.get(i).getUrl())
-                                    .get();
+                            Bitmap b;
+                            if (hasConnection) {
+                                b = Picasso.with(getApplicationContext())
+                                        .load(BASE_URL + "/getImage?name=" + words.get(i).getUrl())
+                                        .get();
+                            } else {
+                                b = Picasso.with(getApplicationContext())
+                                        .load(words.get(i).getUrl())
+                                        .get();
+                            }
                             Tools.saveToInternalStorage(words.get(i).getEng(), b, getApplicationContext());
                             words.get(i).setLoaded(true);
                             allWordsDB.add(words.get(i));
