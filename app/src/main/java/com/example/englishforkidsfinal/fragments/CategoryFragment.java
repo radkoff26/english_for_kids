@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.adapters.WordsRecyclerViewAdapter;
 import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
-import com.example.englishforkidsfinal.models.Category;
+import com.example.englishforkidsfinal.models.db_models.Category;
 
 import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.CATEGORY;
 import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST;
@@ -42,7 +42,7 @@ public class CategoryFragment extends Fragment {
 
         if (arguments.getSerializable(CATEGORY) != null && group != 0) {
             LearnedWordsDataBase db = new LearnedWordsDataBase(getContext());
-            WordsRecyclerViewAdapter adapter = new WordsRecyclerViewAdapter(getContext(), db.getWords(((Category) arguments.getSerializable(CATEGORY)).getTitle()));
+            WordsRecyclerViewAdapter adapter = new WordsRecyclerViewAdapter(getContext(), db.getWords(((Category) arguments.getSerializable(CATEGORY)).getId()));
             rv.setAdapter(adapter);
             db.close();
         }

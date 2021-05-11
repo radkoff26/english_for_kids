@@ -10,10 +10,10 @@ import com.example.englishforkidsfinal.models.db_models.CollectWordModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_ENG;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_ID;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_URL;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.TABLE_NAME;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_ENG;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_ID;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_URL;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.TABLE_NAME;
 
 public class CollectWord {
 

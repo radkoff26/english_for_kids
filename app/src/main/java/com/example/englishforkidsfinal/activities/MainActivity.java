@@ -4,14 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
+import com.example.englishforkidsfinal.db.BigAnimalDatabase;
+import com.example.englishforkidsfinal.db.CategoryDataBase;
 import com.example.englishforkidsfinal.fragments.AlphabetFragment;
 import com.example.englishforkidsfinal.fragments.AlphabetLetterFragment;
 import com.example.englishforkidsfinal.fragments.CategoriesFragment;
@@ -25,6 +30,7 @@ import com.example.englishforkidsfinal.fragments.MainLearningFragment;
 import com.example.englishforkidsfinal.fragments.SettingsFragment;
 import com.example.englishforkidsfinal.fragments.tutorial_fragments.FragmentTutorial;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
+import com.example.englishforkidsfinal.models.Tools;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.Serializable;
@@ -53,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.d("DEBUG", new BigAnimalDatabase(this).getBigAnimals().toString());
+
         sp = getSharedPreferences(CACHE_CACHE, MODE_PRIVATE);
 
         // Background music
@@ -62,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Initializing views
         bnv = findViewById(R.id.bottom_navigation);
+
+        updateColors();
 
         if (!sp.getBoolean(CACHE_HAD_TUTORIAL, CACHE_HAD_TUTORIAL_DEFAULT)) {
             Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
@@ -85,6 +95,28 @@ public class MainActivity extends AppCompatActivity {
     public void restart() {
         startActivity(getIntent());
         finish();
+    }
+
+    public void updateColors() {
+        Tools.setBackgroundMain(bnv, this);
+        int[][] states = new int[][]{
+                new int[]{android.R.attr.state_enabled},
+                new int[]{-android.R.attr.state_enabled},
+                new int[]{-android.R.attr.state_checked},
+                new int[]{android.R.attr.state_pressed}
+        };
+
+        int color = Tools.getFont(this);
+
+        int[] colors = new int[]{
+                color,
+                color,
+                color,
+                color
+        };
+
+        bnv.setItemTextColor(new ColorStateList(states, colors));
+        bnv.setItemIconTintList(new ColorStateList(states, colors));
     }
 
     public void clearNavigation() {

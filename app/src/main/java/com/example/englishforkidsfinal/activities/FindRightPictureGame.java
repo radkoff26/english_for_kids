@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
+import java.util.concurrent.Callable;
 
 public class FindRightPictureGame extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,6 +38,7 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
     private Word word;
     private BackgroundMusic music;
     private ArrayList<Integer> indexes = new ArrayList<>();
+    private ImageView cheer;
 
 
     @Override
@@ -64,6 +67,7 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
         pic2 = findViewById(R.id.pic2);
         pic3 = findViewById(R.id.pic3);
         pic4 = findViewById(R.id.pic4);
+        cheer = findViewById(R.id.cheer);
 
         // Text View with title of right word
         label = findViewById(R.id.label);
@@ -145,7 +149,35 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
         // Setting OnClickListeners to right and wrong words
         if (isRight) {
             iv.setOnClickListener(v -> {
-                randomize();
+                cheer.setVisibility(View.VISIBLE);
+                cheer.setAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.cheer_scale));
+                pic1.setClickable(false);
+                pic2.setClickable(false);
+                pic3.setClickable(false);
+                pic4.setClickable(false);
+                pic1.setFocusable(false);
+                pic2.setFocusable(false);
+                pic3.setFocusable(false);
+                pic4.setFocusable(false);
+                pic1.setImageDrawable(null);
+                pic2.setImageDrawable(null);
+                pic3.setImageDrawable(null);
+                pic4.setImageDrawable(null);
+                Callable<Void> callable = () -> {
+                    cheer.setVisibility(View.GONE);
+                    cheer.clearAnimation();
+                    pic1.setClickable(true);
+                    pic2.setClickable(true);
+                    pic3.setClickable(true);
+                    pic4.setClickable(true);
+                    pic1.setFocusable(true);
+                    pic2.setFocusable(true);
+                    pic3.setFocusable(true);
+                    pic4.setFocusable(true);
+                    randomize();
+                    return null;
+                };
+                new Tools.CountDown(callable).execute(1000);
             });
         } else {
             iv.setOnClickListener(this);

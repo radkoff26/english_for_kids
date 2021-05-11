@@ -13,22 +13,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.fragments.CategoryFragment;
-import com.example.englishforkidsfinal.models.Category;
+import com.example.englishforkidsfinal.models.db_models.Category;
 import com.google.android.material.textview.MaterialTextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.CATEGORY;
 
 public class CategoriesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     // Declaration of variables
-    private ArrayList<Category> categories;
+    private List<Category> categories;
     private LayoutInflater inflater;
     private Context context;
 
     // Constructor
-    public CategoriesRecyclerViewAdapter(Context context, ArrayList<Category> categories) {
+    public CategoriesRecyclerViewAdapter(Context context, List<Category> categories) {
         this.inflater = LayoutInflater.from(context);
         this.categories = categories;
         this.context = context;

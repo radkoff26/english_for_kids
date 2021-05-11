@@ -1,5 +1,6 @@
 package com.example.englishforkidsfinal.models;
 
+import com.example.englishforkidsfinal.models.db_models.Category;
 import com.example.englishforkidsfinal.models.db_models.Word;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class DefaultData {
                         "свинья",
                         "https://www.pinclipart.com/picdir/big/11-118114_picture-free-dirty-pigs-clipart-transparent-background-pig.png",
                         1,
-                        "животные"
+                        1
                 )
         );
         words.add(
@@ -25,7 +26,7 @@ public class DefaultData {
                         "собака",
                         "https://i.ya-webdesign.com/images/dog-vector-png-1.png",
                         1,
-                        "животные"
+                        1
                 )
         );
         words.add(
@@ -35,7 +36,7 @@ public class DefaultData {
                         "корова",
                         "https://pixy.org/src/467/4674051.png",
                         1,
-                        "животные"
+                        1
                 )
         );
         words.add(
@@ -45,7 +46,7 @@ public class DefaultData {
                         "лягушка",
                         "https://i.ya-webdesign.com/images/cartoon-frog-png-3.png",
                         1,
-                        "животные"
+                        1
                 )
         );
         words.add(
@@ -55,7 +56,7 @@ public class DefaultData {
                         "заяц",
                         "https://www.vippng.com/png/full/64-644186_bunny-clip-art-cartoon-images-rabbit-clip-art.png",
                         1,
-                        "животные"
+                        1
                 )
         );
         words.add(
@@ -65,7 +66,7 @@ public class DefaultData {
                         "крокодил",
                         "https://i.ya-webdesign.com/images/flat-clip-alligator-3.png",
                         2,
-                        "животные"
+                        1
                 )
         );
         words.add(
@@ -75,7 +76,7 @@ public class DefaultData {
                         "жираф",
                         "https://webcomicms.net/sites/default/files/clipart/170538/cute-cartoon-giraffe-pictures-170538-9274298.png",
                         2,
-                        "животные"
+                        1
                 )
         );
         words.add(
@@ -85,7 +86,7 @@ public class DefaultData {
                         "слон",
                         "https://pixy.org/src/131/1314499.png",
                         2,
-                        "животные"
+                        1
                 )
         );
         words.add(
@@ -95,7 +96,7 @@ public class DefaultData {
                         "обезьяна",
                         "https://www.clipartmax.com/png/full/85-858559_baby-monkeys-chimpanzee-cartoon-clip-art-cartoon-picture-of-monkey.png",
                         2,
-                        "животные"
+                        1
                 )
         );
         words.add(
@@ -105,7 +106,7 @@ public class DefaultData {
                         "змея",
                         "https://img.pngio.com/snake-cartoon-png-97-images-in-collection-page-3-snake-cartoon-png-3283_4850.png",
                         2,
-                        "животные"
+                        1
                 )
         );
         categories.add(

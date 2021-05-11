@@ -36,8 +36,7 @@ public class CollectWord extends AppCompatActivity {
     private LearnedWordsDataBase db;
     private List<Word> words;
     private Stack<Word> wordsStack;
-    private Bitmap picture;
-    Callable<Void> callable;
+    private Callable<Void> callable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,9 +101,6 @@ public class CollectWord extends AppCompatActivity {
 
         if (!isWon) {
             Tools.loadImageFromStorage(currentWord.getEng(), getApplicationContext(), iv);
-        }
-
-        if (!isWon) {
             targetView.startSettings(this, currentWord.getEng());
             lettersView.startSettings(currentWord.getEng(), targetView);
         }

@@ -21,6 +21,7 @@ import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.db_sql_models.SpeakRight;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.SpeakRightModel;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,6 +101,7 @@ public class SpeakRightGame extends AppCompatActivity {
                     } else {
                         // If answer is wrong
                         v.vibrate(100);
+                        Snackbar.make(animal, "Неверно... Попробуйте снова!:)", Snackbar.LENGTH_SHORT).setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE).show();
                     }
                 }
 

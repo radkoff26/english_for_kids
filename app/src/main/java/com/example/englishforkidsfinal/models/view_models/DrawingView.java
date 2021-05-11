@@ -25,7 +25,6 @@ public class DrawingView extends View {
     private PathList paths;
     private float x, y;
     private boolean flag = true;
-    private Picture picture;
 
     public DrawingView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -40,7 +39,6 @@ public class DrawingView extends View {
 
     // Method to set picture to the background of DrawingView
     public void setPicture(Picture picture) {
-        this.picture = picture;
         setBackground(getResources().getDrawable(picture.getResource()));
     }
 

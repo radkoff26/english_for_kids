@@ -1,7 +1,5 @@
 package com.example.englishforkidsfinal.fragments;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,18 +11,15 @@ import android.view.ViewGroup;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.adapters.CategoriesRecyclerViewAdapter;
-import com.example.englishforkidsfinal.models.Category;
+import com.example.englishforkidsfinal.db.CategoryDataBase;
+import com.example.englishforkidsfinal.models.db_models.Category;
 
-import java.util.ArrayList;
-import java.util.Set;
-
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CACHE;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CATEGORIES;
+import java.util.List;
 
 public class CategoriesFragment extends Fragment {
 
     private RecyclerView rv;
-    private SharedPreferences sp;
+    private CategoryDataBase db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,20 +28,13 @@ public class CategoriesFragment extends Fragment {
 
         rv = view.findViewById(R.id.categories);
 
-        sp = getActivity().getSharedPreferences(CACHE_CACHE, Context.MODE_PRIVATE);
 
-        Set<String> args = sp.getStringSet(CACHE_CATEGORIES, null);
-        ArrayList<Category> categories = new ArrayList<>();
+        db = new CategoryDataBase(getContext());
 
-        if (args != null) {
+        List<Category> categories = db.getCategories();
 
-            for (String arg : args) {
-                categories.add(new Category(0, arg));
-            }
-
-            CategoriesRecyclerViewAdapter adapter = new CategoriesRecyclerViewAdapter(getContext(), categories);
-            rv.setAdapter(adapter);
-        }
+        CategoriesRecyclerViewAdapter adapter = new CategoriesRecyclerViewAdapter(getContext(), categories);
+        rv.setAdapter(adapter);
 
         return view;
     }

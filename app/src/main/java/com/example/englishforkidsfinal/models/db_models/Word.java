@@ -1,7 +1,5 @@
 package com.example.englishforkidsfinal.models.db_models;
 
-import androidx.annotation.Nullable;
-
 // Plain Old Java Object
 public class Word {
     private Integer id;
@@ -10,25 +8,25 @@ public class Word {
     private String url;
     private Integer gr;
     private Boolean isLoaded = false;
-    private String category;
+    private Integer category_id;
 
-    public Word(int id, String eng, String ru, String url, int gr, String category) {
+    public Word(int id, String eng, String ru, String url, int gr, Integer category_id) {
         this.id = id;
         this.eng = eng;
         this.ru = ru;
         this.url = url;
         this.gr = gr;
-        this.category = category;
+        this.category_id = category_id;
     }
 
-    public Word(int id, String eng, String ru, String url, int gr, Boolean isLoaded, String category) {
+    public Word(int id, String eng, String ru, String url, int gr, Boolean isLoaded, Integer category_id) {
         this.id = id;
         this.eng = eng;
         this.ru = ru;
         this.url = url;
         this.gr = gr;
         this.isLoaded = isLoaded;
-        this.category = category;
+        this.category_id = category_id;
     }
 
     public Boolean isLoaded() {
@@ -59,8 +57,8 @@ public class Word {
         return gr;
     }
 
-    public String getCategory() {
-        return category;
+    public Integer getCategory_id() {
+        return category_id;
     }
 
     public boolean equals(Object o) {
@@ -79,7 +77,7 @@ public class Word {
                 ", url='" + url + '\'' +
                 ", gr=" + gr +
                 ", isLoaded=" + isLoaded +
-                ", category='" + category + '\'' +
+                ", category='" + category_id + '\'' +
                 '}';
     }
 }

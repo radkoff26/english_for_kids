@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/main_secondary">
+    android:background="@color/main_secondary"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/animal"
@@ -16,6 +16,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Answer" />
+        android:background="@drawable/btn_bg"
+        android:text="@string/answer"
+        android:textColor="@color/font_color"
+        android:textSize="24sp"
+        android:layout_margin="8dp"/>
 
 </LinearLayout>

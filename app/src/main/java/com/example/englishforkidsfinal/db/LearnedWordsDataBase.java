@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
@@ -15,31 +14,29 @@ import com.example.englishforkidsfinal.models.db_models.Word;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.All_WORDS_TABLE_NAME;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_CATEGORY;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_ENG;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_GR;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_ID;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_IS_LOADED;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_RU;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.COLUMN_URL;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContract.MainTableContractions.TABLE_NAME;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_CATEGORY_ID;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_ENG;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_GR;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_ID;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_RU;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_URL;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.TABLE_NAME;
 
 public class LearnedWordsDataBase extends SQLiteOpenHelper {
 
     // Initializing constant variables that are necessary for instantiating of object
-    public static final String DATABASE_NAME = "learned_words_db";
-    public static final int VERSION = 9;
+    private static final String DATABASE_NAME = "learned_words_db";
+    private static final int VERSION = 10;
 
     // Default SQL queries to create and to delete table
-    public static final String CREATE = "CREATE TABLE " + TABLE_NAME +
+    private static final String CREATE = "CREATE TABLE " + TABLE_NAME +
             " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
             COLUMN_ENG + " TEXT, " +
             COLUMN_RU + " TEXT, " +
             COLUMN_URL + " TEXT, " +
             COLUMN_GR + " INTEGER, " +
-            COLUMN_CATEGORY + " TEXT)";
-    public static final String DELETE = "DROP TABLE IF EXISTS " + TABLE_NAME;
+            COLUMN_CATEGORY_ID + " INTEGER)";
+    private static final String DELETE = "DROP TABLE IF EXISTS " + TABLE_NAME;
 
     // Constructor
     public LearnedWordsDataBase(@Nullable Context context) {
@@ -76,7 +73,7 @@ public class LearnedWordsDataBase extends SQLiteOpenHelper {
             int ru = cursor.getColumnIndex(COLUMN_RU);
             int url = cursor.getColumnIndex(COLUMN_URL);
             int gr = cursor.getColumnIndex(COLUMN_GR);
-            int category = cursor.getColumnIndex(COLUMN_CATEGORY);
+            int category = cursor.getColumnIndex(COLUMN_CATEGORY_ID);
 
             do {
                 Word word_to_add = new Word(
@@ -85,7 +82,7 @@ public class LearnedWordsDataBase extends SQLiteOpenHelper {
                         cursor.getString(ru),
                         cursor.getString(url),
                         cursor.getInt(gr),
-                        cursor.getString(category));
+                        cursor.getInt(category));
                 words.add(word_to_add);
             } while (cursor.moveToNext());
         }
@@ -96,13 +93,13 @@ public class LearnedWordsDataBase extends SQLiteOpenHelper {
     }
 
     // Method to get all words in Database by category parameter
-    public List<Word> getWords(String category) {
+    public List<Word> getWords(Integer category_id) {
         List<Word> words = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME,
                 null,
-                COLUMN_CATEGORY + " = \"" + category + "\"",
+                COLUMN_CATEGORY_ID + " = \"" + category_id + "\"",
                 null,
                 null,
                 null,
@@ -114,7 +111,7 @@ public class LearnedWordsDataBase extends SQLiteOpenHelper {
             int ru = cursor.getColumnIndex(COLUMN_RU);
             int url = cursor.getColumnIndex(COLUMN_URL);
             int gr = cursor.getColumnIndex(COLUMN_GR);
-            int mCategory = cursor.getColumnIndex(COLUMN_CATEGORY);
+            int mCategory = cursor.getColumnIndex(COLUMN_CATEGORY_ID);
 
             do {
                 Word word_to_add = new Word(
@@ -123,9 +120,9 @@ public class LearnedWordsDataBase extends SQLiteOpenHelper {
                         cursor.getString(ru),
                         cursor.getString(url),
                         cursor.getInt(gr),
-                        cursor.getString(mCategory));
+                        cursor.getInt(mCategory));
                 words.add(word_to_add);
-                Log.d("DEBUG", word_to_add.getCategory() + "");
+                Log.d("DEBUG", word_to_add.getCategory_id() + "");
             } while (cursor.moveToNext());
         }
 
@@ -147,7 +144,7 @@ public class LearnedWordsDataBase extends SQLiteOpenHelper {
         cv.put(COLUMN_RU, word.getRu());
         cv.put(COLUMN_URL, word.getUrl());
         cv.put(COLUMN_GR, word.getGr());
-        cv.put(COLUMN_CATEGORY, word.getCategory());
+        cv.put(COLUMN_CATEGORY_ID, word.getCategory_id());
 
         return db.insert(TABLE_NAME, null, cv);
     }

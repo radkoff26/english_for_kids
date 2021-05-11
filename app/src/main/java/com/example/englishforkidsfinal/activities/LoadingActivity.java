@@ -7,28 +7,27 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
+import com.example.englishforkidsfinal.db.AlphabetDataBase;
+import com.example.englishforkidsfinal.db.BigAnimalDatabase;
+import com.example.englishforkidsfinal.db.CategoryDataBase;
 import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
-import com.example.englishforkidsfinal.models.Category;
+import com.example.englishforkidsfinal.models.Letter;
+import com.example.englishforkidsfinal.models.RestAlphabetLetter;
+import com.example.englishforkidsfinal.models.db_models.BigAnimal;
+import com.example.englishforkidsfinal.models.db_models.Category;
 import com.example.englishforkidsfinal.models.ClientAPI;
 import com.example.englishforkidsfinal.models.DefaultData;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.Word;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
-import com.google.android.material.slider.Slider;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.Callable;
 
 import retrofit2.Call;
@@ -40,7 +39,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.NUMBER_OF_WORDS_IN_GROUP;
 import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.ONE_PART;
 import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CACHE;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CATEGORIES;
 import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
 import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
 
@@ -52,8 +50,7 @@ public class LoadingActivity extends AppCompatActivity {
     private ClientAPI clientAPI;
     private SharedPreferences sp;
     private boolean flag = false;
-    private static final String BASE_URL = "http://192.168.0.107:8080";
-    private boolean hasConnection = false;
+    private static final String BASE_URL = "http://192.168.0.113:8080";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,31 +89,64 @@ public class LoadingActivity extends AppCompatActivity {
             List<Word> allWords = allWordsDB.getWords(null);
             List<Word> learnedWords = learnedWordsDB.getWords();
 
+            AlphabetDataBase db = new AlphabetDataBase(getApplicationContext());
+
+            if (db.getAlphabet().size() < 26) {
+                clientAPI.getAlphabet()
+                        .enqueue(new Callback<List<RestAlphabetLetter>>() {
+                            @Override
+                            public void onResponse(Call<List<RestAlphabetLetter>> call, Response<List<RestAlphabetLetter>> response) {
+                                List<RestAlphabetLetter> letters = response.body();
+                                for (int i = 0; i < letters.size(); i++) {
+                                    db.addLetter(letters.get(i));
+                                }
+                                db.close();
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<RestAlphabetLetter>> call, Throwable t) {
+                                t.printStackTrace();
+                            }
+                        });
+            }
+
+            clientAPI.getBigAnimals()
+                    .enqueue(new Callback<List<BigAnimal>>() {
+                        @Override
+                        public void onResponse(Call<List<BigAnimal>> call, Response<List<BigAnimal>> response) {
+                            List<BigAnimal> bigAnimals = response.body();
+                            BigAnimalDatabase db = new BigAnimalDatabase(getApplicationContext());
+                            for (int i = 0; i < bigAnimals.size(); i++) {
+                                db.addBigAnimal(bigAnimals.get(i));
+                            }
+                            db.close();
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<BigAnimal>> call, Throwable t) {
+                        }
+                    });
+
             clientAPI.getCategories()
                     .enqueue(new Callback<List<Category>>() {
                         @Override
                         public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
                             List<Category> categories = response.body();
-                            if (categories != null) {
-                                SharedPreferences.Editor editor = sp.edit();
-                                Set<String> res = new HashSet<>();
-                                for (int i = 0; i < categories.size(); i++) {
-                                    res.add(categories.get(i).getTitle());
-                                }
-                                editor.putStringSet(CACHE_CATEGORIES, res);
-                                editor.apply();
+                            CategoryDataBase db = new CategoryDataBase(getApplicationContext());
+                            for (int i = 0; i < categories.size(); i++) {
+                                db.addCategory(categories.get(i));
                             }
+                            db.close();
                         }
 
                         @Override
                         public void onFailure(Call<List<Category>> call, Throwable t) {
-                            SharedPreferences.Editor editor = sp.edit();
-                            Set<String> res = new HashSet<>();
-                            for (int i = 0; i < DefaultData.categories.size(); i++) {
-                                res.add(DefaultData.categories.get(i).getTitle());
+                            CategoryDataBase db = new CategoryDataBase(getApplicationContext());
+                            List<Category> categories = DefaultData.categories;
+                            for (int i = 0; i < categories.size(); i++) {
+                                db.addCategory(categories.get(i));
                             }
-                            editor.putStringSet(CACHE_CATEGORIES, res);
-                            editor.apply();
+                            db.close();
                         }
                     });
 
@@ -135,7 +165,6 @@ public class LoadingActivity extends AppCompatActivity {
                                     }
                                 }
                                 flag = true;
-                                hasConnection = true;
                             }
 
                             @Override
@@ -207,7 +236,8 @@ public class LoadingActivity extends AppCompatActivity {
         protected Integer doInBackground(String... strings) {
             AllWordsDataBase allWordsDB = new AllWordsDataBase(getApplicationContext());
 
-            while (!flag) {}
+            while (!flag) {
+            }
 
             Thread load = new Thread(() -> {
                 List<Word> words = allWordsDB.getWords(null);
@@ -215,13 +245,13 @@ public class LoadingActivity extends AppCompatActivity {
                     if (!words.get(i).isLoaded()) {
                         try {
                             Bitmap b;
-                            if (hasConnection) {
+                            if (words.get(i).getUrl().contains("http")) {
                                 b = Picasso.with(getApplicationContext())
-                                        .load(BASE_URL + "/getImage?name=" + words.get(i).getUrl())
+                                        .load(words.get(i).getUrl())
                                         .get();
                             } else {
                                 b = Picasso.with(getApplicationContext())
-                                        .load(words.get(i).getUrl())
+                                        .load(BASE_URL + "/getImage?name=" + words.get(i).getUrl())
                                         .get();
                             }
                             Tools.saveToInternalStorage(words.get(i).getEng(), b, getApplicationContext());
@@ -245,6 +275,86 @@ public class LoadingActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             allWordsDB.close();
+
+            BigAnimalDatabase db = new BigAnimalDatabase(getApplicationContext());
+            Thread loadAnimals = new Thread(() -> {
+                List<BigAnimal> bigAnimals = db.getBigAnimals();
+                if (!bigAnimals.isEmpty()) {
+                    for (int i = 0; i < bigAnimals.size(); i++) {
+                        try {
+                            Bitmap b;
+                            b = Picasso.with(getApplicationContext())
+                                    .load(BASE_URL + "/getImage?name=" + bigAnimals.get(i).getUri())
+                                    .get();
+                            Tools.saveToInternalStorage(bigAnimals.get(i).getUri(), b, getApplicationContext());
+                            b = Picasso.with(getApplicationContext())
+                                    .load(BASE_URL + "/getImage?name=" + bigAnimals.get(i).getUri_bg())
+                                    .get();
+                            Tools.saveToInternalStorage(bigAnimals.get(i).getUri_bg(), b, getApplicationContext());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+
+            loadAnimals.start();
+
+            f = true;
+
+            while (f) try {
+                loadAnimals.join();
+                f = false;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            db.close();
+
+            AlphabetDataBase alphabetDB = new AlphabetDataBase(getApplicationContext());
+            Thread loadAlphabet = new Thread(() -> {
+                List<RestAlphabetLetter> letters = alphabetDB.getAlphabet();
+                if (!letters.isEmpty()) {
+                    for (int i = 0; i < letters.size(); i++) {
+                        if (!letters.get(i).isLoaded()) {
+                            try {
+                                Bitmap b;
+                                b = Picasso.with(getApplicationContext())
+                                        .load(BASE_URL + "/getImage?name=" + letters.get(i).getUri())
+                                        .get();
+                                Tools.saveToInternalStorage(letters.get(i).getUri(), b, getApplicationContext());
+                                b = Picasso.with(getApplicationContext())
+                                        .load(BASE_URL + "/getImage?name=" + letters.get(i).getPicture_uri())
+                                        .get();
+                                Tools.saveToInternalStorage(letters.get(i).getPicture_uri(), b, getApplicationContext());
+                                RestAlphabetLetter letter = letters.get(i);
+                                alphabetDB.addLetter(new RestAlphabetLetter(
+                                        letter.getId(),
+                                        letter.getLetter(),
+                                        letter.getUri(),
+                                        letter.getPicture_uri(),
+                                        true
+                                ));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            });
+
+            loadAlphabet.start();
+
+            f = true;
+
+            while (f) try {
+                loadAnimals.join();
+                f = false;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            alphabetDB.close();
 
             return null;
         }

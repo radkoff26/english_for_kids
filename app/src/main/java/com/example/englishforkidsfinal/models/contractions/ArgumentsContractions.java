@@ -10,4 +10,7 @@ public class ArgumentsContractions {
     public static final String ALPHABET = "alphabet";
     public static final String GAME = "game";
     public static final String LEARNING = "learning";
+    public static final String COLOR = "color";
+    public static final Integer COLOR_DEFAULT = -1;
+    public static final String LETTER = "letter";
 }
