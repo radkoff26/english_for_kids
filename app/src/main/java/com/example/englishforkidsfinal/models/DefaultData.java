@@ -1,5 +1,6 @@
 package com.example.englishforkidsfinal.models;
 
+import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.models.db_models.Category;
 import com.example.englishforkidsfinal.models.db_models.Word;
 
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 public class DefaultData {
     public static ArrayList<Word> words = new ArrayList<>();
     public static ArrayList<Category> categories = new ArrayList<>();
+    public static ArrayList<Drawing> drawings = new ArrayList<>();
     static {
         words.add(
                 new Word(
@@ -115,5 +117,20 @@ public class DefaultData {
                         "животные"
                 )
         );
+        drawings.add(new Drawing(
+                R.drawable.cat,
+                R.drawable.cat_unpainted,
+                "cat"
+        ));
+        drawings.add(new Drawing(
+                R.drawable.dog,
+                R.drawable.dog_unpainted,
+                "dog"
+        ));
+        drawings.add(new Drawing(
+                R.drawable.cow,
+                R.drawable.cow_unpainted,
+                "cow"
+        ));
     }
 }

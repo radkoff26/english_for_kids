@@ -30,7 +30,7 @@ public class SpeechImageView extends androidx.appcompat.widget.AppCompatImageVie
         this.setOnClickListener(v -> {
             // Checking if text is given
             if (wordToSpeak != null) {
-                tts.speak(wordToSpeak, TextToSpeech.QUEUE_ADD, null);
+                tts.speak(wordToSpeak, TextToSpeech.QUEUE_FLUSH, null);
             }
 
             // Checking if animation is given and managing it to animate image

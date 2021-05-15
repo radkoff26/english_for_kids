@@ -23,6 +23,7 @@ public class DataBaseContractions {
         public static final String COLUMN_CATEGORY_TITLE = "title";
         public static final String COLUMN_BIG_ANIMAL_URI = "animal_uri";
         public static final String COLUMN_BIG_ANIMAL_URI_BG = "animal_uri_bg";
+        public static final String COLUMN_BIG_ANIMAL_IS_LOADED = "animal_is_loaded";
         public static final String COLUMN_BIG_ANIMAL_WORD = "animal_word";
         public static final String COLUMN_ALPHABET_LETTER = "letter";
         public static final String COLUMN_ALPHABET_LETTER_PICTURE_URI = "picture_uri";

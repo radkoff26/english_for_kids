@@ -13,23 +13,19 @@ import com.example.englishforkidsfinal.models.db_models.BigAnimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.BIG_ANIMAL_TABLE_NAME;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.CATEGORY_TABLE_NAME;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_BIG_ANIMAL_URI;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_BIG_ANIMAL_URI_BG;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_BIG_ANIMAL_WORD;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_ID;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.*;
 
 public class BigAnimalDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "big_animals";
-    private static final Integer VERSION = 1;
+    private static final Integer VERSION = 2;
 
     // Default SQL queries to create and to delete table
     private static final String CREATE = "CREATE TABLE " + BIG_ANIMAL_TABLE_NAME +
             " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
             COLUMN_BIG_ANIMAL_URI + " TEXT," +
             COLUMN_BIG_ANIMAL_URI_BG + " TEXT," +
+            COLUMN_BIG_ANIMAL_IS_LOADED + " INTEGER," +
             " " + COLUMN_BIG_ANIMAL_WORD + " TEXT)";
     private static final String DELETE = "DROP TABLE IF EXISTS " + BIG_ANIMAL_TABLE_NAME;
 
@@ -65,13 +61,15 @@ public class BigAnimalDatabase extends SQLiteOpenHelper {
             int uri = cursor.getColumnIndex(COLUMN_BIG_ANIMAL_URI);
             int uri_bg = cursor.getColumnIndex(COLUMN_BIG_ANIMAL_URI_BG);
             int word = cursor.getColumnIndex(COLUMN_BIG_ANIMAL_WORD);
+            int isLoaded = cursor.getColumnIndex(COLUMN_BIG_ANIMAL_IS_LOADED);
 
             do {
                 BigAnimal bigAnimal = new BigAnimal(
                         cursor.getInt(id),
                         cursor.getString(uri),
                         cursor.getString(uri_bg),
-                        cursor.getString(word)
+                        cursor.getString(word),
+                        cursor.getInt(isLoaded) == 1
                 );
                 bigAnimals.add(bigAnimal);
             } while (cursor.moveToNext());
@@ -83,18 +81,23 @@ public class BigAnimalDatabase extends SQLiteOpenHelper {
     }
 
     public long addBigAnimal(BigAnimal bigAnimal) {
-        // Checking if the word in Database, it won't be inserted into Database
-        if (isInDB(bigAnimal)) {
-            return 0;
-        }
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_BIG_ANIMAL_URI, bigAnimal.getUri());
         cv.put(COLUMN_BIG_ANIMAL_URI_BG, bigAnimal.getUri_bg());
         cv.put(COLUMN_BIG_ANIMAL_WORD, bigAnimal.getWord());
+        if (bigAnimal.getLoaded() != null) {
+            cv.put(COLUMN_BIG_ANIMAL_IS_LOADED, bigAnimal.getLoaded() ? 1 : 0);
+        } else {
+            cv.put(COLUMN_BIG_ANIMAL_IS_LOADED, 0);
+        }
 
-        return db.insert(BIG_ANIMAL_TABLE_NAME, null, cv);
+        if (isInDB(bigAnimal)) {
+            return db.update(BIG_ANIMAL_TABLE_NAME, cv, "id = ?", new String[] {bigAnimal.getId().toString()});
+        } else {
+            return db.insert(BIG_ANIMAL_TABLE_NAME, null, cv);
+        }
     }
 
     // Method to find out if the word is in Database

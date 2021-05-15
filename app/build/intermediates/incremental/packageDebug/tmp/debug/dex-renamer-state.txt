@@ -1,0 +1,7 @@
+#Sat May 15 17:47:16 MSK 2021
+base.0=C\:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=C\:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex

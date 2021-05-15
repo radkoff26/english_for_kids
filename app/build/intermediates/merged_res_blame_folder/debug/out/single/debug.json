@@ -1,0 +1,546 @@
+[
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_f.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\f.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_frog.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\frog.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_field.jpg.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\field.jpg"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_settings.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_loading.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\loading.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_grass_solid.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\grass_solid.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_m.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\m.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_monkey.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\monkey.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_word_item.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\word_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_t.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\t.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\anim_dawn.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\anim\\dawn.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_english_bg.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\english_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_alphabet_icon_main.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\alphabet_icon_main.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_alphabet_letter.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_alphabet_letter.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\raw_grass_animated.mp4.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\raw\\grass_animated.mp4"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_n.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\n.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_mic_24.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\ic_baseline_mic_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\anim_arrow_down_up.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\anim\\arrow_down_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_collect_word_bg.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\collect_word_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_learning.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_learning.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sound.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\sound.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_game_space.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\activity_game_space.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_g.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\g.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_alphabet.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_alphabet.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_make_word_game.jpg.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\make_word_game.jpg"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_u.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\u.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_bg.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\btn_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_find_right_picture_game.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\activity_find_right_picture_game.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_drawing_game.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\activity_drawing_game.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_speak_right_game.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\activity_speak_right_game.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_contest.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_contest.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\anim_letter_up_down.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\anim\\letter_up_down.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_speak_right_game.jpg.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\speak_right_game.jpg"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_drawing_bg.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\drawing_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_h.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\h.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cat.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\cat.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sky_solid.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\sky_solid.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\menu_bottom_navigation_menu.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\menu\\bottom_navigation_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_crocodile.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\crocodile.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cow_unpainted.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\cow_unpainted.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_grass.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\grass.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_test_model.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\test_model.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\raw_second.mp3.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\raw\\second.mp3"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_e.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\e.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_v.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\v.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\anim_arrow_up_down.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\anim\\arrow_up_down.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_arrow_back_24.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\ic_baseline_arrow_back_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_find_right_picture_game.jpg.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\find_right_picture_game.jpg"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_nature.jpg.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\bg_nature.jpg"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_bg.jpg.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\bg.jpg"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_learning_icon_main.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\learning_icon_main.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_find_picture_bg.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\find_picture_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\raw_first.mp3.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\raw\\first.mp3"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_s.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\s.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_loading.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\activity_loading.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_color_item.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\color_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_done_24.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\ic_baseline_done_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_drawing_game.jpg.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\drawing_game.jpg"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_p.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\p.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_rabbit.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\rabbit.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\anim_animal_scale.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\anim\\animal_scale.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_alphabet_item.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\alphabet_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_game_item.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\game_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_x.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\x.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_b.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\b.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_j.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\j.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_elephant.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\elephant.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_bg_disabled.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\btn_bg_disabled.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_c.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\c.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_q.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\q.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_main_learning.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_main_learning.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pig.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\pig.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_snake.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\snake.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_giraffe.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\giraffe.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_speak_right_bg.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\speak_right_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\anim_loader_rotation.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\anim\\loader_rotation.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_play_arrow_24.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\ic_baseline_play_arrow_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_result_contest.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_result_contest.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_y.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\y.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_color_picker.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_color_picker.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\dog.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_a.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\a.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_category_item.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\category_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_k.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\k.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_r.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\r.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_d.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\d.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\anim_cheer_scale.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\anim\\cheer_scale.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_o.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\o.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bg_portrait.jpg.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\bg_portrait.jpg"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_start.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\start.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_main_contest.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_main_contest.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cheer.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\cheer.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog_unpainted.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\dog_unpainted.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\raw_third.mp3.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\raw\\third.mp3"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_tutorial.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_tutorial.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_sun.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\sun.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_l.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\l.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_games.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_games.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cow.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\cow.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_restart.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\restart.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_w.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\w.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_square.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\square.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_circle.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\circle.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_loading.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\loading.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_giraffe2.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\giraffe2.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_arrow_down.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\arrow_down.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cat_to_draw.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\cat_to_draw.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\menu_main_menu.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\menu\\main_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout-land_fragment_home.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout-land\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cat_unpainted.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\cat_unpainted.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_test_start_triangle.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\test_start_triangle.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_categories.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_categories.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_home.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\home.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_z.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\z.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_i.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\i.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_category.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\layout\\fragment_category.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\navigation\\nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_settings_icon.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable-v24\\settings_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pic.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\pic.png"
+    },
+    {
+        "merged": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\res\\merged\\debug\\drawable_games_icon_main.png.flat",
+        "source": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\src\\main\\res\\drawable\\games_icon_main.png"
+    }
+]

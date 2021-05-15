@@ -7,12 +7,21 @@ public class BigAnimal {
     private String uri;
     private String uri_bg;
     private String word;
+    private Boolean isLoaded;
 
     public BigAnimal(Integer id, String uri, String uri_bg, String word) {
         this.id = id;
         this.uri = uri;
         this.uri_bg = uri_bg;
         this.word = word;
+    }
+
+    public BigAnimal(Integer id, String uri, String uri_bg, String word, Boolean isLoaded) {
+        this.id = id;
+        this.uri = uri;
+        this.uri_bg = uri_bg;
+        this.word = word;
+        this.isLoaded = isLoaded;
     }
 
     public Integer getId() {
@@ -29,6 +38,14 @@ public class BigAnimal {
 
     public String getUri_bg() {
         return uri_bg;
+    }
+
+    public Boolean getLoaded() {
+        return isLoaded;
+    }
+
+    public void setLoaded(Boolean loaded) {
+        isLoaded = loaded;
     }
 
     @Override

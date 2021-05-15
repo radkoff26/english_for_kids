@@ -14,6 +14,9 @@ import android.os.Vibrator;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -21,16 +24,18 @@ import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.db_sql_models.SpeakRight;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.SpeakRightModel;
+import com.example.englishforkidsfinal.models.view_models.DrawingImageView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 public class SpeakRightGame extends AppCompatActivity {
 
     // Declaration of variables
     private SpeechRecognizer recognizer;
-    private ImageView animal;
+    private ImageView animal, cheer;
     private AppCompatButton answer;
     private SpeakRightModel word;
     private SpeakRight speakRight;
@@ -56,6 +61,7 @@ public class SpeakRightGame extends AppCompatActivity {
 
         // Initializing views
         animal = findViewById(R.id.animal);
+        cheer = findViewById(R.id.cheer);
         answer = findViewById(R.id.answer);
 
         answer.setTypeface(MainActivity.typeface);
@@ -83,6 +89,9 @@ public class SpeakRightGame extends AppCompatActivity {
         int id = randomId();
         word = models.get(id);
 
+        answer.setClickable(true);
+        answer.setFocusable(true);
+
         // Making and setting OnClickListener up to speak
         RecognitionListener listener = new RecognitionListener() {
             @Override
@@ -97,17 +106,31 @@ public class SpeakRightGame extends AppCompatActivity {
                 } else {
                     if (compare(word.getEng().toLowerCase(), voiceResults.get(0).toLowerCase())) {
                         // If answer is right
-                        restart();
+                        animal.setVisibility(View.INVISIBLE);
+                        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.cheer_scale);
+                        cheer.setVisibility(View.VISIBLE);
+                        cheer.startAnimation(anim);
+                        answer.setClickable(false);
+                        answer.setFocusable(false);
+                        Callable<Void> callable = () -> {
+                            answer.setClickable(true);
+                            answer.setFocusable(true);
+                            cheer.clearAnimation();
+                            cheer.setVisibility(View.GONE);
+                            animal.setVisibility(View.VISIBLE);
+                            restart();
+                            return null;
+                        };
+                        new Tools.CountDown(callable).execute(1000);
                     } else {
                         // If answer is wrong
                         v.vibrate(100);
                         Snackbar.make(animal, "Неверно... Попробуйте снова!:)", Snackbar.LENGTH_SHORT).setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE).show();
+                        // Enabling activating button
+                        answer.setClickable(true);
+                        answer.setFocusable(true);
                     }
                 }
-
-                // Enabling activating button
-                answer.setClickable(true);
-                answer.setFocusable(true);
             }
 
             @Override
@@ -147,9 +170,6 @@ public class SpeakRightGame extends AppCompatActivity {
 
             @Override
             public void onEndOfSpeech() {
-                // Enabling activating button
-                answer.setClickable(true);
-                answer.setFocusable(true);
             }
         };
         recognizer.setRecognitionListener(listener);

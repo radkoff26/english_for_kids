@@ -70,6 +70,48 @@ public class LoadingActivity extends AppCompatActivity {
         clientAPI = retrofit.create(ClientAPI.class);
 
         // Starting to prepare data async
+        clientAPI.getBigAnimals()
+                .enqueue(new Callback<List<BigAnimal>>() {
+                    @Override
+                    public void onResponse(Call<List<BigAnimal>> call, Response<List<BigAnimal>> response) {
+                        List<BigAnimal> bigAnimals = response.body();
+                        BigAnimalDatabase db = new BigAnimalDatabase(getApplicationContext());
+                        for (int i = 0; i < bigAnimals.size(); i++) {
+                            db.addBigAnimal(bigAnimals.get(i));
+                        }
+                        db.close();
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<BigAnimal>> call, Throwable t) {
+                    }
+                });
+
+        clientAPI.getCategories()
+                .enqueue(new Callback<List<Category>>() {
+                    @Override
+                    public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
+                        List<Category> categories = response.body();
+                        CategoryDataBase db = new CategoryDataBase(getApplicationContext());
+                        for (int i = 0; i < categories.size(); i++) {
+                            db.addCategory(categories.get(i));
+                        }
+                        db.close();
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Category>> call, Throwable t) {
+                        CategoryDataBase db = new CategoryDataBase(getApplicationContext());
+                        if (db.isEmpty()) {
+                            List<Category> categories = DefaultData.categories;
+                            for (int i = 0; i < categories.size(); i++) {
+                                db.addCategory(categories.get(i));
+                            }
+                            db.close();
+                        }
+                    }
+                });
+
         new Loader().execute();
         new LoadImages().execute();
     }
@@ -109,46 +151,6 @@ public class LoadingActivity extends AppCompatActivity {
                             }
                         });
             }
-
-            clientAPI.getBigAnimals()
-                    .enqueue(new Callback<List<BigAnimal>>() {
-                        @Override
-                        public void onResponse(Call<List<BigAnimal>> call, Response<List<BigAnimal>> response) {
-                            List<BigAnimal> bigAnimals = response.body();
-                            BigAnimalDatabase db = new BigAnimalDatabase(getApplicationContext());
-                            for (int i = 0; i < bigAnimals.size(); i++) {
-                                db.addBigAnimal(bigAnimals.get(i));
-                            }
-                            db.close();
-                        }
-
-                        @Override
-                        public void onFailure(Call<List<BigAnimal>> call, Throwable t) {
-                        }
-                    });
-
-            clientAPI.getCategories()
-                    .enqueue(new Callback<List<Category>>() {
-                        @Override
-                        public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
-                            List<Category> categories = response.body();
-                            CategoryDataBase db = new CategoryDataBase(getApplicationContext());
-                            for (int i = 0; i < categories.size(); i++) {
-                                db.addCategory(categories.get(i));
-                            }
-                            db.close();
-                        }
-
-                        @Override
-                        public void onFailure(Call<List<Category>> call, Throwable t) {
-                            CategoryDataBase db = new CategoryDataBase(getApplicationContext());
-                            List<Category> categories = DefaultData.categories;
-                            for (int i = 0; i < categories.size(); i++) {
-                                db.addCategory(categories.get(i));
-                            }
-                            db.close();
-                        }
-                    });
 
             if (learnedWords.isEmpty() || allWords.size() < Math.ceil(((double) level + 1) / 10) * ONE_PART) {
                 flag = false;
@@ -239,60 +241,34 @@ public class LoadingActivity extends AppCompatActivity {
             while (!flag) {
             }
 
-            Thread load = new Thread(() -> {
-                List<Word> words = allWordsDB.getWords(null);
-                for (int i = 0; i < words.size(); i++) {
-                    if (!words.get(i).isLoaded()) {
-                        try {
-                            Bitmap b;
-                            if (words.get(i).getUrl().contains("http")) {
-                                b = Picasso.with(getApplicationContext())
-                                        .load(words.get(i).getUrl())
-                                        .get();
-                            } else {
-                                b = Picasso.with(getApplicationContext())
-                                        .load(BASE_URL + "/getImage?name=" + words.get(i).getUrl())
-                                        .get();
-                            }
-                            Tools.saveToInternalStorage(words.get(i).getEng(), b, getApplicationContext());
-                            words.get(i).setLoaded(true);
-                            allWordsDB.add(words.get(i));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            });
-
-            load.start();
-
-            boolean f = true;
-
-            while (f) try {
-                load.join();
-                f = false;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            allWordsDB.close();
+            boolean f;
 
             BigAnimalDatabase db = new BigAnimalDatabase(getApplicationContext());
             Thread loadAnimals = new Thread(() -> {
                 List<BigAnimal> bigAnimals = db.getBigAnimals();
                 if (!bigAnimals.isEmpty()) {
                     for (int i = 0; i < bigAnimals.size(); i++) {
-                        try {
-                            Bitmap b;
-                            b = Picasso.with(getApplicationContext())
-                                    .load(BASE_URL + "/getImage?name=" + bigAnimals.get(i).getUri())
-                                    .get();
-                            Tools.saveToInternalStorage(bigAnimals.get(i).getUri(), b, getApplicationContext());
-                            b = Picasso.with(getApplicationContext())
-                                    .load(BASE_URL + "/getImage?name=" + bigAnimals.get(i).getUri_bg())
-                                    .get();
-                            Tools.saveToInternalStorage(bigAnimals.get(i).getUri_bg(), b, getApplicationContext());
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        if (!bigAnimals.get(i).getLoaded()) {
+                            try {
+                                Bitmap b;
+                                b = Picasso.with(getApplicationContext())
+                                        .load(BASE_URL + "/getImage?name=" + bigAnimals.get(i).getUri())
+                                        .get();
+                                Tools.saveToInternalStorage(bigAnimals.get(i).getUri(), b, getApplicationContext());
+                                b = Picasso.with(getApplicationContext())
+                                        .load(BASE_URL + "/getImage?name=" + bigAnimals.get(i).getUri_bg())
+                                        .get();
+                                Tools.saveToInternalStorage(bigAnimals.get(i).getUri_bg(), b, getApplicationContext());
+                                db.addBigAnimal(new BigAnimal(
+                                        bigAnimals.get(i).getId(),
+                                        bigAnimals.get(i).getUri(),
+                                        bigAnimals.get(i).getUri_bg(),
+                                        bigAnimals.get(i).getWord(),
+                                        true
+                                ));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }
@@ -356,6 +332,43 @@ public class LoadingActivity extends AppCompatActivity {
 
             alphabetDB.close();
 
+            Thread load = new Thread(() -> {
+                List<Word> words = allWordsDB.getWords(null);
+                for (int i = 0; i < words.size(); i++) {
+                    if (!words.get(i).isLoaded()) {
+                        try {
+                            Bitmap b;
+                            if (words.get(i).getUrl().contains("http")) {
+                                b = Picasso.with(getApplicationContext())
+                                        .load(words.get(i).getUrl())
+                                        .get();
+                            } else {
+                                b = Picasso.with(getApplicationContext())
+                                        .load(BASE_URL + "/getImage?name=" + words.get(i).getUrl())
+                                        .get();
+                            }
+                            Tools.saveToInternalStorage(words.get(i).getEng(), b, getApplicationContext());
+                            words.get(i).setLoaded(true);
+                            allWordsDB.add(words.get(i));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+
+            load.start();
+
+            f = true;
+
+            while (f) try {
+                load.join();
+                f = false;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            allWordsDB.close();
+
             return null;
         }
 
@@ -379,7 +392,7 @@ public class LoadingActivity extends AppCompatActivity {
                 finish();
                 return null;
             };
-            new Tools.CountDown(callable).execute(200);
+            new Tools.CountDown(callable).execute(500);
         }
     }
 }
