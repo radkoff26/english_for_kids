@@ -15,7 +15,6 @@ import com.example.englishforkidsfinal.db.AlphabetDataBase;
 import com.example.englishforkidsfinal.db.BigAnimalDatabase;
 import com.example.englishforkidsfinal.db.CategoryDataBase;
 import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
-import com.example.englishforkidsfinal.models.Letter;
 import com.example.englishforkidsfinal.models.RestAlphabetLetter;
 import com.example.englishforkidsfinal.models.db_models.BigAnimal;
 import com.example.englishforkidsfinal.models.db_models.Category;
@@ -36,11 +35,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.NUMBER_OF_WORDS_IN_GROUP;
-import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.ONE_PART;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CACHE;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
+import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.*;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.*;
 
 public class LoadingActivity extends AppCompatActivity {
 
@@ -50,7 +46,7 @@ public class LoadingActivity extends AppCompatActivity {
     private ClientAPI clientAPI;
     private SharedPreferences sp;
     private boolean flag = false;
-    private static final String BASE_URL = "http://192.168.0.113:8080";
+    private static final String BASE_URL = "http://188.225.46.21:8081";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -217,7 +213,7 @@ public class LoadingActivity extends AppCompatActivity {
                 loader.setProgressCompat(1, true);
                 return null;
             };
-            new Tools.CountDown(callable).execute(1000);
+            new Tools.CountDown(callable).execute(300);
             super.onPreExecute();
         }
 
@@ -242,6 +238,51 @@ public class LoadingActivity extends AppCompatActivity {
             }
 
             boolean f;
+
+            AlphabetDataBase alphabetDB = new AlphabetDataBase(getApplicationContext());
+            Thread loadAlphabet = new Thread(() -> {
+                List<RestAlphabetLetter> letters = alphabetDB.getAlphabet();
+                if (!letters.isEmpty()) {
+                    for (int i = 0; i < letters.size(); i++) {
+                        if (!letters.get(i).isLoaded()) {
+                            try {
+                                Bitmap b;
+                                b = Picasso.with(getApplicationContext())
+                                        .load(BASE_URL + "/getImage?name=" + letters.get(i).getUri())
+                                        .get();
+                                Tools.saveToInternalStorage(letters.get(i).getUri(), b, getApplicationContext());
+                                b = Picasso.with(getApplicationContext())
+                                        .load(BASE_URL + "/getImage?name=" + letters.get(i).getPicture_uri())
+                                        .get();
+                                Tools.saveToInternalStorage(letters.get(i).getPicture_uri(), b, getApplicationContext());
+                                RestAlphabetLetter letter = letters.get(i);
+                                alphabetDB.addLetter(new RestAlphabetLetter(
+                                        letter.getId(),
+                                        letter.getLetter(),
+                                        letter.getUri(),
+                                        letter.getPicture_uri(),
+                                        true
+                                ));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            });
+
+            loadAlphabet.start();
+
+            f = true;
+
+            while (f) try {
+                loadAlphabet.join();
+                f = false;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            alphabetDB.close();
 
             BigAnimalDatabase db = new BigAnimalDatabase(getApplicationContext());
             Thread loadAnimals = new Thread(() -> {
@@ -286,51 +327,6 @@ public class LoadingActivity extends AppCompatActivity {
             }
 
             db.close();
-
-            AlphabetDataBase alphabetDB = new AlphabetDataBase(getApplicationContext());
-            Thread loadAlphabet = new Thread(() -> {
-                List<RestAlphabetLetter> letters = alphabetDB.getAlphabet();
-                if (!letters.isEmpty()) {
-                    for (int i = 0; i < letters.size(); i++) {
-                        if (!letters.get(i).isLoaded()) {
-                            try {
-                                Bitmap b;
-                                b = Picasso.with(getApplicationContext())
-                                        .load(BASE_URL + "/getImage?name=" + letters.get(i).getUri())
-                                        .get();
-                                Tools.saveToInternalStorage(letters.get(i).getUri(), b, getApplicationContext());
-                                b = Picasso.with(getApplicationContext())
-                                        .load(BASE_URL + "/getImage?name=" + letters.get(i).getPicture_uri())
-                                        .get();
-                                Tools.saveToInternalStorage(letters.get(i).getPicture_uri(), b, getApplicationContext());
-                                RestAlphabetLetter letter = letters.get(i);
-                                alphabetDB.addLetter(new RestAlphabetLetter(
-                                        letter.getId(),
-                                        letter.getLetter(),
-                                        letter.getUri(),
-                                        letter.getPicture_uri(),
-                                        true
-                                ));
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                }
-            });
-
-            loadAlphabet.start();
-
-            f = true;
-
-            while (f) try {
-                loadAnimals.join();
-                f = false;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            alphabetDB.close();
 
             Thread load = new Thread(() -> {
                 List<Word> words = allWordsDB.getWords(null);
@@ -378,7 +374,7 @@ public class LoadingActivity extends AppCompatActivity {
                 loader.setProgressCompat(2, true);
                 return null;
             };
-            new Tools.CountDown(callable).execute(1000);
+            new Tools.CountDown(callable).execute(500);
             super.onPreExecute();
         }
 
@@ -386,13 +382,9 @@ public class LoadingActivity extends AppCompatActivity {
         protected void onPostExecute(Integer integer) {
             loader.setProgressCompat(3, true);
             super.onPostExecute(integer);
-            Callable<Void> callable = () -> {
-                // When checking of data is finished MainActivity starts
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                finish();
-                return null;
-            };
-            new Tools.CountDown(callable).execute(500);
+            // When checking of data is finished MainActivity starts
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
         }
     }
 }

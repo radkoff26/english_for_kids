@@ -13,14 +13,7 @@ import com.example.englishforkidsfinal.models.db_models.Word;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_CATEGORY_ID;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_ENG;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_GR;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_ID;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_IS_LOADED;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_RU;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_URL;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.All_WORDS_TABLE_NAME;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.*;
 
 public class AllWordsDataBase extends SQLiteOpenHelper {
 
@@ -115,13 +108,6 @@ public class AllWordsDataBase extends SQLiteOpenHelper {
         }
     }
 
-    public int remove(Word word) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(All_WORDS_TABLE_NAME,
-                COLUMN_ID + " = ?",
-                new String[] {Integer.toString(word.getId())});
-    }
-
     // Method to find out if the word is in Database
     public boolean isInDB(Word word) {
         List<Word> words = getWords(null);
@@ -132,10 +118,5 @@ public class AllWordsDataBase extends SQLiteOpenHelper {
             }
         }
         return false;
-    }
-
-    // Method to check if the database is empty
-    public boolean isEmpty() {
-        return getWords(null).isEmpty();
     }
 }

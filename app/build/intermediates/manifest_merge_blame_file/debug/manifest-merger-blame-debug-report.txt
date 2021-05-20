@@ -35,7 +35,7 @@
 22        android:allowBackup="true"
 22-->C:\Users\radko\OneDrive\Android\proj\english_for_kids\app\src\main\AndroidManifest.xml:16:9-35
 23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-23-->[androidx.core:core:1.6.0-alpha03] C:\Users\radko\.gradle\caches\transforms-2\files-2.1\f4ada436717ebc1d20c4f99c857ff29d\core-1.6.0-alpha03\AndroidManifest.xml:24:18-86
+23-->[androidx.core:core:1.6.0-beta01] C:\Users\radko\.gradle\caches\transforms-2\files-2.1\1a49a9b51a2e2a5db5d2f3cdd5545aef\core-1.6.0-beta01\AndroidManifest.xml:24:18-86
 24        android:debuggable="true"
 25        android:icon="@mipmap/ic_launcher"
 25-->C:\Users\radko\OneDrive\Android\proj\english_for_kids\app\src\main\AndroidManifest.xml:17:9-43

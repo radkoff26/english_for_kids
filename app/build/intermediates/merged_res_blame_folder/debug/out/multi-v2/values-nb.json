@@ -4,6 +4,23 @@
             "outputFile": "C:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nb\\values-nb.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\radko\\.gradle\\caches\\transforms-2\\files-2.1\\1a49a9b51a2e2a5db5d2f3cdd5545aef\\core-1.6.0-beta01\\res\\values-nb\\values-nb.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "90",
+                        "startColumns": "4",
+                        "startOffsets": "7423",
+                        "endColumns": "100",
+                        "endOffsets": "7519"
+                    }
+                },
+                {
                     "source": "C:\\Users\\radko\\.gradle\\caches\\transforms-2\\files-2.1\\d0596841d2dba211b612f3f4db375e43\\navigation-ui-2.3.2\\res\\values-nb\\values-nb.xml",
                     "from": {
                         "startLines": "2,3",
@@ -37,23 +54,6 @@
                         "endLines": "5,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,88",
                         "endColumns": "12,86,98,118,81,63,91,67,59,86,61,63,67,64,53,108,57,61,53,74,119,81,79,103,77,79,87,66,65,67,73,89,70,77,69,69,88,77,87,89,71,71,83,50,65,80,82,61,63,62,99,97,92,97,77",
                         "endOffsets": "261,2980,3079,3198,3280,3344,3436,3504,3564,3651,3713,3777,3845,3910,3964,4073,4131,4193,4247,4322,4442,4524,4604,4708,4786,4866,4954,5021,5087,5155,5229,5319,5390,5468,5538,5608,5697,5775,5863,5953,6025,6097,6181,6232,6298,6379,6462,6524,6588,6651,6751,6849,6942,7040,7338"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\radko\\.gradle\\caches\\transforms-2\\files-2.1\\f4ada436717ebc1d20c4f99c857ff29d\\core-1.6.0-alpha03\\res\\values-nb\\values-nb.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "90",
-                        "startColumns": "4",
-                        "startOffsets": "7423",
-                        "endColumns": "100",
-                        "endOffsets": "7519"
                     }
                 },
                 {

@@ -5,10 +5,6 @@ public class Letter {
     private Character letter;
     private Integer index;
 
-    public Letter() {
-        this.letter = Alphabet.getRandomChar();
-    }
-
     public Letter(Character letter) {
         this.letter = letter;
     }

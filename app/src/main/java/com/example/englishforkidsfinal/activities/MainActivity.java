@@ -5,18 +5,14 @@ import androidx.fragment.app.Fragment;
 
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
-import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 
 import com.example.englishforkidsfinal.R;
-import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.db.BigAnimalDatabase;
-import com.example.englishforkidsfinal.db.CategoryDataBase;
 import com.example.englishforkidsfinal.fragments.AlphabetFragment;
 import com.example.englishforkidsfinal.fragments.AlphabetLetterFragment;
 import com.example.englishforkidsfinal.fragments.CategoriesFragment;
@@ -28,28 +24,22 @@ import com.example.englishforkidsfinal.fragments.LearningFragment;
 import com.example.englishforkidsfinal.fragments.MainContestFragment;
 import com.example.englishforkidsfinal.fragments.MainLearningFragment;
 import com.example.englishforkidsfinal.fragments.SettingsFragment;
-import com.example.englishforkidsfinal.fragments.tutorial_fragments.FragmentTutorial;
+import com.example.englishforkidsfinal.fragments.FragmentTutorial;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
 import com.example.englishforkidsfinal.models.Tools;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Callable;
 
-import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.TUTORIAL_ARGUMENT_MENU;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CACHE;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_HAD_TUTORIAL;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_HAD_TUTORIAL_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.*;
 
 public class MainActivity extends AppCompatActivity {
 
     // Declaration of variables
     private BottomNavigationView bnv;
     private BackgroundMusic music;
-    public static int currentPosition = 0;
-    public static int currentTrack = -1;
     public static Typeface typeface;
     private SharedPreferences sp;
 
@@ -289,7 +279,6 @@ public class MainActivity extends AppCompatActivity {
             music.pause();
         }
         music = new BackgroundMusic(this);
-        music.setCurrentPosition(currentPosition);
         music.start();
     }
 }

@@ -33,7 +33,7 @@ public class GamesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.
         this.games = new ArrayList<>();
         this.context = context;
 
-        // Test data for Recycler View
+        // Data for Recycler View
         games.add(
                 new Game(R.drawable.collect_word_bg, CollectWord.class)
         );

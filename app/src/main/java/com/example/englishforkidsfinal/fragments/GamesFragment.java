@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.englishforkidsfinal.adapters.AlphabetRecyclerViewAdapter;
 import com.example.englishforkidsfinal.adapters.GamesRecyclerViewAdapter;
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.models.CarouselPageTransformer;

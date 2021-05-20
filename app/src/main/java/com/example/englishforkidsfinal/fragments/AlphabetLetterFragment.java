@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.MainActivity;
-import com.example.englishforkidsfinal.models.Alphabet;
-import com.example.englishforkidsfinal.models.AlphabetLetter;
 import com.example.englishforkidsfinal.models.RestAlphabetLetter;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.view_models.SpeechImageView;
@@ -43,7 +41,7 @@ public class AlphabetLetterFragment extends Fragment {
         // Setting view up
         iv_letter.setAnimation(R.anim.letter_up_down);
         Tools.loadImageFromStorage(letter.getPicture_uri(), getContext(), iv_letter);
-        iv_letter.setWordToSpeak(letter.getLetter() + " " + letter.getPicture_uri());
+        iv_letter.setWordToSpeak(letter.getLetter() + ". " + letter.getPicture_uri());
         letter_text_view.setTypeface(MainActivity.typeface);
         word.setTypeface(MainActivity.typeface);
         word.setText(letter.getPicture_uri().toUpperCase());

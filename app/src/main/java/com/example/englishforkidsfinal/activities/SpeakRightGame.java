@@ -24,7 +24,6 @@ import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.db_sql_models.SpeakRight;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.SpeakRightModel;
-import com.example.englishforkidsfinal.models.view_models.DrawingImageView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -170,9 +169,15 @@ public class SpeakRightGame extends AppCompatActivity {
 
             @Override
             public void onEndOfSpeech() {
+                answer.setClickable(true);
+                answer.setFocusable(true);
             }
         };
+
         recognizer.setRecognitionListener(listener);
+
+        answer.setClickable(true);
+        answer.setFocusable(true);
 
         // Setting right word's resources to content view
         Tools.loadImageFromStorage(word.getEng(), getApplicationContext(), animal);

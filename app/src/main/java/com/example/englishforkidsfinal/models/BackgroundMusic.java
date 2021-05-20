@@ -9,8 +9,6 @@ import com.example.englishforkidsfinal.R;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.example.englishforkidsfinal.activities.MainActivity.currentPosition;
-import static com.example.englishforkidsfinal.activities.MainActivity.currentTrack;
 import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS;
 import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS_MUSIC;
 import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS_MUSIC_DEFAULT;
@@ -25,6 +23,8 @@ public class BackgroundMusic extends Thread {
     private boolean isPlaying;
     private boolean isAccessedToPlay;
     private SharedPreferences sp;
+    private int currentPosition;
+    private int currentTrack;
 
     // Constructor
     public BackgroundMusic(Context ctx) {
@@ -32,15 +32,12 @@ public class BackgroundMusic extends Thread {
         this.ctx = ctx;
 
         // Setting id of random track
-        if (currentTrack == -1) {
-            idOfTrack = randomizeTrack();
-        }
+        idOfTrack = randomizeTrack();
 
         // Initializing of media player
-        mp = MediaPlayer.create(ctx, currentTrack == -1 ? tracks.get(idOfTrack) : currentTrack);
-        if (currentTrack == -1) {
-            currentTrack = tracks.get(idOfTrack);
-        }
+        mp = MediaPlayer.create(ctx, tracks.get(idOfTrack));
+        currentTrack = tracks.get(idOfTrack);
+
         setCurrentPosition(currentPosition);
 
         // Initializing SharedPreferences to get music settings
@@ -64,7 +61,7 @@ public class BackgroundMusic extends Thread {
             isPlaying = true;
             while (isPlaying) {
                 currentPosition = mp.getCurrentPosition();
-                if (mp.getCurrentPosition() + 1500 > mp.getDuration()) {
+                if (mp.getCurrentPosition() + 3500 > mp.getDuration()) {
                     nextTrack();
                 }
             }

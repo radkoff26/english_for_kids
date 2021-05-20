@@ -1,7 +1,6 @@
 package com.example.englishforkidsfinal.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,24 +8,17 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
-import com.example.englishforkidsfinal.adapters.DrawingAdapter;
 import com.example.englishforkidsfinal.models.DefaultData;
 import com.example.englishforkidsfinal.models.Drawing;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.view_models.DrawingImageView;
-import com.example.englishforkidsfinal.models.view_models.DrawingView;
-import com.example.englishforkidsfinal.models.Picture;
-import com.example.englishforkidsfinal.models.TestModels;
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.concurrent.Callable;
 
 public class DrawingGame extends AppCompatActivity implements View.OnClickListener {
