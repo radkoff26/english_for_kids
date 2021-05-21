@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.englishforkidsfinal.R;
@@ -44,9 +47,10 @@ public class LoadingActivity extends AppCompatActivity {
     private LinearProgressIndicator loader;
     private Retrofit retrofit;
     private ClientAPI clientAPI;
-    private SharedPreferences sp;
+    private SharedPreferences sp, sp_contest;
     private boolean flag = false;
     private static final String BASE_URL = "http://188.225.46.21:8081";
+    private TextView loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +59,12 @@ public class LoadingActivity extends AppCompatActivity {
 
         // Initialization
         loader = findViewById(R.id.loader);
+        loading = findViewById(R.id.loading);
+
+        loading.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/FuturaRoundBold.ttf"));
 
         sp = getSharedPreferences(CACHE_CACHE, MODE_PRIVATE);
+        sp_contest = getSharedPreferences(CACHE_CONTEST, MODE_PRIVATE);
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -122,7 +130,7 @@ public class LoadingActivity extends AppCompatActivity {
             AllWordsDataBase allWordsDB = new AllWordsDataBase(getApplicationContext());
             LearnedWordsDataBase learnedWordsDB = new LearnedWordsDataBase(getApplicationContext());
 
-            int level = sp.getInt(CACHE_CONTEST_GROUP, CACHE_CONTEST_GROUP_DEFAULT);
+            int level = sp_contest.getInt(CACHE_CONTEST_GROUP, CACHE_CONTEST_GROUP_DEFAULT);
 
             List<Word> allWords = allWordsDB.getWords(null);
             List<Word> learnedWords = learnedWordsDB.getWords();
@@ -148,34 +156,9 @@ public class LoadingActivity extends AppCompatActivity {
                         });
             }
 
-            if (learnedWords.isEmpty() || allWords.size() < Math.ceil(((double) level + 1) / 10) * ONE_PART) {
-                flag = false;
-                // Check for database of all words
-                clientAPI.getAllWords()
-                        .enqueue(new Callback<List<Word>>() {
-                            @Override
-                            public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
-                                List<Word> allWords = response.body();
-                                if (allWords != null) {
-                                    for (int i = 0; i < allWords.size(); i++) {
-                                        allWords.get(i).setLoaded(false);
-                                        allWordsDB.add(allWords.get(i));
-                                    }
-                                }
-                                flag = true;
-                            }
+            flag = true;
 
-                            @Override
-                            public void onFailure(Call<List<Word>> call, Throwable t) {
-                                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                                List<Word> allWords = DefaultData.words;
-                                for (int i = 0; i < allWords.size(); i++) {
-                                    allWords.get(i).setLoaded(false);
-                                    allWordsDB.add(allWords.get(i));
-                                }
-                                flag = true;
-                            }
-                        });
+            if (learnedWords.isEmpty()) {
 
                 // Check for database of learned words
                 clientAPI.getWords(1)
@@ -198,9 +181,63 @@ public class LoadingActivity extends AppCompatActivity {
                                 }
                             }
                         });
+            }
+
+            flag = false;
+
+            Log.d("DEBUG", level + "");
+            int plus_20 = (((level == 0 ? 0 : (level - 1)) * NUMBER_OF_WORDS_IN_GROUP) + ONE_PART);
+
+            if (allWords.isEmpty()) {
+                // Check for database of all words
+                clientAPI.getAllWords()
+                        .enqueue(new Callback<List<Word>>() {
+                            @Override
+                            public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
+                                List<Word> allWords = response.body();
+                                if (allWords != null) {
+                                    for (int i = 0; i < allWords.size(); i++) {
+                                        allWords.get(i).setLoaded(false);
+                                        allWordsDB.add(allWords.get(i));
+                                    }
+                                }
+                                flag = true;
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<Word>> call, Throwable t) {
+                                List<Word> allWords = DefaultData.words;
+                                for (int i = 0; i < allWords.size(); i++) {
+                                    allWords.get(i).setLoaded(false);
+                                    allWordsDB.add(allWords.get(i));
+                                }
+                                flag = true;
+                            }
+                        });
+            } else if (allWords.size() < plus_20) {
+                clientAPI.getRangeOfWords(allWords.size() + 1, plus_20)
+                        .enqueue(new Callback<List<Word>>() {
+                            @Override
+                            public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
+                                List<Word> allWords = response.body();
+                                if (allWords != null) {
+                                    for (int i = 0; i < allWords.size(); i++) {
+                                        allWords.get(i).setLoaded(false);
+                                        allWordsDB.add(allWords.get(i));
+                                    }
+                                }
+                                flag = true;
+                            }
+
+                            @Override
+                            public void onFailure(Call<List<Word>> call, Throwable t) {
+                            }
+                        });
             } else {
                 flag = true;
             }
+
+
             // Closing databases
             allWordsDB.close();
             learnedWordsDB.close();
@@ -246,6 +283,7 @@ public class LoadingActivity extends AppCompatActivity {
                     for (int i = 0; i < letters.size(); i++) {
                         if (!letters.get(i).isLoaded()) {
                             try {
+                                Log.d("DEBUG", "LOADING");
                                 Bitmap b;
                                 b = Picasso.with(getApplicationContext())
                                         .load(BASE_URL + "/getImage?name=" + letters.get(i).getUri())
@@ -330,8 +368,15 @@ public class LoadingActivity extends AppCompatActivity {
 
             Thread load = new Thread(() -> {
                 List<Word> words = allWordsDB.getWords(null);
-                for (int i = 0; i < words.size(); i++) {
+                Log.d("DEBUG", words.toString());
+                int level = sp_contest.getInt(CACHE_CONTEST_GROUP, CACHE_CONTEST_GROUP_DEFAULT);
+                Log.d("DEBUG", level + "");
+                int plus_20 = (((level == 0 ? 0 : (level - 1)) * NUMBER_OF_WORDS_IN_GROUP) + ONE_PART);
+                int size = Math.min(plus_20, words.size());
+                Log.d("DEBUG", plus_20 + "");
+                for (int i = 0; i < size; i++) {
                     if (!words.get(i).isLoaded()) {
+                        Log.d("DEBUG", words.get(i).getEng());
                         try {
                             Bitmap b;
                             if (words.get(i).getUrl().contains("http")) {
@@ -344,8 +389,16 @@ public class LoadingActivity extends AppCompatActivity {
                                         .get();
                             }
                             Tools.saveToInternalStorage(words.get(i).getEng(), b, getApplicationContext());
-                            words.get(i).setLoaded(true);
-                            allWordsDB.add(words.get(i));
+                            Word word = new Word(
+                                    words.get(i).getId(),
+                                    words.get(i).getEng(),
+                                    words.get(i).getRu(),
+                                    words.get(i).getUrl(),
+                                    words.get(i).getGr(),
+                                    true,
+                                    words.get(i).getCategory_id()
+                            );
+                            allWordsDB.add(word);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

@@ -14,13 +14,7 @@ import com.example.englishforkidsfinal.models.db_models.Word;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_CATEGORY_ID;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_ENG;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_GR;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_ID;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_RU;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_URL;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.TABLE_NAME;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.*;
 
 public class LearnedWordsDataBase extends SQLiteOpenHelper {
 
@@ -166,10 +160,5 @@ public class LearnedWordsDataBase extends SQLiteOpenHelper {
             }
         }
         return false;
-    }
-
-    // Method to check if the database is empty
-    public boolean isEmpty() {
-        return getWords().isEmpty();
     }
 }

@@ -22,9 +22,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.RESULT;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.*;
 
 public class MainContestFragment extends Fragment {
 

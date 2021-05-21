@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -101,8 +102,11 @@ public class AllWordsDataBase extends SQLiteOpenHelper {
         cv.put(COLUMN_IS_LOADED, word.isLoaded() ? 1 : 0);
         cv.put(COLUMN_CATEGORY_ID, word.getCategory_id());
 
+        Log.d("DEBUG", (word.isLoaded() ? 1 : 0) + "");
+
         if (isInDB(word)) {
-            return db.update(All_WORDS_TABLE_NAME, cv, "id = " + word.getId(), null);
+            Log.d("DEBUG", "UPDATE");
+            return db.update(All_WORDS_TABLE_NAME, cv, "id = ?", new String[] {word.getId().toString()});
         } else {
             return db.insert(All_WORDS_TABLE_NAME, null, cv);
         }

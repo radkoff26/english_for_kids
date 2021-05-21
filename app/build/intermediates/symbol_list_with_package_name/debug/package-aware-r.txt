@@ -12,8 +12,6 @@ anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
 anim animal_scale
-anim arrow_down_up
-anim arrow_up_down
 anim btn_checkbox_to_checked_box_inner_merged_animation
 anim btn_checkbox_to_checked_box_outer_merged_animation
 anim btn_checkbox_to_checked_icon_null_animation
@@ -27,7 +25,6 @@ anim btn_radio_to_on_mtrl_dot_group_animation
 anim btn_radio_to_on_mtrl_ring_outer_animation
 anim btn_radio_to_on_mtrl_ring_outer_path_animation
 anim cheer_scale
-anim dawn
 anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
@@ -40,7 +37,6 @@ anim fragment_fast_out_extra_slow_in
 anim fragment_open_enter
 anim fragment_open_exit
 anim letter_up_down
-anim loader_rotation
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
@@ -1197,9 +1193,6 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
-color purple_200
-color purple_500
-color purple_700
 color radiobutton_themeable_attribute_color
 color ripple_material_dark
 color ripple_material_light
@@ -1213,8 +1206,6 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
-color teal_200
-color teal_700
 color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
 color tooltip_background_dark
@@ -1875,7 +1866,6 @@ id alertTitle
 id aligned
 id all
 id alphabet
-id alphabetFragment
 id always
 id animal
 id animal_1
@@ -1932,8 +1922,6 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id collapseActionView
-id color
-id colorPicker
 id confirm_button
 id container
 id content
@@ -1951,7 +1939,6 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
-id default_settings
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -2002,13 +1989,11 @@ id fixed
 id fl
 id flip
 id floating
-id font
 id forever
 id fragment
 id fragment_container_view_tag
 id g
 id games
-id gamesFragment
 id ghost_view
 id ghost_view_holder
 id gone
@@ -2023,7 +2008,6 @@ id header_title
 id hideable
 id home
 id homeAsUp
-id homeFragment
 id honorRequest
 id horizontal
 id i
@@ -2051,7 +2035,6 @@ id largeLabel
 id layout
 id learn
 id learning
-id learningFragment
 id left
 id leftToRight
 id letter
@@ -2066,9 +2049,8 @@ id ll_letters
 id ll_target
 id ll_to_swipe
 id loader
+id loading
 id m
-id main
-id main_secondary
 id masked
 id material_clock_display
 id material_clock_face
@@ -2126,7 +2108,6 @@ id mtrl_view_tag_bottom_padding
 id multiply
 id n
 id nav_controller_view_tag
-id nav_graph
 id nav_host_fragment_container
 id navigation_header_container
 id never
@@ -2181,7 +2162,6 @@ id rounded
 id row_index_key
 id ru
 id s
-id save
 id save_changes
 id save_non_transition_alpha
 id save_overlay_view
@@ -2296,7 +2276,6 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id try_it
 id tv
 id u
 id unchecked
@@ -2391,9 +2370,7 @@ layout activity_game_space
 layout activity_loading
 layout activity_main
 layout activity_speak_right_game
-layout alphabet_item
 layout category_item
-layout color_item
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2414,8 +2391,6 @@ layout fragment_alphabet
 layout fragment_alphabet_letter
 layout fragment_categories
 layout fragment_category
-layout fragment_color_picker
-layout fragment_contest
 layout fragment_games
 layout fragment_home
 layout fragment_learning
@@ -2505,10 +2480,8 @@ menu bottom_navigation_menu
 menu main_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
-navigation nav_graph
 plurals mtrl_badge_content_description
 raw first
-raw grass_animated
 raw second
 raw third
 string abc_action_bar_home_description
@@ -2566,6 +2539,7 @@ string icon_content_description
 string item_view_role_description
 string learning
 string learning_tutorial
+string loading
 string material_clock_display_divider
 string material_clock_toggle_content_description
 string material_hour_selection
@@ -2626,10 +2600,6 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string settings
-string settings_default
-string settings_font
-string settings_main
-string settings_main_secondary
 string settings_save
 string status_bar_notification_info_overflow
 string string_learning_fragment

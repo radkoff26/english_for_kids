@@ -16,6 +16,7 @@ import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.Word;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -187,6 +188,7 @@ public class FindRightPictureGame extends AppCompatActivity implements View.OnCl
     // OnClick method to notify that chosen word is wrong
     @Override
     public void onClick(View view) {
+        Snackbar.make(view, "Неверно... Попробуйте снова!:)", Snackbar.LENGTH_SHORT).setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE).show();
         Vibrator v = (Vibrator) getApplication().getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(150);
     }

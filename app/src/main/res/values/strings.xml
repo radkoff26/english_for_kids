@@ -18,11 +18,8 @@
     <string name="next">Нажимай на кнопку!</string>
     <string name="finish">Завершить обучение</string>
     <string name="btn_continue">Далее</string>
-    <string name="settings_main">Поменять основной цвет</string>
-    <string name="settings_main_secondary">Поменять дополнительный цвет</string>
-    <string name="settings_font">Поменять цвет шрифта</string>
-    <string name="settings_default">Сбросить настройки цвета</string>
     <string name="settings_save">Сохранить</string>
     <string name="answer">Ответить</string>
     <string name="turn_music_on">Включить музыку</string>
+    <string name="loading">Идёт загрузка данных...</string>
 </resources>

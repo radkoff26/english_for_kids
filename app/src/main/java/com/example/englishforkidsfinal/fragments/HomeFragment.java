@@ -7,11 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.example.englishforkidsfinal.R;
-import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.db.BigAnimalDatabase;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.db_models.BigAnimal;

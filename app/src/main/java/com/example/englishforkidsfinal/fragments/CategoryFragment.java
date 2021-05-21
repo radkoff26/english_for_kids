@@ -17,9 +17,7 @@ import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
 import com.example.englishforkidsfinal.models.db_models.Category;
 
 import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.CATEGORY;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.*;
 
 
 public class CategoryFragment extends Fragment {

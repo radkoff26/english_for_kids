@@ -97,8 +97,4 @@ public class AlphabetDataBase extends SQLiteOpenHelper {
     public boolean isInDB(RestAlphabetLetter letter) {
         return getAlphabet().contains(letter);
     }
-
-    public boolean isEmpty() {
-        return getAlphabet().isEmpty();
-    }
 }

@@ -21,4 +21,14 @@
         android:max="3"
         android:min="0" />
 
+    <TextView
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/loading"
+        android:textColor="@color/font_color"
+        android:textSize="20sp" />
+
 </LinearLayout>

@@ -13,9 +13,7 @@ import com.example.englishforkidsfinal.models.db_models.Category;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.CATEGORY_TABLE_NAME;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_CATEGORY_TITLE;
-import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.COLUMN_ID;
+import static com.example.englishforkidsfinal.db.contractions.DataBaseContractions.MainTableContractions.*;
 
 public class CategoryDataBase extends SQLiteOpenHelper {
 
@@ -71,35 +69,6 @@ public class CategoryDataBase extends SQLiteOpenHelper {
         cursor.close();
 
         return categories;
-    }
-
-    public Category getCategory(int _id) {
-        Category category = null;
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(CATEGORY_TABLE_NAME,
-                null,
-                COLUMN_ID + " = " + _id,
-                null,
-                null,
-                null,
-                null);
-
-        if (cursor.moveToFirst()) {
-            int id = cursor.getColumnIndex(COLUMN_ID);
-            int title = cursor.getColumnIndex(COLUMN_CATEGORY_TITLE);
-
-            do {
-                category = new Category(
-                        cursor.getInt(id),
-                        cursor.getString(title)
-                );
-            } while (cursor.moveToNext());
-        }
-
-        cursor.close();
-
-        return category;
     }
 
     public long addCategory(Category category) {

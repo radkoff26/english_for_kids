@@ -34,10 +34,6 @@ public class RestAlphabetLetter implements Serializable {
         return isLoaded;
     }
 
-    public void setLoaded(boolean loaded) {
-        isLoaded = loaded;
-    }
-
     public String getPicture_uri() {
         return picture_uri;
     }

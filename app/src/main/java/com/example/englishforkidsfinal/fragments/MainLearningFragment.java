@@ -26,9 +26,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.*;
 
 public class MainLearningFragment extends Fragment {
 
@@ -110,9 +108,5 @@ public class MainLearningFragment extends Fragment {
         ru.setText(currentModel.getRu().toUpperCase());
 
         repeat.setWordToSpeak(currentModel.getEng());
-    }
-
-    private Word getRandomWord(List<Word> words) {
-        return words.get((int) (Math.random() * words.size()));
     }
 }

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,16 +16,13 @@ import com.example.englishforkidsfinal.fragments.AlphabetFragment;
 import com.example.englishforkidsfinal.fragments.AlphabetLetterFragment;
 import com.example.englishforkidsfinal.fragments.CategoriesFragment;
 import com.example.englishforkidsfinal.fragments.CategoryFragment;
-import com.example.englishforkidsfinal.fragments.ContestFragment;
 import com.example.englishforkidsfinal.fragments.GamesFragment;
 import com.example.englishforkidsfinal.fragments.HomeFragment;
 import com.example.englishforkidsfinal.fragments.LearningFragment;
-import com.example.englishforkidsfinal.fragments.MainContestFragment;
 import com.example.englishforkidsfinal.fragments.MainLearningFragment;
 import com.example.englishforkidsfinal.fragments.SettingsFragment;
-import com.example.englishforkidsfinal.fragments.FragmentTutorial;
+import com.example.englishforkidsfinal.fragments.TutorialFragment;
 import com.example.englishforkidsfinal.models.BackgroundMusic;
-import com.example.englishforkidsfinal.models.Tools;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
@@ -61,13 +57,11 @@ public class MainActivity extends AppCompatActivity {
         // Initializing views
         bnv = findViewById(R.id.bottom_navigation);
 
-        updateColors();
-
         if (!sp.getBoolean(CACHE_HAD_TUTORIAL, CACHE_HAD_TUTORIAL_DEFAULT)) {
             Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.fragment, new FragmentTutorial())
+                    .add(R.id.fragment, new TutorialFragment())
                     .commit();
             removeBesidesLast();
             return;
@@ -85,28 +79,6 @@ public class MainActivity extends AppCompatActivity {
     public void restart() {
         startActivity(getIntent());
         finish();
-    }
-
-    public void updateColors() {
-        Tools.setBackgroundMain(bnv, this);
-        int[][] states = new int[][]{
-                new int[]{android.R.attr.state_enabled},
-                new int[]{-android.R.attr.state_enabled},
-                new int[]{-android.R.attr.state_checked},
-                new int[]{android.R.attr.state_pressed}
-        };
-
-        int color = Tools.getFont(this);
-
-        int[] colors = new int[]{
-                color,
-                color,
-                color,
-                color
-        };
-
-        bnv.setItemTextColor(new ColorStateList(states, colors));
-        bnv.setItemIconTintList(new ColorStateList(states, colors));
     }
 
     public void clearNavigation() {
@@ -225,12 +197,6 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.fragment, new LearningFragment())
                     .commit();
             bnv.setSelectedItemId(R.id.learning);
-        } else if (fragments.get(fragments.size() - 1).getClass() == MainContestFragment.class) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.fragment, new ContestFragment())
-                    .commit();
-            bnv.setSelectedItemId(R.id.learning);
         } else if (fragments.get(fragments.size() - 1).getClass() == AlphabetLetterFragment.class) {
             getSupportFragmentManager()
                     .beginTransaction()
@@ -255,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.fragment, new CategoriesFragment())
                     .commit();
             bnv.setSelectedItemId(R.id.learning);
-        } else if (fragments.get(fragments.size() - 1).getClass() == FragmentTutorial.class) {
+        } else if (fragments.get(fragments.size() - 1).getClass() == TutorialFragment.class) {
             return;
         } else {
             getSupportFragmentManager()

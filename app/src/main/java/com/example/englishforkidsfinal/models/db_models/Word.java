@@ -1,5 +1,7 @@
 package com.example.englishforkidsfinal.models.db_models;
 
+import java.util.Objects;
+
 // Plain Old Java Object
 public class Word {
     private Integer id;
@@ -61,11 +63,21 @@ public class Word {
         return category_id;
     }
 
+    @Override
     public boolean equals(Object o) {
-        if (o instanceof Word) {
-            return this.eng.toLowerCase().equals(((Word) o).eng.toLowerCase());
-        }
-        return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Word word = (Word) o;
+        return Objects.equals(eng, word.eng) &&
+                Objects.equals(ru, word.ru) &&
+                Objects.equals(url, word.url) &&
+                Objects.equals(gr, word.gr) &&
+                Objects.equals(category_id, word.category_id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(eng, ru, url, gr, category_id);
     }
 
     @Override

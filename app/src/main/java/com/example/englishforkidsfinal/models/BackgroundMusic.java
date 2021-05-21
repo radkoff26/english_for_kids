@@ -9,9 +9,7 @@ import com.example.englishforkidsfinal.R;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS_MUSIC;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_SETTINGS_MUSIC_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.*;
 
 public class BackgroundMusic extends Thread {
 
@@ -24,7 +22,6 @@ public class BackgroundMusic extends Thread {
     private boolean isAccessedToPlay;
     private SharedPreferences sp;
     private int currentPosition;
-    private int currentTrack;
 
     // Constructor
     public BackgroundMusic(Context ctx) {
@@ -36,7 +33,6 @@ public class BackgroundMusic extends Thread {
 
         // Initializing of media player
         mp = MediaPlayer.create(ctx, tracks.get(idOfTrack));
-        currentTrack = tracks.get(idOfTrack);
 
         setCurrentPosition(currentPosition);
 
@@ -109,7 +105,6 @@ public class BackgroundMusic extends Thread {
             }
             currentPosition = 0;
             mp = MediaPlayer.create(ctx, tracks.get(idOfTrack));
-            currentTrack = tracks.get(idOfTrack);
             mp.start();
         } else {
             if (mp != null) {

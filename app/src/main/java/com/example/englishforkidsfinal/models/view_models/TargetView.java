@@ -12,8 +12,6 @@ import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.activities.CollectWord;
 import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.models.Letter;
-import com.example.englishforkidsfinal.models.view_models.LetterTextView;
-import com.example.englishforkidsfinal.models.view_models.LettersView;
 
 public class TargetView extends LinearLayout {
 

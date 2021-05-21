@@ -16,13 +16,12 @@ import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.models.db_models.Word;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
 import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.NUMBER_OF_WORDS_IN_GROUP;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.*;
 
 public class LearningFragment extends Fragment {
 
@@ -73,6 +72,8 @@ public class LearningFragment extends Fragment {
         test.setOnClickListener(view -> {
             if (words.size() >= finalLevel * NUMBER_OF_WORDS_IN_GROUP) {
                 getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fragment, new MainContestFragment()).commit();
+            } else {
+                Snackbar.make(view, "В данный момент вы выучили все слова :)", Snackbar.LENGTH_SHORT).setAnimationMode(Snackbar.ANIMATION_MODE_FADE).show();
             }
         });
 
@@ -80,6 +81,8 @@ public class LearningFragment extends Fragment {
         start.setOnClickListener(v1 -> {
             if (words.size() >= finalLevel * NUMBER_OF_WORDS_IN_GROUP) {
                 getActivity().getSupportFragmentManager().beginTransaction().add(R.id.fragment, new MainLearningFragment()).commit();
+            } else {
+                Snackbar.make(v1, "В данный момент вы выучили все слова :)", Snackbar.LENGTH_SHORT).setAnimationMode(Snackbar.ANIMATION_MODE_FADE).show();
             }
         });
 

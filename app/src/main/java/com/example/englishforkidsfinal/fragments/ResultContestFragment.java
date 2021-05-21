@@ -1,6 +1,7 @@
 package com.example.englishforkidsfinal.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -14,19 +15,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.englishforkidsfinal.R;
+import com.example.englishforkidsfinal.activities.LoadingActivity;
 import com.example.englishforkidsfinal.activities.MainActivity;
 import com.example.englishforkidsfinal.db.AllWordsDataBase;
 import com.example.englishforkidsfinal.db.LearnedWordsDataBase;
 import com.example.englishforkidsfinal.models.db_models.Word;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
 import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.NUMBER_OF_WORDS_IN_GROUP;
-import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.RESULT;
-import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.RESULT_DEFAULT;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP;
-import static com.example.englishforkidsfinal.models.contractions.CacheContractions.CACHE_CONTEST_GROUP_DEFAULT;
+import static com.example.englishforkidsfinal.db.contractions.DBModelContractions.ONE_PART;
+import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.*;
+import static com.example.englishforkidsfinal.models.contractions.CacheContractions.*;
 
 
 public class ResultContestFragment extends Fragment {
@@ -82,9 +83,13 @@ public class ResultContestFragment extends Fragment {
         // If the result is the best, it will be shown in Toast and words inserted into Database
         if (result == NUMBER_OF_WORDS_IN_GROUP) {
             editor.putInt(CACHE_CONTEST_GROUP, prev + 1);
-            Toast.makeText(getContext(), "You have successfully passed contest and opened words of group number " + (prev + 1) + "!", Toast.LENGTH_SHORT).show();
+            Snackbar.make(finish, "Вы перешли на новый уровень! :)", Snackbar.LENGTH_SHORT).setAnimationMode(Snackbar.ANIMATION_MODE_FADE).show();
             for (int i = 0; i < words.size(); i++) {
                 db.add(words.get(i));
+            }
+            if ((prev * NUMBER_OF_WORDS_IN_GROUP) % ONE_PART == 0) {
+                getActivity().finish();
+                getActivity().startActivity(new Intent(getActivity().getApplicationContext(), LoadingActivity.class));
             }
         }
 

@@ -9,13 +9,6 @@ public class BigAnimal {
     private String word;
     private Boolean isLoaded;
 
-    public BigAnimal(Integer id, String uri, String uri_bg, String word) {
-        this.id = id;
-        this.uri = uri;
-        this.uri_bg = uri_bg;
-        this.word = word;
-    }
-
     public BigAnimal(Integer id, String uri, String uri_bg, String word, Boolean isLoaded) {
         this.id = id;
         this.uri = uri;
@@ -42,10 +35,6 @@ public class BigAnimal {
 
     public Boolean getLoaded() {
         return isLoaded;
-    }
-
-    public void setLoaded(Boolean loaded) {
-        isLoaded = loaded;
     }
 
     @Override

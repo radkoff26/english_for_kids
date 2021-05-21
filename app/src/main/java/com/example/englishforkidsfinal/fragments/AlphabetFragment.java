@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.example.englishforkidsfinal.R;
 import com.example.englishforkidsfinal.db.AlphabetDataBase;
@@ -15,7 +14,6 @@ import com.example.englishforkidsfinal.models.RestAlphabetLetter;
 import com.example.englishforkidsfinal.models.Tools;
 import com.example.englishforkidsfinal.models.view_models.AlphabetLetterView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.englishforkidsfinal.models.contractions.ArgumentsContractions.LETTER;

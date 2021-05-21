@@ -35,8 +35,6 @@ public class LettersView extends LinearLayout {
 
         setOrientation(LinearLayout.HORIZONTAL);
 
-        int length = word.length() + 3;
-
         letters = new ArrayList<>();
 
         for (int i = 0; i < word.length(); i++) {

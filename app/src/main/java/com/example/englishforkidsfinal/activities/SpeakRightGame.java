@@ -101,7 +101,7 @@ public class SpeakRightGame extends AppCompatActivity {
 
                 // Resolving results
                 if (voiceResults == null) {
-                    Toast.makeText(getApplicationContext(), "You haven't said any words!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Вы ничего не сказали...", Toast.LENGTH_SHORT).show();
                 } else {
                     if (compare(word.getEng().toLowerCase(), voiceResults.get(0).toLowerCase())) {
                         // If answer is right

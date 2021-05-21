@@ -1,4 +1,4 @@
-#Thu May 20 17:21:11 MSK 2021
+#Fri May 21 19:48:06 MSK 2021
 base.0=C\:\\Users\\radko\\OneDrive\\Android\\proj\\english_for_kids\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
