@@ -22,4 +22,5 @@
     <string name="answer">Ответить</string>
     <string name="turn_music_on">Включить музыку</string>
     <string name="loading">Идёт загрузка данных...</string>
+    <string name="finish_it">Закончить</string>
 </resources>

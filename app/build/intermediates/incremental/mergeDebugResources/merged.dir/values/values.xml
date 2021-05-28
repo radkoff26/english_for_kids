@@ -1084,6 +1084,7 @@
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
     <string name="finish">Завершить обучение</string>
+    <string name="finish_it">Закончить</string>
     <string name="games">Игры</string>
     <string name="games_tutorial">Здесь ты сможешь найти много интересных игр!</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>

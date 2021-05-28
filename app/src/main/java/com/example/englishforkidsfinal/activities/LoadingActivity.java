@@ -231,6 +231,7 @@ public class LoadingActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<List<Word>> call, Throwable t) {
+                                flag = true;
                             }
                         });
             } else {

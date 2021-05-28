@@ -1739,9 +1739,11 @@ drawable ic_baseline_done_24
 drawable ic_baseline_mic_24
 drawable ic_baseline_play_arrow_24
 drawable ic_clock_black_24dp
+drawable ic_icon
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_logo
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -2530,6 +2532,7 @@ string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string finish
+string finish_it
 string games
 string games_tutorial
 string hide_bottom_view_on_scroll_behavior
